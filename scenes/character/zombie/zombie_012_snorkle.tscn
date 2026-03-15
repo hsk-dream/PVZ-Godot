@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b8xlg7vtgyucv"]
+[gd_scene load_steps=83 format=3 uid="uid://b8xlg7vtgyucv"]
 
 [ext_resource type="PackedScene" uid="uid://cktksmdbn2nmn" path="res://scenes/character/zombie/zombie_000_base.tscn" id="1_ryuum"]
 [ext_resource type="Script" uid="uid://b3tkhp17e2hkg" path="res://scripts/character/zombie/zombie_012_snorkle.gd" id="2_5stlx"]
@@ -1181,6 +1181,11 @@ advance_expression = "not is_swimming"
 advance_mode = 2
 advance_expression = "is_death"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxkx4"]
+xfade_time = 0.2
+advance_mode = 2
+advance_expression = "is_death"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2nvqs"]
 states/End/position = Vector2(1418, 381)
 states/Start/position = Vector2(185, 2)
@@ -1200,8 +1205,8 @@ states/Zombie_snorkle_uptoeat2/node = SubResource("AnimationNodeAnimation_6sr6g"
 states/Zombie_snorkle_uptoeat2/position = Vector2(1212, 79)
 states/Zombie_snorkle_walk/node = SubResource("AnimationNodeAnimation_qft07")
 states/Zombie_snorkle_walk/position = Vector2(434, 67)
-transitions = ["Zombie_snorkle_uptoeat", "Zombie_snorkle_eat", SubResource("AnimationNodeStateMachineTransition_rsrwk"), "Zombie_snorkle_eat", "Zombie_snorkle_uptoeat2", SubResource("AnimationNodeStateMachineTransition_b8hn6"), "Zombie_snorkle_eat", "Zombie_snorkle_death", SubResource("AnimationNodeStateMachineTransition_o5fia"), "Zombie_snorkle_jumpinpool", "Zombie_snorkle_swim", SubResource("AnimationNodeStateMachineTransition_7s0wi"), "Zombie_snorkle_swim", "Zombie_snorkle_uptoeat", SubResource("AnimationNodeStateMachineTransition_b2o7k"), "Zombie_snorkle_uptoeat2", "Zombie_snorkle_swim", SubResource("AnimationNodeStateMachineTransition_edy5o"), "Start", "Zombie_snorkle_idle", SubResource("AnimationNodeStateMachineTransition_i6o78"), "Start", "Zombie_snorkle_walk", SubResource("AnimationNodeStateMachineTransition_27lus"), "Zombie_snorkle_idle", "Zombie_snorkle_walk", SubResource("AnimationNodeStateMachineTransition_uxctq"), "Zombie_snorkle_walk", "Zombie_snorkle_jumpinpool", SubResource("AnimationNodeStateMachineTransition_so1wx"), "Zombie_snorkle_swim", "Zombie_snorkle_walk", SubResource("AnimationNodeStateMachineTransition_1xf8j"), "Zombie_snorkle_jumpinpool", "Zombie_snorkle_death", SubResource("AnimationNodeStateMachineTransition_01ct7")]
-graph_offset = Vector2(201, -89)
+transitions = ["Zombie_snorkle_uptoeat", "Zombie_snorkle_eat", SubResource("AnimationNodeStateMachineTransition_rsrwk"), "Zombie_snorkle_eat", "Zombie_snorkle_uptoeat2", SubResource("AnimationNodeStateMachineTransition_b8hn6"), "Zombie_snorkle_eat", "Zombie_snorkle_death", SubResource("AnimationNodeStateMachineTransition_o5fia"), "Zombie_snorkle_jumpinpool", "Zombie_snorkle_swim", SubResource("AnimationNodeStateMachineTransition_7s0wi"), "Zombie_snorkle_swim", "Zombie_snorkle_uptoeat", SubResource("AnimationNodeStateMachineTransition_b2o7k"), "Zombie_snorkle_uptoeat2", "Zombie_snorkle_swim", SubResource("AnimationNodeStateMachineTransition_edy5o"), "Start", "Zombie_snorkle_idle", SubResource("AnimationNodeStateMachineTransition_i6o78"), "Start", "Zombie_snorkle_walk", SubResource("AnimationNodeStateMachineTransition_27lus"), "Zombie_snorkle_idle", "Zombie_snorkle_walk", SubResource("AnimationNodeStateMachineTransition_uxctq"), "Zombie_snorkle_walk", "Zombie_snorkle_jumpinpool", SubResource("AnimationNodeStateMachineTransition_so1wx"), "Zombie_snorkle_swim", "Zombie_snorkle_walk", SubResource("AnimationNodeStateMachineTransition_1xf8j"), "Zombie_snorkle_jumpinpool", "Zombie_snorkle_death", SubResource("AnimationNodeStateMachineTransition_01ct7"), "Zombie_snorkle_swim", "Zombie_snorkle_death", SubResource("AnimationNodeStateMachineTransition_fxkx4")]
+graph_offset = Vector2(291, 1)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_5oh13"]
 
@@ -1228,92 +1233,88 @@ texture = ExtResource("5_01ct7")
 centered = false
 
 [node name="Zombie_snorkle_innerarm_hand" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
-position = Vector2(59.61093, 67.273994)
-rotation = 6.1012635
-scale = Vector2(0.87, 0.8712374)
-skew = -0.004821543
+position = Vector2(39.066154, 84.00153)
+rotation = 5.78053
+scale = Vector2(0.886, 0.886)
 texture = ExtResource("2_xy7ew")
 centered = false
 
 [node name="Zombie_snorkle_innerarm_lower" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(55.788567, 55.126507)
-rotation = 5.6247935
-scale = Vector2(0.7862374, 0.86083543)
-skew = -0.004821367
+position = Vector2(43.188206, 63.545643)
+rotation = 6.1026225
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("3_5stlx")
 centered = false
 
 [node name="Zombie_snorkle_innerarm_upper" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(32.684925, 52.118717)
-rotation = 5.1146107
-scale = Vector2(0.7902374, 0.79323745)
-skew = 0.0008285749
+position = Vector2(32.62205, 44.16769)
+rotation = 5.9839606
+scale = Vector2(0.797, 0.749)
+skew = 0.0013604048
 texture = ExtResource("4_5y45j")
 centered = false
 
 [node name="Zombie_snorkle_innerleg_upper" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(52.215076, 73.15251)
-rotation = 0.5425339
-scale = Vector2(0.7882374, 0.9459912)
+position = Vector2(52.37795, 74.933846)
+rotation = -0.004286993
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("5_mncpp")
 centered = false
 
 [node name="Zombie_snorkle_innerleg_foot" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(45.482662, 123.52877)
-rotation = 5.5959635
-scale = Vector2(0.7912374, 0.7912374)
+position = Vector2(43.87795, 107.2441)
+rotation = 6.2054453
+scale = Vector2(0.796, 0.796)
 texture = ExtResource("6_g0ojp")
 centered = false
 
 [node name="Zombie_snorkle_innerleg_lower" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(38.143845, 104.558914)
-rotation = 5.6414247
-scale = Vector2(0.7922374, 0.94336057)
+position = Vector2(49.477947, 91.566154)
+rotation = 6.2624507
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("7_lw6yl")
 centered = false
 
 [node name="Zombie_snorkle_outerleg_lower" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
-position = Vector2(59.38354, 102.513695)
-rotation = -0.34059355
-scale = Vector2(0.791, 0.791)
+position = Vector2(63.488205, 92.97795)
+rotation = -0.10921259
+scale = Vector2(0.798, 0.798)
 texture = ExtResource("8_212hs")
 centered = false
 
 [node name="Zombie_snorkle_outerleg_upper" type="Sprite2D" parent="Body/BodyCorrect" index="8"]
-position = Vector2(59.2201, 72.3)
-rotation = 0.06783768
-scale = Vector2(0.793, 1.2619723)
+position = Vector2(64.47795, 74.92205)
+rotation = 0.16991457
+scale = Vector2(0.7972205, 0.7972205)
 texture = ExtResource("9_oxehg")
 centered = false
 
 [node name="Zombie_snorkle_outerleg_toe" type="Sprite2D" parent="Body/BodyCorrect" index="9"]
-position = Vector2(37.029648, 117.61872)
-rotation = 0.088772334
-scale = Vector2(0.791, 0.791)
+position = Vector2(33.6, 112.9)
+rotation = 0.013963
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("10_2pekv")
 centered = false
 
 [node name="Zombie_snorkle_body2" type="Sprite2D" parent="Body/BodyCorrect" index="10"]
-position = Vector2(47.75251, 63.115078)
-rotation = 0.135044
-scale = Vector2(0.7972374, 0.838)
-skew = -0.095993325
+position = Vector2(53.1441, 63.311794)
+rotation = 0.05543902
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("11_yusia")
 centered = false
 
 [node name="Zombie_snorkle_body1" type="Sprite2D" parent="Body/BodyCorrect" index="11"]
-position = Vector2(40.23744, 32.496357)
-rotation = 0.18764266
-scale = Vector2(0.798, 0.798)
-skew = -0.0030762532
+position = Vector2(37.27641, 37.779488)
+rotation = -0.089835174
+scale = Vector2(0.798, 0.799)
 texture = ExtResource("12_ekyne")
 centered = false
 
 [node name="Anim_head1" type="Sprite2D" parent="Body/BodyCorrect" index="12"]
-position = Vector2(25.09862, -4.1986184)
-rotation = 0.19636966
-scale = Vector2(0.7972374, 0.7972374)
-skew = -0.0030766295
+position = Vector2(11.196923, 10.081025)
+rotation = -0.14686696
+scale = Vector2(0.7972205, 0.7982205)
+skew = 0.003490444
 texture = ExtResource("13_jk53g")
 centered = false
 
@@ -1327,25 +1328,23 @@ centered = false
 centered = false
 
 [node name="Zombie_outerarm_hand" type="Sprite2D" parent="Body/BodyCorrect" index="16"]
-position = Vector2(35.84887, 71.31646)
-rotation = 6.4132705
-scale = Vector2(0.793, 0.793)
+position = Vector2(53.3441, 79.65589)
+rotation = 6.23955
+scale = Vector2(0.797, 0.797)
 texture = ExtResource("17_jl3g5")
 centered = false
 
 [node name="Zombie_snorkle_outerarm_upper" type="Sprite2D" parent="Body/BodyCorrect" index="17"]
-position = Vector2(56.79862, 36.967587)
-rotation = 0.19880721
-scale = Vector2(0.795, 0.797)
-skew = -0.0004140993
+position = Vector2(55.588207, 37.133846)
+rotation = -0.045199584
+scale = Vector2(0.798, 0.799)
 texture = ExtResource("18_ly73f")
 centered = false
 
 [node name="Zombie_outerarm_lower" type="Sprite2D" parent="Body/BodyCorrect" index="18"]
-position = Vector2(50.31005, 58.74887)
-rotation = 6.8055573
-scale = Vector2(0.79323745, 0.79423743)
-skew = -0.00440692
+position = Vector2(54.566154, 66.855896)
+rotation = 5.9054203
+scale = Vector2(0.797, 0.797)
 texture = ExtResource("19_7s8d0")
 centered = false
 
