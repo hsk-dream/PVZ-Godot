@@ -1,4 +1,4 @@
-extends Node2D
+extends MainGameItemBase
 class_name BrainOnZombieMode
 ## 我是僵尸模式下的脑子
 
@@ -11,9 +11,7 @@ class_name BrainOnZombieMode
 var curr_hp :int = 100
 
 ## 第一格的植物格子，屋顶时移动y
-var plant_cell:PlantCell
-## 脑子所在行
-var lane:int
+var first_plant_cell:PlantCell
 ## 是否已经死亡
 var is_death:=false
 
@@ -24,15 +22,15 @@ func _ready() -> void:
 	curr_hp = max_hp
 	## 斜面与水平面的差值
 	var diff_slope_flat:float = 0
-	if is_instance_valid(plant_cell):
+	if is_instance_valid(first_plant_cell):
 		#await get_tree().process_frame
-		diff_slope_flat = plant_cell.position.y
+		diff_slope_flat = first_plant_cell.position.y
 	position.y += diff_slope_flat
 	area_2d_detect.position.y -= diff_slope_flat
 
 ## 初始化脑子
-func init_brain(first_plant_cell:PlantCell):
-	plant_cell = first_plant_cell
+func init_brain(curr_first_plant_cell:PlantCell):
+	first_plant_cell = curr_first_plant_cell
 	lane = first_plant_cell.row_col.x
 
 ## 被攻击一次掉血

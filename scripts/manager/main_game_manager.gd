@@ -66,7 +66,7 @@ var marker_2d_sun_target: Marker2D
 
 ## 全局检测组件,用于检测敌人
 ##TODO:可能会用于检测敌人离开场景后删除
-@onready var detect_component_global: DetectComponentGlobal = %DetectComponentGlobal
+@onready var detect_component_global: DetectComponent = %DetectComponentGlobal
 
 #endregion
 

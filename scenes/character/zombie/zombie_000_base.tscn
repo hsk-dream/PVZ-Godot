@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://d0w7rpih1wyo6" path="res://scripts/character/components/hp_component/component_hp_zombie.gd" id="3_rdbr5"]
 [ext_resource type="Script" uid="uid://4o1wtnifn4tq" path="res://scripts/character/components/hp_component/component_hp_stage_change.gd" id="6_in461"]
 [ext_resource type="Script" uid="uid://b2atnvuqp1kcr" path="res://scripts/character/components/attack_behavior_component/component_attack_zombie_norm.gd" id="7_b1t0g"]
-[ext_resource type="Script" uid="uid://lbc88mt5q1s2" path="res://scripts/character/components/detect_component/detect_component_zombie.gd" id="8_kbcr1"]
+[ext_resource type="Script" uid="uid://bafp0ax1lmlge" path="res://scripts/character/components/detect_component/component_detect.gd" id="8_kbcr1"]
 [ext_resource type="Script" uid="uid://dmydsf6020r5f" path="res://scripts/character/components/component_move.gd" id="8_yye2l"]
 [ext_resource type="Script" uid="uid://bk3w4sifj7es" path="res://scripts/character/components/charred_component/component_charred_zombie_norm.gd" id="11_t14t4"]
 [ext_resource type="Script" uid="uid://b3wavy585v5p1" path="res://scripts/character/components/component_hurt_box_zombie.gd" id="12_6mvk0"]
@@ -254,7 +254,7 @@ script = ExtResource("7_b1t0g")
 [node name="DetectComponent" type="Node2D" parent="AttackComponent" index="0"]
 unique_name_in_owner = true
 script = ExtResource("8_kbcr1")
-zomie_enemy_collision_lay = 2082
+is_detect_items = 1
 
 [node name="Area2d" type="Area2D" parent="AttackComponent/DetectComponent" index="0"]
 position = Vector2(0, -40)

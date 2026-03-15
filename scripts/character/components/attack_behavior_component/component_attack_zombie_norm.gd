@@ -18,9 +18,6 @@ var attack_value_factor:Dictionary[E_AttackValueFactor, float] = {}
 ## 间隔帧数
 var frame_counter := 0
 
-## 初始化攻击组件属性
-func init_attack_component(is_ignore_ladder:=false):
-	detect_component.is_attack_ladder_plant = is_ignore_ladder
 
 func _ready() -> void:
 	super()

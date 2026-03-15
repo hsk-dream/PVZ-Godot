@@ -99,64 +99,64 @@ visible = false
 centered = false
 
 [node name="Cattail_paw2" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(6.277203, 54)
-scale = Vector2(0.80734193, 0.8)
+position = Vector2(5.4085097, 54)
+scale = Vector2(0.82537234, 0.8)
 texture = ExtResource("2_kbe0y")
 centered = false
 
 [node name="Cattail_paw3" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(57.688602, 50.6)
-scale = Vector2(0.8221398, 0.8)
+position = Vector2(57.5, 50.6)
+scale = Vector2(0.877032, 0.8)
 texture = ExtResource("3_2hp7h")
 centered = false
 
 [node name="Cattail_tail" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(0.6202106, 35.813984)
-rotation = -0.06855587
-scale = Vector2(0.80211395, 0.796886)
-skew = 0.00039773263
+position = Vector2(-0.30319756, 37.111706)
+rotation = -0.12133751
+scale = Vector2(0.79954255, 0.799)
+skew = 0.009023471
 texture = ExtResource("4_eckv1")
 centered = false
 
 [node name="Cattail_tail2" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(-9.821744, 10.019157)
-rotation = -0.2196305
-scale = Vector2(0.8, 0.798)
-skew = -0.023684178
+position = Vector2(-10.295771, 11.289376)
+rotation = -0.2466305
+scale = Vector2(0.79745746, 0.80054253)
+skew = 0.020591006
 texture = ExtResource("5_7npfu")
 centered = false
 
 [node name="Cattail_spike" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
-position = Vector2(-0.7787366, 6.139368)
-rotation = -0.2196305
-scale = Vector2(0.8, 0.798)
-skew = -0.023684178
+position = Vector2(-1.6330066, 7.2574525)
+rotation = -0.2466305
+scale = Vector2(0.79745746, 0.80054253)
+skew = 0.020591006
 texture = ExtResource("6_sqd6c")
 centered = false
 
 [node name="Cattail_tail2_overlay" type="Sprite2D" parent="Body/BodyCorrect" index="8"]
-position = Vector2(-8.07615, 13.884962)
-rotation = -0.2196305
-scale = Vector2(0.8, 0.798)
-skew = -0.023684178
+position = Vector2(-8.767045, 15.152141)
+rotation = -0.2466305
+scale = Vector2(0.79745746, 0.80054253)
+skew = 0.020591006
 texture = ExtResource("7_pcdgd")
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="9"]
-position = Vector2(25.588602, 25.522797)
-scale = Vector2(0.8147979, 0.7915441)
+position = Vector2(24.854254, 26.591492)
+scale = Vector2(0.8526596, 0.7691702)
 texture = ExtResource("8_v1yv0")
 centered = false
 
 [node name="Cattail_paw1" type="Sprite2D" parent="Body/BodyCorrect" index="10"]
-position = Vector2(30.988602, 59.4114)
-scale = Vector2(0.8584559, 0.8616839)
+position = Vector2(30.554255, 59.6)
+scale = Vector2(0.8788298, 0.8927447)
 texture = ExtResource("9_va78y")
 centered = false
 
 [node name="Cattail_hat" type="Sprite2D" parent="Body/BodyCorrect" index="11"]
-position = Vector2(11.177203, 9.834196)
-scale = Vector2(0.8147979, 0.7915441)
+position = Vector2(9.717019, 11.337235)
+scale = Vector2(0.8526596, 0.7691702)
 texture = ExtResource("10_kl7ow")
 centered = false
 
@@ -168,14 +168,14 @@ texture = ExtResource("11_eckv1")
 centered = false
 
 [node name="Cattail_eyebrow1" type="Sprite2D" parent="Body/BodyCorrect" index="13"]
-position = Vector2(38.5, 34.734196)
-scale = Vector2(0.8147979, 0.7915441)
+position = Vector2(38.4, 36.39149)
+scale = Vector2(0.8526596, 0.7691702)
 texture = ExtResource("12_nsrdc")
 centered = false
 
 [node name="Cattail_eyebrow2" type="Sprite2D" parent="Body/BodyCorrect" index="14"]
-position = Vector2(61.311398, 32.045593)
-scale = Vector2(0.8147979, 0.7915441)
+position = Vector2(62.045746, 33.837234)
+scale = Vector2(0.8526596, 0.7691702)
 texture = ExtResource("13_s7ymc")
 centered = false
 
@@ -202,7 +202,6 @@ parameters/TimeScale/scale = 1.5
 
 [node name="AttackComponent" type="Node2D" parent="." index="10" node_paths=PackedStringArray("markers_2d_bullet")]
 script = ExtResource("16_2hp7h")
-is_lane = false
 attack_bullet_type = 14
 markers_2d_bullet = [NodePath("../Body/BodyCorrect/Marker2D")]
 

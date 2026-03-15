@@ -41,17 +41,18 @@ graph_offset = Vector2(28, 4)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rb7r5"]
 graph_offset = Vector2(-131.38, 49.2397)
+nodes/output/position = Vector2(560, 140)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_wi000")
 nodes/StateMachine/position = Vector2(20, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_r8u3f")
 nodes/TimeScale/position = Vector2(360, 120)
-nodes/output/position = Vector2(560, 140)
-node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
 [node name="Plant036CoffeeBean" instance=ExtResource("1_ccail")]
 z_index = 2
 script = ExtResource("2_wi000")
 plant_type = 36
+init_be_attack_status = 2
 
 [node name="Shadow" parent="." index="0"]
 visible = false
@@ -64,15 +65,15 @@ visible = false
 centered = false
 
 [node name="Coffeebean_leaf" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
-position = Vector2(17.1901, 6.66054)
-rotation = 0.0111927
-scale = Vector2(0.500789, 0.5)
-skew = -0.0111927
+position = Vector2(17.168299, 9.08042)
+rotation = 0.1492971
+scale = Vector2(0.50804895, 0.5)
+skew = -0.1492971
 texture = ExtResource("2_i7rq2")
 centered = false
 
 [node name="Coffeebean_head" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(18.2, 12.2987)
+position = Vector2(18.2, 16.082983)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_wi000")
 centered = false

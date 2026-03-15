@@ -66,7 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://cqypsybdx4pw2" path="res://assets/reanim/Zombie_charred_catapult_blink1.png" id="50_qqikr"]
 [ext_resource type="Script" uid="uid://b5t3ejxgko6nc" path="res://scripts/character/components/attack_behavior_component/component_attack_bullet_pult_base.gd" id="60_5b35i"]
 [ext_resource type="Script" uid="uid://bxp5sveyysmek" path="res://scripts/character/components/attack_behavior_component/component_attack_zombie_zamboni.gd" id="65_tkibg"]
-[ext_resource type="Script" uid="uid://lbc88mt5q1s2" path="res://scripts/character/components/detect_component/detect_component_zombie.gd" id="66_tkibg"]
+[ext_resource type="Script" uid="uid://bafp0ax1lmlge" path="res://scripts/character/components/detect_component/component_detect.gd" id="67_cb35c"]
 
 [sub_resource type="Resource" id="Resource_1wic2"]
 script = ExtResource("37_hkdva")
@@ -1630,24 +1630,24 @@ centered = false
 
 [node name="Zombie_catapult_driver_innerarm_hand" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
 position = Vector2(16.4, 47)
-rotation = 0.240855
+rotation = 0.24146548
 scale = Vector2(0.74, 0.74)
 texture = ExtResource("3_dreih")
 centered = false
 
 [node name="Zombie_catapult_driver_innerarm_lower" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(51.998497, 44.798195)
-rotation = 1.2425808
-scale = Vector2(0.74, 0.754)
-skew = 0.1885065
+position = Vector2(50.36014, 42.05525)
+rotation = 1.1188561
+scale = Vector2(0.74034965, 0.754)
+skew = 0.19137587
 texture = ExtResource("4_487kn")
 centered = false
 
 [node name="Zombie_catapult_driver_innerarm_upper" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(59.503006, 29.899399)
-rotation = 0.979235
-scale = Vector2(0.798, 0.714)
-skew = -0.28798
+position = Vector2(63.449642, 29.165037)
+rotation = 1.1274726
+scale = Vector2(0.79869926, 0.7143496)
+skew = -0.28448835
 texture = ExtResource("5_lhxpo")
 centered = false
 
@@ -1677,25 +1677,24 @@ texture = ExtResource("9_w0e2y")
 centered = false
 
 [node name="Zombie_catapult_driver_body" type="Sprite2D" parent="Body/BodyCorrect" index="9"]
-position = Vector2(47.801804, 17.098797)
-rotation = -0.038370755
+position = Vector2(50.13986, 15.460142)
+rotation = -0.0022703921
 scale = Vector2(0.741, 0.741)
 texture = ExtResource("10_e27el")
 centered = false
 
 [node name="Zombie_catapult_driver_mouth" type="Sprite2D" parent="Body/BodyCorrect" index="10"]
-position = Vector2(38.6012, 31.201805)
-rotation = -0.064629495
-scale = Vector2(0.741003, 0.741)
-skew = 0.031494442
+position = Vector2(40.474823, 28.450356)
+rotation = -0.010215789
+scale = Vector2(0.741, 0.741)
+skew = 0.0079455925
 texture = ExtResource("11_j11bt")
 centered = false
 
 [node name="Zombie_catapult_driver_head" type="Sprite2D" parent="Body/BodyCorrect" index="11"]
-position = Vector2(29.598797, 1.5012031)
-rotation = -0.055892996
+position = Vector2(33.019573, -1.0496442)
+rotation = -0.010215789
 scale = Vector2(0.741, 0.741)
-skew = -0.0035007012
 texture = ExtResource("12_efj8o")
 centered = false
 
@@ -1712,40 +1711,40 @@ texture = ExtResource("14_jtdyk")
 centered = false
 
 [node name="Zombie_catapult_driver_outerleg_upper" type="Sprite2D" parent="Body/BodyCorrect" index="14"]
-position = Vector2(87.300606, 64.4997)
-rotation = -0.038370755
+position = Vector2(88, 64.2)
+rotation = -0.0022703921
 scale = Vector2(0.741, 0.741)
 texture = ExtResource("15_51chn")
 centered = false
 
 [node name="Zombie_catapult_driver_hankie" type="Sprite2D" parent="Body/BodyCorrect" index="15"]
-position = Vector2(113.7009, 60.600903)
-rotation = -0.033134755
-scale = Vector2(0.741, 0.741003)
-skew = 0.029759545
+position = Vector2(114.534966, 61.369926)
+rotation = -0.0022703921
+scale = Vector2(0.741, 0.741)
+skew = 0.007945787
 texture = ExtResource("16_0ie0r")
 centered = false
 
 [node name="Zombie_catapult_driver_outerarm_hand" type="Sprite2D" parent="Body/BodyCorrect" index="16"]
 position = Vector2(59.2, 62)
-rotation = 0.678933
-scale = Vector2(0.735, 0.741)
-skew = 0.0296707
+rotation = 0.67954314
+scale = Vector2(0.7356993, 0.74134964)
+skew = 0.029670805
 texture = ExtResource("17_opu7c")
 centered = false
 
 [node name="Zombie_catapult_driver_outerarm_upper" type="Sprite2D" parent="Body/BodyCorrect" index="17"]
-position = Vector2(68.801506, 30.998497)
-rotation = 0.043674998
-scale = Vector2(0.74, 0.74)
+position = Vector2(71.10979, 29.025179)
+rotation = 0.10323021
+scale = Vector2(0.74034965, 0.74034965)
 texture = ExtResource("18_2ig8b")
 centered = false
 
 [node name="Zombie_catapult_driver_outerarm_lower" type="Sprite2D" parent="Body/BodyCorrect" index="18"]
-position = Vector2(68.700294, 51.4997)
-rotation = 0.3455645
-scale = Vector2(0.736, 0.742)
-skew = 0.031410847
+position = Vector2(68.8, 51.065033)
+rotation = 0.3269014
+scale = Vector2(0.737, 0.7423496)
+skew = 0.03141594
 texture = ExtResource("19_mjj2v")
 centered = false
 
@@ -1760,56 +1759,56 @@ texture = ExtResource("20_8kxut")
 centered = false
 
 [node name="Zombie_catapult_body" type="Sprite2D" parent="Body/BodyCorrect" index="21"]
-position = Vector2(-2.4, 58.8988)
+position = Vector2(-2.4, 58.760143)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("21_b0mfq")
 centered = false
 
 [node name="Zombie_catapult_spring" type="Sprite2D" parent="Body/BodyCorrect" index="22"]
-position = Vector2(10.700602, 86.4)
-scale = Vector2(0.9, 0.95993984)
+position = Vector2(11.095106, 86.71468)
+scale = Vector2(0.9, 0.93902135)
 texture = ExtResource("22_64b0o")
 centered = false
 
 [node name="Zombie_catapult_pole" type="Sprite2D" parent="Body/BodyCorrect" index="23"]
-position = Vector2(3.796992, 29.1)
-rotation = 0.017400505
+position = Vector2(3.5202847, 29.1)
+rotation = 0.01135066
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("23_hkdva")
 centered = false
 
 [node name="Zombie_catapult_basket" type="Sprite2D" parent="Body/BodyCorrect" index="24"]
-position = Vector2(71.6, 78.19879)
+position = Vector2(71.73496, 78.06014)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("24_sbkkl")
 centered = false
 
 [node name="Zombie_catapult_basketball" type="Sprite2D" parent="Body/BodyCorrect" index="25"]
-position = Vector2(76.2, 76.898796)
+position = Vector2(76.2, 76.76015)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("25_1wic2")
 centered = false
 
 [node name="Zombie_catapult_basketball2" type="Sprite2D" parent="Body/BodyCorrect" index="26"]
-position = Vector2(93.7, 73.09879)
+position = Vector2(93.7, 72.960144)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("25_1wic2")
 centered = false
 
 [node name="Zombie_catapult_basketball3" type="Sprite2D" parent="Body/BodyCorrect" index="27"]
-position = Vector2(97.8, 81.2991)
+position = Vector2(97.8, 81.19511)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("25_1wic2")
 centered = false
 
 [node name="Zombie_catapult_basketball4" type="Sprite2D" parent="Body/BodyCorrect" index="28"]
-position = Vector2(82.1, 85.2991)
+position = Vector2(82.1, 85.19511)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("25_1wic2")
 centered = false
 
 [node name="Zombie_catapult_basket_overlay" type="Sprite2D" parent="Body/BodyCorrect" index="29"]
-position = Vector2(71.5, 79.998795)
+position = Vector2(71.73496, 79.860146)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("26_w2hi8")
 centered = false
@@ -1828,25 +1827,25 @@ texture = ExtResource("20_8kxut")
 centered = false
 
 [node name="Zombie_catapult_siding" type="Sprite2D" parent="Body/BodyCorrect" index="32"]
-position = Vector2(-9.4, 84.998795)
+position = Vector2(-9.4, 84.860146)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("28_r8t78")
 centered = false
 
 [node name="Zombie_catapult_body_overlays" type="Sprite2D" parent="Body/BodyCorrect" index="33"]
-position = Vector2(81, 105.7985)
+position = Vector2(81, 105.62518)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("29_tkibg")
 centered = false
 
 [node name="Zombie_catapult_body_overlays2" type="Sprite2D" parent="Body/BodyCorrect" index="34"]
-position = Vector2(27.3, 69.69879)
+position = Vector2(27.3, 69.56014)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("30_cb35c")
 centered = false
 
 [node name="Zombie_catapult_engine" type="Sprite2D" parent="Body/BodyCorrect" index="35"]
-position = Vector2(44.1, 76.5991)
+position = Vector2(44.1, 76.9)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("31_qqikr")
 centered = false
@@ -1877,7 +1876,7 @@ texture = ExtResource("33_8bhc0")
 centered = false
 
 [node name="Zombie_catapult_tape" type="Sprite2D" parent="Body/BodyCorrect" index="38"]
-position = Vector2(79.7991, 116.19699)
+position = Vector2(79.8, 115.85035)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("34_fgitr")
 centered = false
@@ -1951,9 +1950,6 @@ libraries = {
 
 [node name="AttackComponent" parent="." index="6" node_paths=PackedStringArray("markers_2d_bullet")]
 script = ExtResource("60_5b35i")
-can_attack_plant_status = 5
-can_attack_zombie_status = 1
-is_lane = true
 attack_para = &"parameters/StateMachine/BlendTree/OneShot/request"
 attack_cd = 4.0
 attack_bullet_type = 13
@@ -1963,7 +1959,7 @@ attack_sfx = &"basketball"
 [node name="BulletAttackCdTimer" type="Timer" parent="AttackComponent" index="0"]
 
 [node name="DetectComponent" parent="AttackComponent" index="1"]
-zomie_enemy_collision_lay = 34
+is_detect_items = 0
 
 [node name="CollisionShape2D" parent="AttackComponent/DetectComponent/Area2d" index="0"]
 position = Vector2(-400, 0)
@@ -2002,9 +1998,9 @@ unique_name_in_owner = true
 script = ExtResource("65_tkibg")
 
 [node name="DetectComponent" type="Node2D" parent="AttackComponent2" index="0"]
-script = ExtResource("66_tkibg")
+script = ExtResource("67_cb35c")
+is_detect_items = 1
 can_attack_plant_status = 5
-zomie_enemy_collision_lay = 2082
 
 [node name="Area2d" type="Area2D" parent="AttackComponent2/DetectComponent" index="0"]
 position = Vector2(0, -30)

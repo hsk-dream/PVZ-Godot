@@ -10,7 +10,7 @@ else:
 	攻击全局检测组件的敌人
 """
 
-var detect_component_global:DetectComponentGlobal
+var detect_component_global:DetectComponent
 
 
 ## 全局攻击组件不与自身的检测组件信号连接,与全局攻击信号连接

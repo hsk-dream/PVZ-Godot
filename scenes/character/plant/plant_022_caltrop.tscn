@@ -101,43 +101,44 @@ centered = false
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(0.005617246, 43.77191)
-scale = Vector2(0.7897753, 0.82261795)
+position = Vector2(0.37161404, 42.804516)
+scale = Vector2(0.77980644, 0.84762585)
 texture = ExtResource("3_qfs8i")
 centered = false
 
 [node name="Caltrop_horn1" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(8.916851, 44.27191)
-rotation = 0.026964337
-scale = Vector2(0.8, 0.82261795)
+position = Vector2(9.695486, 43.05677)
+rotation = 0.058271267
+scale = Vector2(0.8, 0.8468645)
+skew = -0.00041635495
 texture = ExtResource("4_taal7")
 centered = false
 
 [node name="Caltrop_horn2" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(24.416851, 40.166298)
-rotation = 0.026964337
-scale = Vector2(0.8, 0.82261795)
+position = Vector2(24.947742, 38.856773)
+rotation = 0.055693157
+scale = Vector2(0.8, 0.8468645)
 texture = ExtResource("5_w0kwl")
 centered = false
 
 [node name="Caltrop_horn3" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(44.877533, 42.27191)
-rotation = -0.034141436
-scale = Vector2(0.8, 0.82261795)
+position = Vector2(44.304516, 41.304516)
+rotation = -0.072234266
+scale = Vector2(0.8, 0.8468645)
 texture = ExtResource("6_8g1ka")
 centered = false
 
 [node name="Caltrop_horn4" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(55.983147, 49.083145)
-rotation = -0.027062358
-scale = Vector2(0.8, 0.82261795)
+position = Vector2(55.32839, 48.304516)
+rotation = -0.060017265
+scale = Vector2(0.8, 0.8468645)
 texture = ExtResource("7_4imoc")
 centered = false
 
 [node name="Anim_blink" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
 visible = false
-position = Vector2(19.029884, 59.942017)
-scale = Vector2(0.8059601, 0.86031514)
+position = Vector2(18.637026, 59.2436)
+scale = Vector2(0.81228644, 0.92433697)
 texture = ExtResource("8_0t614")
 centered = false
 
@@ -159,7 +160,6 @@ parameters/TimeScale/scale = 1.0
 
 [node name="DetectComponent" type="Node2D" parent="." index="10"]
 script = ExtResource("11_5b05c")
-plant_enemy_collision_lay = 20
 
 [node name="Area2D" type="Area2D" parent="DetectComponent" index="0"]
 position = Vector2(0, -25)

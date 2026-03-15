@@ -148,37 +148,37 @@ node2d_detect_in_slope = [NodePath("HurtBoxComponent/HurtBoxDetection"), NodePat
 position = Vector2(-37, -66)
 
 [node name="Cactus_flower" type="Sprite2D" parent="Body/BodyCorrect" index="0"]
-position = Vector2(11.93737, -1.1110709)
-scale = Vector2(0.7900104, 0.83296883)
+position = Vector2(12.098211, -4.3973165)
+scale = Vector2(0.781085, 0.8858434)
 texture = ExtResource("2_4xp4t")
 centered = false
 
 [node name="Cactus_floer_top" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
-position = Vector2(21.11211, -5.485811)
-rotation = 0.042504076
-scale = Vector2(0.8, 0.8096159)
+position = Vector2(21.496422, -9.097317)
+rotation = 0.078188695
+scale = Vector2(0.8, 0.8440313)
 texture = ExtResource("3_d8wji")
 centered = false
 
 [node name="Cactus_floer_top2" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(15.57474, -0.923181)
-rotation = 0.042504076
-scale = Vector2(0.5, 0.5058685)
+position = Vector2(15.798211, -4.6946325)
+rotation = 0.078188695
+scale = Vector2(0.5, 0.52702236)
 texture = ExtResource("3_d8wji")
 centered = false
 
 [node name="Cactus_floer_top3" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(16.61211, -5.923181)
-rotation = 0.042504076
-scale = Vector2(0.55, 0.5568685)
+position = Vector2(16.996422, -9.79508)
+rotation = 0.078188695
+scale = Vector2(0.55, 0.58002234)
 texture = ExtResource("3_d8wji")
 centered = false
 
 [node name="Cactus_arm2_2" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(52, 44.02526)
-rotation = -0.024186896
-scale = Vector2(0.8013737, 0.8099896)
-skew = 0.024186896
+position = Vector2(52, 43.099102)
+rotation = -0.046913214
+scale = Vector2(0.80199105, 0.8440313)
+skew = 0.046913214
 texture = ExtResource("4_x7yu1")
 centered = false
 
@@ -191,9 +191,9 @@ visible = false
 centered = false
 
 [node name="Cactus_arm2_1" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
-position = Vector2(54.28789, 31.68789)
-rotation = -0.016782876
-scale = Vector2(0.8, 0.8099896)
+position = Vector2(54.00313, 30.198658)
+rotation = -0.029538283
+scale = Vector2(0.8, 0.8440313)
 texture = ExtResource("5_j28og")
 centered = false
 
@@ -204,38 +204,38 @@ texture = ExtResource("7_d8wji")
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="9"]
-position = Vector2(9.5, 6.8131495)
-scale = Vector2(0.8, 0.8099896)
+position = Vector2(9.5, 4.2973166)
+scale = Vector2(0.8, 0.8440313)
 texture = ExtResource("7_v8tp1")
 centered = false
 
 [node name="Cactus_arm1_2" type="Sprite2D" parent="Body/BodyCorrect" index="10"]
-position = Vector2(2.6626298, 40.301037)
-rotation = 0.02593227
-scale = Vector2(0.8013737, 0.8099896)
-skew = -0.02593227
+position = Vector2(2.6004472, 38.704025)
+rotation = 0.04865041
+scale = Vector2(0.80199105, 0.8440313)
+skew = -0.04865041
 texture = ExtResource("8_dbqxx")
 centered = false
 
 [node name="Cactus_arm1_1" type="Sprite2D" parent="Body/BodyCorrect" index="11"]
-position = Vector2(-9.23841, 15.751559)
-rotation = 0.020485198
-scale = Vector2(0.8, 0.8099896)
+position = Vector2(-8.407603, 12.905367)
+rotation = 0.039963443
+scale = Vector2(0.8, 0.8440313)
 texture = ExtResource("9_culdb")
 centered = false
 
 [node name="Cactus_mouth" type="Sprite2D" parent="Body/BodyCorrect" index="12"]
-position = Vector2(48.5, 24.45052)
-rotation = -0.018739572
-scale = Vector2(0.801, 0.8099896)
-skew = 0.018739572
+position = Vector2(48.5, 22.599106)
+rotation = -0.038225252
+scale = Vector2(0.8009955, 0.8440313)
+skew = 0.038225252
 texture = ExtResource("10_bu7x2")
 centered = false
 
 [node name="Cactus_lips" type="Sprite2D" parent="Body/BodyCorrect" index="13"]
-position = Vector2(50.12526, 18.43841)
-rotation = -0.018739572
-scale = Vector2(0.8, 0.8099896)
+position = Vector2(49.902237, 16.201344)
+rotation = -0.038225252
+scale = Vector2(0.8, 0.8440313)
 texture = ExtResource("11_yhhlx")
 centered = false
 
@@ -250,7 +250,7 @@ centered = false
 
 [node name="Cactus_blink2" type="Sprite2D" parent="Body/BodyCorrect" index="15"]
 visible = false
-position = Vector2(24, 17.411247)
+position = Vector2(24, 15.426655)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_sgy8y")
 centered = false

@@ -123,40 +123,40 @@ node2d_detect_in_slope = [NodePath("HurtBoxComponent/HurtBoxDetection"), NodePat
 position = Vector2(-33, -79)
 
 [node name="Chomper_groundleaf4" type="Sprite2D" parent="Body/BodyCorrect" index="0"]
-position = Vector2(32.5, 63.744797)
-rotation = -0.15653515
-scale = Vector2(0.6391493, 0.885)
+position = Vector2(31.962366, 66.9129)
+rotation = -0.17567709
+scale = Vector2(0.639, 0.81805325)
 texture = ExtResource("2_b40dc")
 centered = false
 
 [node name="Chomper_groundleaf3" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
-position = Vector2(8.474661, 59.36561)
-rotation = 0.16229229
-scale = Vector2(0.6391493, 0.8081041)
+position = Vector2(8.2258, 62.174202)
+rotation = 0.16803902
+scale = Vector2(0.639, 0.69889235)
 texture = ExtResource("3_kp108")
 centered = false
 
 [node name="Chomper_stem3" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(29.670135, 64.6448)
-rotation = 0.034693565
-scale = Vector2(0.6442805, 0.8342669)
-skew = 6.133871
+position = Vector2(28.850533, 65.83657)
+rotation = 0.20030013
+scale = Vector2(0.80211836, 0.836903)
+skew = 6.019677
 texture = ExtResource("4_tovg4")
 centered = false
 
 [node name="Chomper_stem2" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(19.774662, 40.955204)
-rotation = 0.39939585
-scale = Vector2(0.81438917, 0.7741493)
-skew = 6.2366643
+position = Vector2(10.977398, 41.875267)
+rotation = 0.203584
+scale = Vector2(0.8002367, 0.82373136)
+skew = 6.026248
 texture = ExtResource("5_wt05k")
 centered = false
 
 [node name="Chomper_stem1" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(23.638918, 32.144794)
-rotation = 0.59125614
-scale = Vector2(0.8826743, 0.7007149)
-skew = 6.1917224
+position = Vector2(9.84083, 31.288166)
+rotation = 0.203584
+scale = Vector2(0.8002367, 0.82373136)
+skew = 6.026248
 texture = ExtResource("6_vl70c")
 centered = false
 
@@ -165,78 +165,74 @@ visible = false
 centered = false
 
 [node name="Chomper_groundleaf1" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(8.85973, 60.710407)
-rotation = 0.29084587
+position = Vector2(7.0752664, 65.53657)
+rotation = 0.11108137
 scale = Vector2(0.639, 0.639)
 texture = ExtResource("7_3acb7")
 centered = false
 
 [node name="Chomper_groundleaf1tip" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
-position = Vector2(-5.970135, 73.495476)
-rotation = 5.969811
-scale = Vector2(0.6411493, 0.637)
-skew = 0.108108
+position = Vector2(-4.4871006, 71.1355)
+rotation = 6.365947
+scale = Vector2(0.638, 0.638)
+skew = -0.0041477876
 texture = ExtResource("8_3if25")
 centered = false
 
 [node name="Chomper_Headleaf4" type="Sprite2D" parent="Body/BodyCorrect" index="8"]
-position = Vector2(22.829865, 36.494118)
-rotation = 6.2108827
-scale = Vector2(0.85259265, 0.8024027)
-skew = -0.063842624
+position = Vector2(13.890297, 37.56343)
+rotation = 5.7553086
+scale = Vector2(0.7986237, 0.7986237)
 texture = ExtResource("9_6l8u6")
 centered = false
 
 [node name="Chomper_Headleaf3" type="Sprite2D" parent="Body/BodyCorrect" index="9"]
-position = Vector2(27.28824, 21.595474)
-rotation = 6.0983686
-scale = Vector2(0.8389818, 0.8160135)
-skew = -0.07868931
+position = Vector2(14.639765, 18.463432)
+rotation = 5.7553086
+scale = Vector2(0.7986237, 0.7986237)
 texture = ExtResource("10_2jsc5")
 centered = false
 
 [node name="Chomper_Headleaf2" type="Sprite2D" parent="Body/BodyCorrect" index="10"]
-position = Vector2(20.468782, 22.510406)
-rotation = 6.0104465
-scale = Vector2(0.8381311, 0.8083575)
-skew = -0.01930171
+position = Vector2(8.789232, 20.9387)
+rotation = 5.7640324
+scale = Vector2(0.7986237, 0.799)
+skew = 0.008726699
 texture = ExtResource("11_6p2n4")
 centered = false
 
 [node name="Chomper_Headleaf1" type="Sprite2D" parent="Body/BodyCorrect" index="11"]
-position = Vector2(15.319459, 31.21358)
-rotation = 6.1811943
-scale = Vector2(0.8432352, 0.8083575)
-skew = -0.115806885
+position = Vector2(6.6773977, 33.926865)
+rotation = 5.7553086
+scale = Vector2(0.7986237, 0.7986237)
 texture = ExtResource("12_emqlo")
 centered = false
 
 [node name="Chomper_insidemouth" type="Sprite2D" parent="Body/BodyCorrect" index="12"]
-position = Vector2(39.534393, 33.779186)
-rotation = 6.201627
-scale = Vector2(0.8128507, 0.7701493)
+position = Vector2(29.377398, 21.04083)
+rotation = 5.9799266
+scale = Vector2(0.81924736, 0.764)
 texture = ExtResource("13_br8ei")
 centered = false
 
 [node name="Chomper_tongue" type="Sprite2D" parent="Body/BodyCorrect" index="13"]
-position = Vector2(45.164257, 38.323982)
-rotation = 0.22588173
-scale = Vector2(0.799, 0.799)
+position = Vector2(27.967695, 29.089231)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("14_yvawh")
 centered = false
 
 [node name="Chomper_underjaw" type="Sprite2D" parent="Body/BodyCorrect" index="14"]
-position = Vector2(26.279188, 28.674662)
-rotation = 6.0556483
-scale = Vector2(0.757448, 0.733)
+position = Vector2(14.803196, 26.575266)
+rotation = 5.742621
+scale = Vector2(0.747, 0.7346237)
 texture = ExtResource("15_reeev")
 centered = false
 
 [node name="Chomper_bottomlip" type="Sprite2D" parent="Body/BodyCorrect" index="15"]
-position = Vector2(38.07919, 30.11946)
-rotation = 6.1113963
-scale = Vector2(0.795, 0.795)
-skew = 0.0034903747
+position = Vector2(26.103197, 27.150532)
+rotation = 5.704449
+scale = Vector2(0.79724735, 0.79724735)
+skew = 0.008726675
 texture = ExtResource("16_kb4as")
 centered = false
 
@@ -249,17 +245,16 @@ visible = false
 centered = false
 
 [node name="Chomper_groundleaf2" type="Sprite2D" parent="Body/BodyCorrect" index="18"]
-position = Vector2(29.929865, 68.58507)
-rotation = -0.11914842
-scale = Vector2(0.6391493, 0.6391493)
+position = Vector2(30.862366, 67.575264)
+rotation = 0.1101434
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("17_snkij")
 centered = false
 
 [node name="Chomper_groundleaf2tip" type="Sprite2D" parent="Body/BodyCorrect" index="19"]
-position = Vector2(53.42534, 70.11946)
-rotation = 0.32863486
-scale = Vector2(0.8057014, 0.92542976)
-skew = -0.08335707
+position = Vector2(52.72473, 74.6871)
+rotation = 0.18757638
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("18_g0lqu")
 centered = false
 
@@ -268,37 +263,37 @@ visible = false
 centered = false
 
 [node name="Chomper_spike4" type="Sprite2D" parent="Body/BodyCorrect" index="21"]
-position = Vector2(62.522633, -0.9760149)
-rotation = 6.2521996
-scale = Vector2(0.799, 0.799)
+position = Vector2(39.217163, -10.235502)
+rotation = 5.813468
+scale = Vector2(0.7992473, 0.7992473)
 texture = ExtResource("19_en88k")
 centered = false
 
 [node name="Chomper_spike3" type="Sprite2D" parent="Body/BodyCorrect" index="22"]
-position = Vector2(49.337563, 0.78959405)
-rotation = 5.981383
-scale = Vector2(0.7951493, 0.7951493)
+position = Vector2(27.741896, -2.6860347)
+rotation = 5.4449797
+scale = Vector2(0.79724735, 0.79724735)
 texture = ExtResource("19_en88k")
 centered = false
 
 [node name="Chomper_spike2" type="Sprite2D" parent="Body/BodyCorrect" index="23"]
-position = Vector2(37.033035, 8.570135)
-rotation = 5.6283865
-scale = Vector2(0.7931493, 0.7931493)
+position = Vector2(19.26663, 8.301065)
+rotation = 5.0893626
+scale = Vector2(0.79624736, 0.79624736)
 texture = ExtResource("19_en88k")
 centered = false
 
 [node name="Chomper_spike1" type="Sprite2D" parent="Body/BodyCorrect" index="24"]
-position = Vector2(28.91358, 17.865608)
-rotation = 5.369555
-scale = Vector2(0.7921493, 0.7921493)
+position = Vector2(15.627931, 19.9258)
+rotation = 4.799432
+scale = Vector2(0.79562366, 0.79562366)
 texture = ExtResource("19_en88k")
 centered = false
 
 [node name="Chomper_topjaw" type="Sprite2D" parent="Body/BodyCorrect" index="25"]
-position = Vector2(31.143442, 8.889594)
-rotation = 6.215176
-scale = Vector2(0.8748507, 0.799)
+position = Vector2(14.0289955, 6.8752666)
+rotation = 5.955329
+scale = Vector2(0.88124734, 0.79962367)
 texture = ExtResource("20_d2j2x")
 centered = false
 
@@ -320,7 +315,7 @@ parameters/TimeScale/scale = 1.0
 
 [node name="DetectComponent" type="Node2D" parent="." index="10"]
 script = ExtResource("21_08u4b")
-plant_enemy_collision_lay = 20
+is_detect_attack = true
 
 [node name="Area2D" type="Area2D" parent="DetectComponent" index="0"]
 position = Vector2(0, -25)

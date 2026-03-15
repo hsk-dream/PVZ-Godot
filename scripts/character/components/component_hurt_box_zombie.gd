@@ -21,4 +21,8 @@ func change_area_attack_appear(value: bool):
 func owner_be_hypno():
 	hurt_box_detection.collision_layer = 32
 	hurt_box_real.collision_layer = 1024
-	hurt_box_detection_on_attack.queue_free()
+
+	## INFO: 更新 monitoring 才会更新 monitorable
+	hurt_box_detection_on_attack.monitorable = false
+	hurt_box_detection_on_attack.monitoring = not hurt_box_detection_on_attack.monitoring
+	hurt_box_detection_on_attack.monitoring = not hurt_box_detection_on_attack.monitoring

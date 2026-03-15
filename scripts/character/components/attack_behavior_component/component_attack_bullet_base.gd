@@ -6,12 +6,14 @@ class_name AttackComponentBulletBase
 ## 冷却时间计时器
 @onready var bullet_attack_cd_timer: Timer = $BulletAttackCdTimer
 
+## 用检测组件对应的值赋值，仙人掌会修改值更新子弹属性
 ## 当前发射子弹可以攻击的敌人状态
-@export_flags("1 正常", "2 悬浮", "4 地刺", "8 低矮") var can_attack_plant_status:int = 1
-@export_flags("1 正常", "2 跳跃", "4 水下", "8 空中", "16 地下") var can_attack_zombie_status:int = 1
-
+##("1 正常", "2 悬浮", "4 地刺", "8 低矮")
+var can_attack_plant_status:int = 1
+##("1 正常", "2 跳跃", "4 水下", "8 空中", "16 地下")
+var can_attack_zombie_status:int = 1
 ## 是否使用行属性进行攻击判断
-@export var is_lane:=true
+var is_lane:=true
 
 ## 攻击参数,动画攻击一次的参数
 @export var attack_para:StringName= &"parameters/OneShot/request"
@@ -36,6 +38,13 @@ func _ready() -> void:
 	bullet_attack_cd_timer.wait_time = attack_cd
 	if is_instance_valid(Global.main_game):
 		bullets = Global.main_game.bullets
+	## 用检测组件对应的值赋值，仙人掌会修改值更新子弹属性
+	can_attack_plant_status = detect_component.can_attack_plant_status
+	##("1 正常", "2 跳跃", "4 水下", "8 空中", "16 地下")
+	can_attack_zombie_status = detect_component.can_attack_zombie_status
+	## 是否使用行属性进行攻击判断
+	is_lane = detect_component.is_lane
+
 
 ## 角色速度修改
 func owner_update_speed(speed_product:float):

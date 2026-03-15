@@ -44,16 +44,17 @@ transitions = ["Start", "Pot_idle", SubResource("AnimationNodeStateMachineTransi
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_7wp4x"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ksopn"]
+nodes/output/position = Vector2(540, 160)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_1a5du")
 nodes/StateMachine/position = Vector2(40, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_7wp4x")
 nodes/TimeScale/position = Vector2(340, 140)
-nodes/output/position = Vector2(540, 160)
-node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
 [node name="Plant034FlowerPot" instance=ExtResource("1_k4p72")]
 plant_up_position = Vector2(0, 10)
 plant_type = 34
+init_be_attack_status = 8
 
 [node name="BodyCorrect" parent="Body" index="0"]
 position = Vector2(-40, -67)
@@ -74,40 +75,40 @@ visible = false
 centered = false
 
 [node name="Pot_bottom" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(13.5, 51.4127)
-scale = Vector2(0.8, 0.972154)
+position = Vector2(13.5, 53.557785)
+scale = Vector2(0.8, 0.8727267)
 texture = ExtResource("3_uwedu")
 centered = false
 
 [node name="Pot_stem" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(23.2447, 10.5893)
-rotation = -0.244463
-scale = Vector2(0.799553, 0.799553)
+position = Vector2(23.765398, 11.065398)
+rotation = -0.1365346
+scale = Vector2(0.799654, 0.799654)
 texture = ExtResource("4_5fk0t")
 centered = false
 
 [node name="Pot_leaf1" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(28.5553, 6.63399)
-rotation = 0.254783
-scale = Vector2(0.799553, 0.799553)
+position = Vector2(28.3, 7.4961934)
+rotation = 0.21131754
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("5_t43al")
 centered = false
 
 [node name="Pot_leaf2" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
-position = Vector2(17.3, 10.8893)
-rotation = -0.254597
-scale = Vector2(0.799553, 0.799553)
+position = Vector2(17.134604, 11.6307955)
+rotation = -0.21715735
+scale = Vector2(0.799, 0.799)
 texture = ExtResource("6_jl7nk")
 centered = false
 
 [node name="Pot_top" type="Sprite2D" parent="Body/BodyCorrect" index="8"]
-position = Vector2(7.2, 11.234)
+position = Vector2(7.2, 12.3961935)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_pff5m")
 centered = false
 
 [node name="DownPlantContainer" parent="." index="7"]
-position = Vector2(0, -2.06601)
+position = Vector2(0, -0.90380645)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
 libraries = {

@@ -110,11 +110,11 @@ test1={
 [layer_names]
 
 2d_physics/layer_1="World"
-2d_physics/layer_2="PlantHurtBoxDetecttion"
-2d_physics/layer_3="ZombieHurtBoxDetecttion"
+2d_physics/layer_2="PlantHurtBoxDetection"
+2d_physics/layer_3="ZombieHurtBoxDetection"
 2d_physics/layer_4="BulletFromPlant"
-2d_physics/layer_5="ZombieHurtBoxDetecttionOnAttack"
-2d_physics/layer_6="ZombieHurtBoxDetecttionBeHypnotized"
+2d_physics/layer_5="ZombieHurtBoxDetectionOnAttack"
+2d_physics/layer_6="ZombieHurtBoxDetectionBeHypnotized"
 2d_physics/layer_7="Bowling"
 2d_physics/layer_8="BulletFromZombie"
 2d_physics/layer_9="PlantHurtBoxReal"

@@ -70,8 +70,8 @@ visible = false
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(3.0973063, 9.702693)
-scale = Vector2(0.7060628, 0.7059461)
+position = Vector2(4.435765, 8.870195)
+scale = Vector2(0.6802251, 0.7234768)
 texture = ExtResource("2_j1qv8")
 centered = false
 
@@ -82,23 +82,22 @@ texture = ExtResource("3_ds8om")
 centered = false
 
 [node name="Starfruit_smile" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(34.59551, 35.3)
-scale = Vector2(0.70621544, 0.70599097)
-skew = -0.00014103805
+position = Vector2(34.61192, 34.994038)
+scale = Vector2(0.6802251, 0.7234768)
 texture = ExtResource("3_us3df")
 centered = false
 
 [node name="Starfruit_leaf" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(26.70449, 5.197306)
-rotation = 0.00048579474
-scale = Vector2(0.706, 0.70623344)
-skew = -0.00025073224
+position = Vector2(29.065569, 2.440392)
+rotation = 0.19421797
+scale = Vector2(0.68128467, 0.7194768)
+skew = 0.021567723
 texture = ExtResource("4_ds8om")
 centered = false
 
 [node name="Starfruit_stem" type="Sprite2D" parent="Body/BodyCorrect" index="7"]
-position = Vector2(29.3, 6.401796)
-scale = Vector2(0.7061257, 0.70605385)
+position = Vector2(30.123844, 4.9523134)
+scale = Vector2(0.6565694, 0.7945632)
 texture = ExtResource("5_uefxc")
 centered = false
 
@@ -111,8 +110,8 @@ centered = false
 
 [node name="Starfruit_eyes2" type="Sprite2D" parent="Body/BodyCorrect" index="9"]
 visible = false
-position = Vector2(28.999132, 26)
-scale = Vector2(0.70604956, 0.714)
+position = Vector2(29.292456, 25.588089)
+scale = Vector2(0.68928796, 0.755191)
 texture = ExtResource("6_0ews2")
 centered = false
 
@@ -154,7 +153,6 @@ parameters/TimeScale/scale = 1.0
 
 [node name="AttackComponent" type="Node2D" parent="." index="10" node_paths=PackedStringArray("markers_2d_bullet")]
 script = ExtResource("9_j1qv8")
-is_lane = false
 attack_bullet_type = 8
 markers_2d_bullet = [NodePath("../Body/BodyCorrect/Marker2DBullet"), NodePath("../Body/BodyCorrect/Marker2DBullet2"), NodePath("../Body/BodyCorrect/Marker2DBullet3"), NodePath("../Body/BodyCorrect/Marker2DBullet4"), NodePath("../Body/BodyCorrect/Marker2DBullet5")]
 
@@ -163,8 +161,7 @@ markers_2d_bullet = [NodePath("../Body/BodyCorrect/Marker2DBullet"), NodePath(".
 [node name="DetectComponent" type="Node2D" parent="AttackComponent" index="1"]
 script = ExtResource("10_us3df")
 is_lane = false
-plant_enemy_collision_lay = 512
-zomie_enemy_collision_lay = 1280
+is_dectection = false
 
 [node name="Area2D" type="Area2D" parent="AttackComponent/DetectComponent" index="0"]
 position = Vector2(0, -25)

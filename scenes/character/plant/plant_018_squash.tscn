@@ -456,27 +456,27 @@ node2d_detect_in_slope = [NodePath("HurtBoxComponent/HurtBoxDetection"), NodePat
 position = Vector2(-41, -75)
 
 [node name="Squash_stem" type="Sprite2D" parent="Body/BodyCorrect" index="0"]
-position = Vector2(33.869095, -2.7381902)
-rotation = 0.034113377
+position = Vector2(33.688717, 0.15744126)
+rotation = -0.065347016
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_tfn24")
 centered = false
 
 [node name="Squash_body" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
-position = Vector2(6.91273, 4.339992)
-scale = Vector2(0.79452723, 0.80860007)
+position = Vector2(6.3651266, 6.7282095)
+scale = Vector2(0.80993336, 0.7831897)
 texture = ExtResource("3_kh2ri")
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(33.356365, 29.530905)
-scale = Vector2(0.7960909, 0.80312735)
+position = Vector2(33.54718, 31.316927)
+scale = Vector2(0.7878205, 0.7675384)
 texture = ExtResource("4_rin1p")
 centered = false
 
 [node name="Anim_eye" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(25.534548, 18.352722)
-scale = Vector2(0.7960909, 0.80312735)
+position = Vector2(25.847178, 20.546158)
+scale = Vector2(0.7878205, 0.7675384)
 texture = ExtResource("5_xoecu")
 centered = false
 
@@ -500,8 +500,9 @@ parameters/TimeScale/scale = 1.5
 
 [node name="DetectComponent" type="Node2D" parent="." index="11"]
 script = ExtResource("11_kh2ri")
+is_detect_attack = true
+can_attack_plant_status = 13
 can_attack_zombie_status = 5
-plant_enemy_collision_lay = 20
 
 [node name="Area2D" type="Area2D" parent="DetectComponent" index="0"]
 position = Vector2(0, -25)

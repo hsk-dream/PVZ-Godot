@@ -13,9 +13,6 @@
 script = ExtResource("6_taohl")
 sprite_change = Array[NodePath]([NodePath("../Body/BodyCorrect/Anim_blink")])
 sprite_change_texture = Array[Texture2D]([ExtResource("4_pknwq"), ExtResource("7_iaqk1")])
-sprite_appear = Array[NodePath]([])
-sprite_disappear = Array[NodePath]([])
-node_drop = NodePath("")
 metadata/_custom_type_script = "uid://jl0nl4a234bc"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gmjy2"]
@@ -30,17 +27,18 @@ animation = &"LilyPad_idle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_iaqk1"]
 graph_offset = Vector2(-166.231, -5.6116)
+nodes/output/position = Vector2(480, 120)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3puwi")
 nodes/Animation/position = Vector2(20, 100)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_36qgt")
 nodes/TimeScale/position = Vector2(280, 80)
-nodes/output/position = Vector2(480, 120)
-node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="Plant017LilyPad" instance=ExtResource("1_fjhlc")]
 script = ExtResource("2_13n6p")
 plant_up_position = Vector2(0, 10)
 plant_type = 17
+init_be_attack_status = 8
 
 [node name="Shadow" parent="." index="0"]
 visible = false
@@ -65,7 +63,7 @@ scale = Vector2(0.735294, 0.695652)
 texture = ExtResource("4_pknwq")
 centered = false
 
-[node name="BlinkComponent" parent="." index="6"]
+[node name="BlinkComponent" parent="." index="5"]
 all_blink_body_change = Array[ExtResource("6_taohl")]([SubResource("Resource_wqhw3")])
 
 [node name="DownPlantContainer" parent="." index="7"]

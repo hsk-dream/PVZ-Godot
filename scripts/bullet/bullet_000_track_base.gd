@@ -8,7 +8,7 @@ var current_time:float = 0
 ## 下一帧的目标点
 var next_point:Vector2
 ## 全局检测组件
-var detect_component_global:DetectComponentGlobal
+var detect_component_global:DetectComponent
 
 ## 最终位置修正,目标位置为本体位置,本体与body有偏移
 @export var target_pos_correct:Vector2 = Vector2(0, -40)
@@ -30,7 +30,10 @@ func init_bullet(bullet_paras:Dictionary[E_InitParasAttr,Variant]):
 func _physics_process(delta: float) -> void:
 	## 如果敌人死亡或敌人不存在
 	if (is_instance_valid(target_enemy) and target_enemy.is_death) or not is_instance_valid(target_enemy):
-		target_enemy = detect_component_global.update_enemy_track_bullet()
+		if is_instance_valid(detect_component_global.enemy_can_be_attacked) and not detect_component_global.enemy_can_be_attacked.is_death:
+			target_enemy = detect_component_global.enemy_can_be_attacked
+		else:
+			target_enemy = detect_component_global.update_enemy_track_bullet()
 		current_time = 0
 		if not is_instance_valid(target_enemy):
 			global_position += direction * delta * speed

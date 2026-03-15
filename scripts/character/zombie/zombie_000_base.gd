@@ -184,10 +184,11 @@ func ready_norm():
 		var slope_y_first = Global.main_game.main_game_slope.get_all_slope_y(global_position.x)
 		move_y_zombie(slope_y_first)
 	## 僵尸普通攻击组件连接信号
-	if attack_component is AttackComponentZombieNorm:
-		## 攻击组件是否攻击梯子下僵尸
-		attack_component.init_attack_component(is_ignore_ladder)
-
+	#if attack_component is AttackComponentZombieNorm:
+		### 攻击组件是否攻击梯子下僵尸
+		#attack_component.init_attack_component(is_ignore_ladder)
+	## 攻击的检测组件更新是否可以攻击梯子下的植物，是否忽略梯子
+	attack_component.detect_component.is_attack_ladder_plant = is_ignore_ladder
 	## 两栖类僵尸在水路时变化
 	if Global.get_zombie_info(zombie_type, Global.ZombieInfoAttribute.ZombieRowType) == Global.ZombieRowType.Both:
 		if body_change_on_pool != null:

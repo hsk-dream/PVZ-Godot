@@ -1,4 +1,4 @@
-extends Node2D
+extends MainGameItemBase
 class_name ScaryPot
 
 const SCARY_POT_WATER = preload("uid://bcaaxvox84hq5")
@@ -28,10 +28,7 @@ var is_open:=false
 @export var curr_plant_type:Global.PlantType
 ## 当前僵尸类型
 @export var curr_zombie_type:Global.ZombieType
-## 植物格子
-var plant_cell:PlantCell
-## 罐子所在行
-var lane:int
+
 ## 卡片存在时间，结束后5秒闪烁消失
 @export var card_exist_time:=10.0
 

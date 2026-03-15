@@ -59,8 +59,8 @@
 [ext_resource type="Script" uid="uid://bkaiiq5qsbt5j" path="res://scripts/main_game_item/level_info.gd" id="46_y1sge"]
 [ext_resource type="FontFile" uid="uid://dqb8lum530s2f" path="res://assets/fonts/方正少儿_GBK.ttf" id="48_27j16"]
 [ext_resource type="Script" uid="uid://5unqafehbil7" path="res://scripts/fx/other_effect/canvas_layer_effect.gd" id="51_qfhda"]
-[ext_resource type="Script" uid="uid://pqbu71xw5ngn" path="res://scripts/character/components/detect_component/component_detect_global.gd" id="55_l4e4o"]
 [ext_resource type="Script" uid="uid://l5xf5880s78e" path="res://scripts/ui/main_game_ui/label_zombie_sum.gd" id="59_b2sx0"]
+[ext_resource type="Script" uid="uid://bafp0ax1lmlge" path="res://scripts/character/components/detect_component/component_detect.gd" id="61_b2sx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy6tc"]
 size = Vector2(150, 600)
@@ -1354,7 +1354,7 @@ script = ExtResource("24_b4qea")
 
 [node name="DetectComponentGlobal" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("55_l4e4o")
+script = ExtResource("61_b2sx0")
 is_lane = false
 can_attack_zombie_status = 9
 

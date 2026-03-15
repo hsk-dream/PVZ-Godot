@@ -18,9 +18,6 @@
 script = ExtResource("7_dmd1b")
 sprite_change = Array[NodePath]([NodePath("../Body/BodyCorrect/Anim_blink")])
 sprite_change_texture = Array[Texture2D]([ExtResource("8_q5ric"), ExtResource("4_qum68")])
-sprite_appear = Array[NodePath]([])
-sprite_disappear = Array[NodePath]([])
-node_drop = NodePath("")
 metadata/_custom_type_script = "uid://jl0nl4a234bc"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h3r7"]
@@ -91,12 +88,12 @@ graph_offset = Vector2(50, -52)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_rikvi"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fw6sg"]
+nodes/output/position = Vector2(800, 120)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_ebjf4")
 nodes/StateMachine/position = Vector2(280, 100)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rikvi")
 nodes/TimeScale/position = Vector2(580, 100)
-nodes/output/position = Vector2(800, 120)
-node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
 [node name="Plant010SunShroom" node_paths=PackedStringArray("node_no_change_direction") instance=ExtResource("1_dqhtu")]
 script = ExtResource("2_qum68")
@@ -105,6 +102,7 @@ mini_sun_value = 15
 norm_sun_value = 25
 is_grow = false
 plant_type = 10
+init_be_attack_status = 8
 is_sleep_in_day = true
 node_no_change_direction = [NodePath("HpComponent"), NodePath("SleepComponent"), null]
 
@@ -115,38 +113,40 @@ scale = Vector2(0.511628, 0.444444)
 position = Vector2(-42, -61)
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="0"]
-position = Vector2(30.717, 48.483)
-scale = Vector2(0.383979, 0.337851)
+position = Vector2(30.9, 48.0299)
+scale = Vector2(0.3717941, 0.3485049)
 texture = ExtResource("2_2o6oo")
 centered = false
 
 [node name="Anim_sleep1" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
 visible = false
-position = Vector2(36.5, 51.7149)
-scale = Vector2(0.410128, 0.340702)
+position = Vector2(36.9, 50.489708)
+rotation = 0.0015656528
+scale = Vector2(0.37299016, 0.3764118)
 centered = false
 
 [node name="Anim_blink" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
 visible = false
-position = Vector2(36.5, 51.3957)
-scale = Vector2(0.403106, 0.347085)
+position = Vector2(36.82508, 50.924755)
+rotation = 0.007851386
+scale = Vector2(0.388241, 0.35900986)
 texture = ExtResource("4_qum68")
 centered = false
 
 [node name="SunShroom_head" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(25.1511, 28.9808)
+position = Vector2(24.980394, 28.299017)
 rotation = 0.07854
-scale = Vector2(0.375319, 0.338851)
+scale = Vector2(0.3750931, 0.33960786)
 texture = ExtResource("5_utsq0")
 centered = false
 
 [node name="Marker2DCreateSun" type="Marker2D" parent="Body/BodyCorrect" index="4"]
 position = Vector2(42, 36)
 
-[node name="SleepComponent" parent="." index="5" node_paths=PackedStringArray("sleep_influence_components")]
+[node name="SleepComponent" parent="." index="4" node_paths=PackedStringArray("sleep_influence_components")]
 sleep_influence_components = [NodePath("../BlinkComponent"), NodePath("../CreateSunComponent")]
 
-[node name="BlinkComponent" parent="." index="6"]
+[node name="BlinkComponent" parent="." index="5"]
 all_blink_body_change = Array[ExtResource("7_dmd1b")]([SubResource("Resource_vdr6k")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]

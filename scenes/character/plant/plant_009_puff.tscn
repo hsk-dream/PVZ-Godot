@@ -91,6 +91,7 @@ size = Vector2(249, 5)
 [node name="Plant009Puff" node_paths=PackedStringArray("node2d_detect_in_slope") instance=ExtResource("1_o8j4c")]
 script = ExtResource("2_wddx6")
 plant_type = 9
+init_be_attack_status = 8
 is_sleep_in_day = true
 node2d_detect_in_slope = [NodePath("HurtBoxComponent/HurtBoxDetection"), NodePath("AttackComponent/DetectComponent")]
 
@@ -112,26 +113,28 @@ centered = false
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
-position = Vector2(29.3, 45.513187)
-scale = Vector2(0.44, 0.47098175)
+position = Vector2(29.3, 47.623566)
+scale = Vector2(0.44, 0.4135478)
 texture = ExtResource("2_7rmee")
 centered = false
 
 [node name="PuffShroom_stem" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(47.6, 50.213184)
-scale = Vector2(0.45, 0.48160446)
+position = Vector2(47.57452, 51.449043)
+rotation = 0.28268737
+scale = Vector2(0.47021654, 0.4215478)
+skew = -0.28268737
 texture = ExtResource("3_t2sgi")
 centered = false
 
 [node name="PuffShroom_tip" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(49.4, 48.175457)
+position = Vector2(49.4, 49.798088)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_57i3y")
 centered = false
 
 [node name="PuffShroom_head" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(22.824543, 26.22637)
-scale = Vector2(0.42813185, 0.47198173)
+position = Vector2(21.850956, 31.04522)
+scale = Vector2(0.4537261, 0.3978217)
 texture = ExtResource("5_wddx6")
 centered = false
 
@@ -141,7 +144,7 @@ centered = false
 
 [node name="Anim_blink" type="Sprite2D" parent="Body/BodyCorrect" index="8"]
 visible = false
-position = Vector2(43.94377, 48.891727)
+position = Vector2(44, 49.91072)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("6_exn8h")
 centered = false
