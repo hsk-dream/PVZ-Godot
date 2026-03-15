@@ -141,19 +141,19 @@ node2d_detect_in_slope = [NodePath("HurtBoxComponent/HurtBoxDetection"), NodePat
 position = Vector2(-36, -72)
 
 [node name="ScaredyShroom_head_inner" type="Sprite2D" parent="Body/BodyCorrect" index="0"]
-position = Vector2(21.635448, 27.637966)
-scale = Vector2(0.80275935, 0.76897484)
+position = Vector2(22.5, 26.301826)
+scale = Vector2(0.762, 0.8)
 texture = ExtResource("2_6htc2")
 centered = false
 
 [node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
-position = Vector2(27.6, 36.65569)
-scale = Vector2(0.8, 0.7708862)
+position = Vector2(27.6, 37.301826)
+scale = Vector2(0.8, 0.75875616)
 texture = ExtResource("3_esfqn")
 centered = false
 
 [node name="Anim_eye2" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
-position = Vector2(39.4, 33.873417)
+position = Vector2(39.4, 34.081097)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_tthcx")
 centered = false
@@ -163,22 +163,22 @@ visible = false
 centered = false
 
 [node name="ScaredyShroom_mouth" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
-position = Vector2(38.5, 44.473415)
-rotation = 0.05240366
-scale = Vector2(1.6048228, 0.8)
-skew = -0.05240366
+position = Vector2(38.5, 44.681095)
+rotation = -0.072878115
+scale = Vector2(1.6067927, 0.8)
+skew = 0.072878115
 texture = ExtResource("5_n8m1a")
 centered = false
 
 [node name="ScaredyShroom_lips" type="Sprite2D" parent="Body/BodyCorrect" index="5"]
-position = Vector2(43.6, 41.337967)
-rotation = 0.038905587
-scale = Vector2(0.8, 0.77962035)
+position = Vector2(43.060364, 40.241463)
+rotation = -0.047422208
+scale = Vector2(0.8, 0.76024383)
 texture = ExtResource("6_68pw3")
 centered = false
 
 [node name="Anim_eye1" type="Sprite2D" parent="Body/BodyCorrect" index="6"]
-position = Vector2(33.4, 35.482277)
+position = Vector2(33.4, 35.781097)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_wh8am")
 centered = false
@@ -188,8 +188,8 @@ visible = false
 centered = false
 
 [node name="ScaredyShroom_head" type="Sprite2D" parent="Body/BodyCorrect" index="8"]
-position = Vector2(4.3265862, 8.837965)
-scale = Vector2(0.82620245, 0.77962035)
+position = Vector2(5.2, 7.2621913)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_arnij")
 centered = false
 
@@ -198,16 +198,16 @@ visible = false
 centered = false
 
 [node name="ScaredyShroom_eyebrow1" type="Sprite2D" parent="Body/BodyCorrect" index="10"]
-position = Vector2(28.208862, 32.037964)
-rotation = 0.030642606
-scale = Vector2(1.018, 0.8)
+position = Vector2(27.760365, 31.484747)
+rotation = -0.25794664
+scale = Vector2(1.0173963, 0.7993964)
 texture = ExtResource("9_ts0jv")
 centered = false
 
 [node name="ScaredyShroom_eyebrow2" type="Sprite2D" parent="Body/BodyCorrect" index="11"]
-position = Vector2(38.99114, 28.537966)
-rotation = 0.059230924
-scale = Vector2(0.999, 0.999)
+position = Vector2(42, 24.424383)
+rotation = 0.52254504
+scale = Vector2(0.9993964, 0.9993964)
 texture = ExtResource("10_lci7m")
 centered = false
 
@@ -268,15 +268,20 @@ shape = SubResource("RectangleShape2D_tthcx")
 script = ExtResource("19_tthcx")
 scaredy_influence_components = [NodePath("../AttackComponent")]
 
-[node name="Area2D" type="Area2D" parent="ScaredyComponent" index="0"]
-collision_layer = 0
-collision_mask = 4
+[node name="DetectComponent" type="Node2D" parent="ScaredyComponent" index="0"]
+script = ExtResource("19_68pw3")
+is_lane = false
+can_attack_plant_status = 15
+can_attack_zombie_status = 31
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaredyComponent/Area2D" index="0"]
+[node name="Area2D" type="Area2D" parent="ScaredyComponent/DetectComponent" index="0"]
 position = Vector2(0, -25)
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaredyComponent/DetectComponent/Area2D" index="0"]
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_n8m1a")
 
 [connection signal="timeout" from="AttackComponent/BulletAttackCdTimer" to="AttackComponent" method="_on_bullet_attack_cd_timer_timeout"]
-[connection signal="area_entered" from="ScaredyComponent/Area2D" to="ScaredyComponent" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="ScaredyComponent/Area2D" to="ScaredyComponent" method="_on_area_2d_area_exited"]
