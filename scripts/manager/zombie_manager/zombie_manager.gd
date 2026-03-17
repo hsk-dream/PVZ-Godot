@@ -180,6 +180,12 @@ func _on_zombie_hypno(zombie:Zombie000Base):
 		zombie.signal_zombie_hp_loss.disconnect(conn.callable)
 	all_zombies_be_hypno.append(zombie)
 
+	## 如果到了最后一波刷新,且最后一个僵尸被魅惑
+	if is_end_wave and curr_zombie_num == 0:
+		EventBus.push_event("create_trophy", [zombie.global_position])
+		if is_instance_valid(multi_round_end_wave_timer):
+			multi_round_end_wave_timer.stop()
+
 ## 僵尸发射死亡信号后调用函数
 func _on_zombie_dead(zombie: Zombie000Base) -> void:
 	all_zombies_1d.erase(zombie)
