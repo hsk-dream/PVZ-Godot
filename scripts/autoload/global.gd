@@ -2,8 +2,8 @@ extends Node
 
 func _ready() -> void:
 	## 读取当前用户名
-	var is_have_user = _load_current_user()
-	if is_have_user:
+	var is_have_user := user_manager.load_current_user()
+	if is_have_user and not user_manager.curr_user_name.is_empty():
 		## 加载全局数据存档
 		load_global_game_data()
 	## 创建全局数据自动存档计时器
@@ -16,179 +16,14 @@ func _ready() -> void:
 var main_game:MainGameManager
 var game_para:ResourceLevelData
 
+#region 用户管理（已从 Global 拆分）
+var user_manager: UserManager = UserManager.new()
+#endregion
+
 #region 图鉴信息
 var data_almanac:Dictionary
 const PathDataAlmanac := "res://data/almanac_data.json"
 #endregion
-
-#region 用户数据 存档
-#region 用户名
-## 当前用户名
-var curr_user_name:String = String()
-## 所有用户名
-var all_user_name:Array[String] = []
-## 用户更新信号
-signal signal_users_update
-
-## 当前用户配置文件路径（单独存储用户名）
-const CURRENT_USER_CONFIG_PATH := "user://current_user.ini"
-
-## 从单独文件加载当前用户名和用户列表
-func _load_current_user() -> bool:
-	var config := ConfigFile.new()
-	var err = config.load(CURRENT_USER_CONFIG_PATH)
-	if err == OK:
-		curr_user_name = config.get_value("user", "current_user", "")
-		all_user_name = config.get_value("user", "all_user", [])
-		print("✅ 成功加载当前用户: ", curr_user_name)
-		print("✅ 已加载用户列表: ", all_user_name)
-		return true
-	else:
-		print("⚠️ 用户配置文件不存在")
-		curr_user_name = ""
-		all_user_name.clear()
-		return false
-
-## 保存当前用户名到单独文件
-func _save_user_names():
-	var config := ConfigFile.new()
-	config.set_value("user", "current_user", curr_user_name)
-	config.set_value("user", "all_user", all_user_name)
-	var err = config.save(CURRENT_USER_CONFIG_PATH)
-	if err == OK:
-		print("✅ 当前用户已保存: ", curr_user_name)
-	else:
-		push_error("❌ 保存当前用户失败: ", err)
-
-
-## 增加新用户接口
-func add_user(new_user_name:String) -> String:
-	new_user_name = new_user_name.strip_edges()
-	if new_user_name == "":
-		print("❌ 用户名不能为空")
-		return "用户名不能为空"
-	if all_user_name.has(new_user_name):
-		print("❌ 用户已存在: ", new_user_name)
-		return "用户已存在"
-
-	all_user_name.append(new_user_name)
-	_save_user_names()
-	## 创建用户存档文件夹
-	_ensure_save_directory_exists(new_user_name)
-	print("✅ 成功添加用户: ", new_user_name)
-	signal_users_update.emit()
-	return ""
-
-## 删除用户接口
-func delete_user(user_name:String) -> String:
-	if not all_user_name.has(user_name):
-		print("❌ 用户不存在: ", user_name)
-		return "用户不存在"
-	if user_name == curr_user_name:
-		print("❌ 不能删除当前登录用户")
-		return "不能删除当前登录用户"
-
-	# 删除用户存档目录
-	var user_dir_path = "user://" + user_name
-	if DirAccess.dir_exists_absolute(user_dir_path):
-		delete_folder(user_dir_path)
-		print("✅ 已删除用户存档目录: ", user_dir_path)
-
-	# 从用户列表移除
-	all_user_name.erase(user_name)
-	_save_user_names()
-	signal_users_update.emit()
-	print("✅ 成功删除用户: ", user_name)
-	return ""
-
-## 切换用户接口
-func switch_user(target_user_name:String) -> String:
-	target_user_name = target_user_name.strip_edges()
-	if not all_user_name.has(target_user_name):
-		print("❌ 用户不存在: ", target_user_name)
-		return "用户不存在"
-
-	print("保存当前用户游戏数据并切换用户")
-	## 保存当前用户数据
-	save_global_game_data()
-
-	## 切换用户并加载数据
-	curr_user_name = target_user_name
-	_save_user_names()
-	load_global_game_data()
-
-	signal_users_update.emit()
-	print("✅ 成功切换到用户: ", curr_user_name)
-	return ""
-
-## 重命名用户接口
-func rename_user(old_name:String, new_name:String) -> String:
-	old_name = old_name.strip_edges()
-	new_name = new_name.strip_edges()
-	if new_name == "":
-		print("❌ 新用户名不能为空")
-		return "新用户名不能为空"
-	if old_name == new_name:
-		print("❌ 新用户名不能与原用户名相同")
-		return "新用户名不能与原用户名相同"
-	if not all_user_name.has(old_name):
-		print("❌ 原用户不存在: ", old_name)
-		return "原用户不存在"
-	if all_user_name.has(new_name):
-		print("❌ 新用户名已存在: ", new_name)
-		return "新用户名已存在"
-
-	# 迁移存档目录
-	var old_dir_path = "user://" + old_name
-	var new_dir_path = "user://" + new_name
-
-	if DirAccess.dir_exists_absolute(old_dir_path):
-		var err = DirAccess.rename_absolute(old_dir_path, new_dir_path)
-		if err != OK:
-			print("❌ 迁移存档目录失败，错误码: ", err)
-			return "迁移存档目录失败，错误码"
-		print("✅ 存档目录已从 ", old_dir_path, " 迁移到 ", new_dir_path)
-
-	# 更新用户列表
-	var old_index = all_user_name.find(old_name)
-	all_user_name[old_index] = new_name
-
-	# 如果重命名的是当前用户，更新当前用户名
-	if old_name == curr_user_name:
-		curr_user_name = new_name
-
-	# 保存配置
-	_save_user_names()
-
-	print("✅ 用户已从重命名: ", old_name, " -> ", new_name)
-	signal_users_update.emit()
-
-	return ""
-
-
-#endregion
-
-func delete_folder(path: String) -> void:
-	var dir := DirAccess.open(path)
-	if dir == null:
-		push_error("无法打开目录: " + path)
-		return
-
-	# 删除所有文件
-	for file in dir.get_files():
-		var file_path = path.path_join(file)
-		var err = dir.remove(file_path)
-		if err != OK:
-			push_error("删除文件失败: " + file_path)
-
-	# 删除所有子目录（递归）
-	for sub in dir.get_directories():
-		delete_folder(path.path_join(sub))
-
-	# 删除自身目录
-	var parent_dir := DirAccess.open(path.get_base_dir())
-	if parent_dir:
-		parent_dir.remove(path)
 
 #region 全局游戏数据
 #region 金币
@@ -319,7 +154,7 @@ func _ensure_save_directory_exists(user_name:String):
 
 ## 保存全局数据存档到 JSON 文件
 func save_global_game_data() -> void:
-	if curr_user_name.is_empty():
+	if user_manager == null or user_manager.curr_user_name.is_empty():
 		print("当前用户名不存在，无法保存全局数据存档")
 		return
 	print("保存全局数据存档")
@@ -330,13 +165,13 @@ func save_global_game_data() -> void:
 		"curr_num_new_garden_plant": curr_num_new_garden_plant,
 		"curr_all_level_state_data": curr_all_level_state_data,
 	}
-	var save_game_path = "user://" + curr_user_name + "/GlobalSaveGame.json"
+	var save_game_path = "user://" + user_manager.curr_user_name + "/GlobalSaveGame.json"
 	save_json(data, save_game_path)
 
 ## 加载全局数据档
 func load_global_game_data() -> void:
 	print("加载全局数据存档")
-	var save_game_path = "user://" + curr_user_name + "/GlobalSaveGame.json"
+	var save_game_path = "user://" + user_manager.curr_user_name + "/GlobalSaveGame.json"
 	var data = load_json(save_game_path) as Dictionary
 	coin_value = data.get("coin_value", DefaultCoinValue)
 	curr_num_new_garden_plant = data.get("curr_num_new_garden_plant", DefaultCurrNumNewGardenPlant)
@@ -352,12 +187,12 @@ func save_selected_cards():
 	var data:Dictionary = {
 		"selected_cards" : selected_cards,
 	}
-	var selected_cards_path =  "user://" + curr_user_name + "/selected_cards.json"
+	var selected_cards_path =  "user://" + user_manager.curr_user_name + "/selected_cards.json"
 	save_json(data, selected_cards_path)
 
 func load_selected_cards():
 	print("加载选卡信息存档")
-	var selected_cards_path =  "user://" + curr_user_name + "/selected_cards.json"
+	var selected_cards_path =  "user://" + user_manager.curr_user_name + "/selected_cards.json"
 	var data = load_json(selected_cards_path) as Dictionary
 		# 加载数据
 	selected_cards = data.get("selected_cards", [])
@@ -448,7 +283,7 @@ var open_all_level := false
 var time_scale := 1.0
 
 func save_config():
-	var config_path := "user://" + curr_user_name + "/config.ini"
+	var config_path := "user://" + user_manager.curr_user_name + "/config.ini"
 	print("保存游戏控制台数据：", config_path)
 	var config := ConfigFile.new()
 	## 音乐相关
@@ -472,7 +307,7 @@ func save_config():
 
 func load_config():
 	var config := ConfigFile.new()
-	var config_path := "user://" + curr_user_name + "/config.ini"
+	var config_path := "user://" + user_manager.curr_user_name + "/config.ini"
 	print("加载游戏控制台数据：", config_path)
 	config.load(config_path)
 

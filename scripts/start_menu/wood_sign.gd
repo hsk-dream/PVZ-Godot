@@ -6,10 +6,9 @@ class_name wood_sign
 
 
 func _ready() -> void:
-	label.text = Global.curr_user_name
-	Global.signal_users_update.connect(_on_update_curr_user)
+	label.text = Global.user_manager.curr_user_name
+	Global.user_manager.signal_users_update.connect(_on_update_curr_user)
 
 
 func _on_update_curr_user():
-	label.text = Global.curr_user_name
-
+	label.text = Global.user_manager.curr_user_name

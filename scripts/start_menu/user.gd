@@ -24,7 +24,7 @@ var curr_user_button:OneUserButton
 
 func _ready() -> void:
 	create_curr_all_user_button()
-	Global.signal_users_update.connect(update_curr_user_button)
+	Global.user_manager.signal_users_update.connect(update_curr_user_button)
 	button_create.pressed.connect(_on_button_create_pressed)
 
 	texture_button_rename.pressed.connect(_on_button_rename_pressed)
@@ -50,18 +50,18 @@ func del_curr_all_user_button():
 
 ## 创建所有的用户按钮
 func create_curr_all_user_button():
-	if Global.all_user_name.is_empty():
+	if Global.user_manager.all_user_name.is_empty():
 		visible = true
 		panel_create_new_user.visible = true
 		return
 
-	for i in range(Global.all_user_name.size()):
+	for i in range(Global.user_manager.all_user_name.size()):
 		var one_user_button:OneUserButton = ONE_USER_BUTTON.instantiate()
 		v_box_container.add_child(one_user_button)
 		all_user_button.append(one_user_button)
-		one_user_button.set_button_user_name(Global.all_user_name[i])
+		one_user_button.set_button_user_name(Global.user_manager.all_user_name[i])
 		one_user_button.pressed.connect(_on_choosed_new_user_button.bind(one_user_button))
-		if Global.curr_user_name == Global.all_user_name[i]:
+		if Global.user_manager.curr_user_name == Global.user_manager.all_user_name[i]:
 			curr_user_button = one_user_button
 			curr_user_button.on_user_be_choosed()
 	v_box_container.move_child(button_create, -1)
@@ -91,11 +91,11 @@ func _on_button_ok_pressed():
 		dialog_choose_null.visible = true
 		return
 
-	var switch_user_res = Global.switch_user(curr_user_button.user_name_on_curr_button)
-	if switch_user_res.is_empty():
-		visible = false
-	else:
-		push_error("切换用户不存在")
+	# 切换用户由 Global 编排存档，用户本身由 user_manager 管理
+	Global.save_global_game_data()
+	Global.user_manager.set_current_user(curr_user_button.user_name_on_curr_button)
+	Global.load_global_game_data()
+	visible = false
 
 ## 点击 删除 按钮
 func _on_button_del_pressed():
@@ -111,7 +111,7 @@ func _on_delete_confirmed():
 	if curr_user_button == null:
 		return
 
-	var del_user_res = Global.delete_user(curr_user_button.user_name_on_curr_button)
+	var del_user_res = Global.user_manager.delete_user(curr_user_button.user_name_on_curr_button)
 
 	if del_user_res.is_empty():
 		pass
@@ -124,7 +124,7 @@ func _on_button_cancel_pressed():
 	if curr_user_button == null:
 		dialog_choose_null.visible = true
 		return
-	if Global.curr_user_name.is_empty():
+	if Global.user_manager.curr_user_name.is_empty():
 		dialog_create_user.visible = true
 		return
 	visible = false

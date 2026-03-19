@@ -14,7 +14,7 @@ func _ready() -> void:
 ## 当按下ok按钮时
 func _on_button_ok_pressed():
 	var new_user_name = line_edit.text
-	var add_user_res = Global.add_user(new_user_name)
+	var add_user_res = Global.user_manager.add_user(new_user_name)
 	if add_user_res.is_empty():
 		_disappear_create_new_user_panel()
 	else:

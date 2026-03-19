@@ -14,6 +14,7 @@ script_list_meta = {
 "res://scripts/Almanac/zombie_page.gd": [-1, -1],
 "res://scripts/autoload/event_bus.gd": [-1, -1],
 "res://scripts/autoload/global.gd": [-1, -1],
+"res://scripts/autoload/global_manager/user_manager.gd": [-1, -1],
 "res://scripts/autoload/main_game_date.gd": [-1, -1],
 "res://scripts/autoload/scene_registry.gd": [-1, -1],
 "res://scripts/autoload/sound_manager.gd": [-1, -1],

@@ -535,10 +535,10 @@ func filter_invalid_zombie_refresh_types(zombie_types:Array[Global.ZombieType], 
 func get_save_game_path()->String:
 	## 确保存档文件存在
 	var dir = DirAccess.open("user://")
-	if not dir.dir_exists(Global.curr_user_name + "/" + Global.MainGameSaveDirName):
-		dir.make_dir(Global.curr_user_name + "/" + Global.MainGameSaveDirName)
+	if not dir.dir_exists(Global.user_manager.curr_user_name + "/" + Global.MainGameSaveDirName):
+		dir.make_dir(Global.user_manager.curr_user_name + "/" + Global.MainGameSaveDirName)
 
-	return "user://" + Global.curr_user_name + "/" + Global.MainGameSaveDirName + "/" + save_game_name + ".tres"
+	return "user://" + Global.user_manager.curr_user_name + "/" + Global.MainGameSaveDirName + "/" + save_game_name + ".tres"
 
 
 #endregion
