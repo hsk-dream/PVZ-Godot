@@ -25,6 +25,7 @@ AllCards="*res://scenes/autoload/all_cards.tscn"
 GlobalUtils="*res://scripts/autoload/util/global_utils.gd"
 EventBus="*res://scripts/autoload/event_bus.gd"
 MainGameDate="*res://scripts/autoload/main_game_date.gd"
+TreePauseManager="*res://scripts/autoload/tree_pause_manager.gd"
 
 [display]
 

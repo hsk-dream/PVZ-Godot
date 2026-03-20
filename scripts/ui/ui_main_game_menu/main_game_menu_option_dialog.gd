@@ -42,7 +42,7 @@ func appear_menu():
 	await get_tree().create_timer(0.1).timeout
 	# 游戏暂停
 
-	Global.start_tree_pause(Global.E_PauseFactor.Menu)
+	TreePauseManager.start_tree_pause(TreePauseManager.E_PauseFactor.Menu)
 	SoundManager.play_other_SFX("pause")
 
 	visible = true
@@ -54,7 +54,7 @@ func return_button_pressed():
 	SoundManager.play_other_SFX("pause")
 	visible = false
 
-	Global.end_tree_pause(Global.E_PauseFactor.Menu)
+	TreePauseManager.end_tree_pause(TreePauseManager.E_PauseFactor.Menu)
 	#mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 ## 图鉴
@@ -69,7 +69,7 @@ func resume_game():
 
 	Global.main_game.re_main_game()
 
-	Global.end_tree_pause_clear_all_pause_factors()
+	TreePauseManager.end_tree_pause_clear_all_pause_factors()
 	Global.time_scale = 1.0
 	Engine.time_scale = Global.time_scale
 	get_tree().reload_current_scene()
@@ -78,7 +78,7 @@ func resume_game():
 ## 返回主菜单
 func return_main_menu():
 	EventBus.push_event("change_is_mouse_visibel_on_hammer", true)
-	Global.end_tree_pause_clear_all_pause_factors()
+	TreePauseManager.end_tree_pause_clear_all_pause_factors()
 	Global.time_scale = 1.0
 	Engine.time_scale = Global.time_scale
 	get_tree().change_scene_to_file(Global.MainScenesMap[Global.MainScenes.StartMenu])

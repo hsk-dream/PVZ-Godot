@@ -310,7 +310,7 @@ func start_pause_on_re_choose_card_progress():
 	## 设置相机可以移动
 	camera_2d.process_mode = Node.PROCESS_MODE_ALWAYS
 	card_slot_root.process_mode = Node.PROCESS_MODE_ALWAYS
-	Global.start_tree_pause(Global.E_PauseFactor.ReChooseCard)
+	TreePauseManager.start_tree_pause(TreePauseManager.E_PauseFactor.ReChooseCard)
 
 ## 下轮选卡结束时取消暂停游戏
 func end_pause_on_re_choose_card_progress():
@@ -318,7 +318,7 @@ func end_pause_on_re_choose_card_progress():
 	## 设置相机可以移动
 	camera_2d.process_mode = Node.PROCESS_MODE_INHERIT
 	card_slot_root.process_mode = Node.PROCESS_MODE_INHERIT
-	Global.end_tree_pause(Global.E_PauseFactor.ReChooseCard)
+	TreePauseManager.end_tree_pause(TreePauseManager.E_PauseFactor.ReChooseCard)
 
 #endregion
 
@@ -400,7 +400,7 @@ func on_zombie_go_home(zombie:Zombie000Base):
 	## 设置相机可以移动
 	camera_2d.process_mode = Node.PROCESS_MODE_ALWAYS
 	## 游戏暂停
-	Global.start_tree_pause(Global.E_PauseFactor.GameOver)
+	TreePauseManager.start_tree_pause(TreePauseManager.E_PauseFactor.GameOver)
 	call_deferred("change_zombie_position", zombie)
 	## 如果有锤子
 	if game_item_manager.all_game_items.has(GameItemManager.E_GameItemType.Hammer):
@@ -458,7 +458,7 @@ func throw_to(node:Node2D, target_pos: Vector2, duration: float = 1.0):
 func win_main_game():
 
 	## 游戏暂停因素、游戏速度
-	Global.end_tree_pause_clear_all_pause_factors()
+	TreePauseManager.end_tree_pause_clear_all_pause_factors()
 	Global.time_scale = 1.0
 	Engine.time_scale = Global.time_scale
 

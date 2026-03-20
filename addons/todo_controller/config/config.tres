@@ -18,6 +18,7 @@ script_list_meta = {
 "res://scripts/autoload/main_game_date.gd": [-1, -1],
 "res://scripts/autoload/scene_registry.gd": [-1, -1],
 "res://scripts/autoload/sound_manager.gd": [-1, -1],
+"res://scripts/autoload/tree_pause_manager.gd": [-1, -1],
 "res://scripts/autoload/util/global_utils.gd": [-1, -1],
 "res://scripts/autoload/util/random_picker.gd": [-1, -1],
 "res://scripts/bullet/bullet_000_base.gd": [-1, -1],
