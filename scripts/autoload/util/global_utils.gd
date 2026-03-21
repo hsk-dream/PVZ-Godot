@@ -111,3 +111,16 @@ func create_bungi(zombie_bungi:Zombie021Bungi, plant_cell:PlantCell):
 	zombie_bungi.plant_cell = plant_cell
 
 #endregion
+enum E_CurrTimeType{
+	String,
+
+}
+
+func get_curr_time(curr_time_type:E_CurrTimeType=E_CurrTimeType.String):
+	match curr_time_type:
+		E_CurrTimeType.String:
+			var d := Time.get_datetime_dict_from_system()
+			var text := "%04d-%02d-%02d %02d:%02d:%02d" % [
+				d.year, d.month, d.day, d.hour, d.minute, d.second
+			]
+			return text

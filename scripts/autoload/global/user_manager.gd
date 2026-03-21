@@ -10,8 +10,6 @@ var all_user_name: Array[String] = []
 
 ## 当前用户配置文件路径（单独存储用户名）
 const CURRENT_USER_CONFIG_PATH := "user://current_user.ini"
-## 主游戏存档文件夹名字（用于创建用户目录时初始化）
-const MAIN_GAME_SAVE_DIR_NAME := "main_game_saves_data"
 
 ## 从单独文件加载当前用户名和用户列表
 func load_current_user() -> bool:
@@ -48,7 +46,7 @@ func set_current_user(user_name: String) -> void:
 
 ## 验证并创建存档文件夹，创建用户名时调用
 func ensure_save_directory_exists(user_name: String) -> void:
-	var save_dir_path := "user://%s/%s" % [user_name, MAIN_GAME_SAVE_DIR_NAME]
+	var save_dir_path := "user://%s/%s" % [user_name, SaveService.MAIN_GAME_SAVE_DIR_NAME]
 	if not DirAccess.dir_exists_absolute(save_dir_path):
 		var err := DirAccess.make_dir_recursive_absolute(save_dir_path)
 		if err == OK:

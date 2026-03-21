@@ -91,11 +91,10 @@ func _on_button_ok_pressed():
 		dialog_choose_null.visible = true
 		return
 
-	# 切换用户由 Global 编排存档，用户本身由 user_manager 管理
+	# 切换用户：先存当前用户全局档，再切用户并加载新用户的存档+配置（见 Global 顶部注释）
 	Global.save_service.save_now()
 	Global.user_manager.set_current_user(curr_user_button.user_name_on_curr_button)
-	Global.save_service.load_global_game_data()
-	Global.config_service.load_and_apply_config()
+	Global.reload_session_for_current_user()
 	visible = false
 
 ## 点击 删除 按钮
