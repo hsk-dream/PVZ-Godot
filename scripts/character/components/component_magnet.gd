@@ -68,7 +68,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var area_owner = area.owner
 	if area_owner is Zombie000Base:
 		## 如果没有铁器
-		if area_owner.iron_type == Global.IronType.Null:
+		if area_owner.iron_type == Zombie000Base.IronType.Null:
 			return
 		else:
 			## 僵尸身上的铁器节点

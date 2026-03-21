@@ -40,9 +40,10 @@ func drop_garden_plant():
 		return
 	var r = randf()
 	if r < drop_garden_plant_rate:
-		Global.create_garden_plant(
+		EventBus.push_event("create_garden_plant", [
 			Vector2(clamp(global_position.x, 0, get_viewport().get_visible_rect().size.x),\
-			clamp(global_position.y-50, 0, get_viewport().get_visible_rect().size.y)))
+			clamp(global_position.y-50, 0, get_viewport().get_visible_rect().size.y))
+		])
 
 #endregion
 

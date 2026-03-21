@@ -1,4 +1,4 @@
-extends Node
+extends MainGameSubManager
 class_name BackgroundManager
 ## 背景管理器,管理背景和前景
 
@@ -19,25 +19,25 @@ const FOG = preload("uid://bs55ei6xiuugg")
 const RAIN = preload("uid://cv3iw5srgpusv")
 
 
-func init_background_manager(game_para:ResourceLevelData):
-	init_background(game_para)
-	init_frontground(game_para)
+func init_manager() -> void:
+	init_background()
+	init_frontground()
 
 ## 初始化背景
-func init_background(game_para:ResourceLevelData):
-	var curr_bg_texture: Texture2D = game_para.GameBgTextureMap[game_para.game_BG]
+func init_background():
+	var curr_bg_texture: Texture2D = ConstLevelData.GameBgTextureMap[game_para.game_BG]
 	background.texture = curr_bg_texture
 	home.init_home(game_para.game_BG)
 	if not game_para.is_zombie_can_home:
 		print("僵尸无法进房")
 		home.disable_home()
 	match game_para.game_BG:
-		ResourceLevelData.GameBg.Pool, ResourceLevelData.GameBg.Fog:
+		ConstLevelData.GameBg.Pool, ConstLevelData.GameBg.Fog:
 			pool = background.get_node(^"Pool")
 			pool.init_pool(game_para)
 
 ## 初始化前景
-func init_frontground(game_para:ResourceLevelData):
+func init_frontground():
 	if game_para.is_fog:
 		fog = FOG.instantiate()
 		frontground.add_child(fog)

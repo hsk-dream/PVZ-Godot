@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b2soejmoqi7wd"]
+[gd_scene load_steps=74 format=3 uid="uid://b2soejmoqi7wd"]
 
 [ext_resource type="Script" uid="uid://c7dr2016dfdoo" path="res://scripts/manager/main_game_manager.gd" id="1_7dde3"]
 [ext_resource type="Script" uid="uid://b2rst408m72au" path="res://scripts/manager/hand_manager/hand_manager.gd" id="3_acpf0"]
@@ -11,13 +11,16 @@
 [ext_resource type="Script" uid="uid://bkwrkp13gfh6e" path="res://scripts/manager/zombie_manager/zm_zombie_wave_refresh_manager.gd" id="6_ee3wa"]
 [ext_resource type="Script" uid="uid://ba811qtwbkyd0" path="res://scripts/manager/zombie_manager/zm_zombie_wave_create_manager.gd" id="7_3d12c"]
 [ext_resource type="Script" uid="uid://dqus20puuxano" path="res://scripts/manager/zombie_manager/zm_zombie_show_in_start.gd" id="8_ha6fd"]
-[ext_resource type="Script" uid="uid://cruc1xp1mskml" path="res://scripts/manager/game_item_manager.gd" id="11_f06xn"]
+[ext_resource type="Script" uid="uid://cruc1xp1mskml" path="res://scripts/manager/game_item_manager/game_item_manager.gd" id="11_f06xn"]
 [ext_resource type="Script" uid="uid://cr3h2c27i2jrx" path="res://scripts/manager/plant_cell_manager/plant_cell_manager.gd" id="12_hgtxc"]
 [ext_resource type="Script" uid="uid://g4mhhnrtydhd" path="res://scripts/manager/plant_cell_manager/tomb_stone_manager.gd" id="13_3d12c"]
+[ext_resource type="Script" uid="uid://hilbqsnly8n4" path="res://scripts/manager/game_item_manager/gim_brain.gd" id="14_b05fi"]
+[ext_resource type="Script" uid="uid://dn38qck086sil" path="res://scripts/manager/game_item_manager/gim_lawn_mover.gd" id="15_qfhda"]
 [ext_resource type="Script" uid="uid://7rl0u85kxat1" path="res://scripts/main_game_item/back_ground/main_game_home.gd" id="15_tsrbg"]
 [ext_resource type="Texture2D" uid="uid://css4w8rs4mm6l" path="res://assets/image/background/background1_gameover_interior_overlay.png" id="15_uinqq"]
 [ext_resource type="Texture2D" uid="uid://b6gd58cnsxid2" path="res://assets/image/background/background2_gameover_interior_overlay.png" id="16_7eijg"]
 [ext_resource type="PackedScene" uid="uid://brbdbxg2tocla" path="res://scenes/ui/flag_progress_bar.tscn" id="16_dc1ex"]
+[ext_resource type="Script" uid="uid://5mfcv4l1umid" path="res://scripts/manager/game_item_manager/gim_other.gd" id="16_ee3wa"]
 [ext_resource type="Texture2D" uid="uid://bter5jg6j45k" path="res://assets/image/background/background1_gameover_mask.png" id="17_0mfp0"]
 [ext_resource type="Script" uid="uid://cyutow4qwsjq5" path="res://scripts/ui/main_game_ui/ui_remind_word.gd" id="17_ybhi1"]
 [ext_resource type="Script" uid="uid://dp0c6p03bus3u" path="res://scripts/manager/background_manager.gd" id="18_du5qn"]
@@ -28,12 +31,13 @@
 [ext_resource type="Texture2D" uid="uid://d4bxwn6mmndtj" path="res://assets/image/background/background4_gameover_interior_overlay.png" id="19_470oe"]
 [ext_resource type="Script" uid="uid://lmskm3crn773" path="res://scripts/manager/day_suns_manager.gd" id="19_a514a"]
 [ext_resource type="Texture2D" uid="uid://bcv81qevn5hpt" path="res://assets/image/ui/ui_remind_word/StartPlant.png" id="20_2b7lk"]
-[ext_resource type="Script" uid="uid://c7icgyhar4pfl" path="res://scripts/manager/zombie_mode_manager.gd" id="20_27j16"]
 [ext_resource type="Texture2D" uid="uid://uh50cdkqdl67" path="res://assets/image/background/background1.jpg" id="20_ifnc6"]
 [ext_resource type="Texture2D" uid="uid://c4jwi8yjt7hmd" path="res://assets/image/ui/ui_remind_word/Approaching.png" id="21_48j6u"]
-[ext_resource type="Script" uid="uid://vemd6ndasc6s" path="res://scripts/manager/drop_item_manager.gd" id="21_xftc3"]
+[ext_resource type="Script" uid="uid://vemd6ndasc6s" path="res://scripts/manager/drop_item_manager/drop_item_manager.gd" id="21_xftc3"]
+[ext_resource type="Script" uid="uid://dapift6cdp60u" path="res://scripts/manager/drop_item_manager/dim_coin.gd" id="22_g6t7u"]
 [ext_resource type="Texture2D" uid="uid://bp2ironyexkgp" path="res://assets/image/ui/ui_remind_word/FinalWave.png" id="22_httmh"]
 [ext_resource type="Texture2D" uid="uid://cdoiwcmaapdkm" path="res://assets/image/background/background3_gameover_mask.png" id="22_xh73d"]
+[ext_resource type="Script" uid="uid://nc7vfachr5ub" path="res://scripts/manager/drop_item_manager/dim_garden_plant.gd" id="23_41ccn"]
 [ext_resource type="Texture2D" uid="uid://dfpr4h80b1qyx" path="res://assets/image/background/background4_gameover_mask.png" id="23_401pl"]
 [ext_resource type="Texture2D" uid="uid://vcaw16pvdqga" path="res://assets/image/ui/ui_remind_word/ZombiesWon.png" id="23_vyo3a"]
 [ext_resource type="Script" uid="uid://dhkfw0onmxcyf" path="res://scripts/camera/main_game_camera.gd" id="24_b4qea"]
@@ -42,7 +46,6 @@
 [ext_resource type="Script" uid="uid://duv8spyw6f44n" path="res://scripts/manager/zombie_manager/zm_zombie_choose_row_system.gd" id="25_iuyhw"]
 [ext_resource type="Script" uid="uid://3j46ottso760" path="res://scripts/ui/main_game_ui/main_game_menu_button.gd" id="26_84h1o"]
 [ext_resource type="Texture2D" uid="uid://toxyk2jadqam" path="res://assets/image/ui/ui_main_game_menu/option_dialog.png" id="27_w5iw5"]
-[ext_resource type="Script" uid="uid://c6mc0k0vhb4ad" path="res://scripts/manager/lawn_mover_manager.gd" id="28_3uxdp"]
 [ext_resource type="Texture2D" uid="uid://dfjdwrmbaotyx" path="res://assets/image/background/background5_gameover_mask.png" id="28_71hfq"]
 [ext_resource type="Script" uid="uid://djkmy1xylm8hs" path="res://scripts/ui/ui_main_game_menu/main_game_menu_option_dialog.gd" id="28_mddbc"]
 [ext_resource type="Script" uid="uid://parybxg7tb1k" path="res://scripts/ui/PVZ_button_base.gd" id="29_8fvtd"]
@@ -144,6 +147,15 @@ script = ExtResource("24_iuyhw")
 unique_name_in_owner = true
 script = ExtResource("11_f06xn")
 
+[node name="GIM_Brain" type="Node" parent="Manager/GameItemManager"]
+script = ExtResource("14_b05fi")
+
+[node name="GIM_LawnMover" type="Node" parent="Manager/GameItemManager"]
+script = ExtResource("15_qfhda")
+
+[node name="GIM_Other" type="Node" parent="Manager/GameItemManager"]
+script = ExtResource("16_ee3wa")
+
 [node name="PlantCellManager" type="Node" parent="Manager"]
 unique_name_in_owner = true
 script = ExtResource("12_hgtxc")
@@ -155,10 +167,6 @@ script = ExtResource("13_3d12c")
 unique_name_in_owner = true
 script = ExtResource("34_5pjpf")
 
-[node name="LawnMoverManager" type="Node" parent="Manager"]
-unique_name_in_owner = true
-script = ExtResource("28_3uxdp")
-
 [node name="BackgroundManager" type="Node" parent="Manager"]
 unique_name_in_owner = true
 script = ExtResource("18_du5qn")
@@ -169,15 +177,17 @@ script = ExtResource("19_a514a")
 
 [node name="ProductionTimer" type="Timer" parent="Manager/DaySunsManager"]
 
-[node name="ZombieModeManager" type="Node" parent="Manager"]
-unique_name_in_owner = true
-script = ExtResource("20_27j16")
-
-[node name="DropItemManager" type="Node" parent="Manager" node_paths=PackedStringArray("all_drop_coin_parent", "all_drop_garden_plant_parent")]
+[node name="DropItemManager" type="Node" parent="Manager"]
 unique_name_in_owner = true
 script = ExtResource("21_xftc3")
-all_drop_coin_parent = NodePath("../../CanvasLayerDropItem/AllDropCoin")
-all_drop_garden_plant_parent = NodePath("../../CanvasLayerDropItem/AllDropGardenPlant")
+
+[node name="DIM_Coin" type="Node" parent="Manager/DropItemManager" node_paths=PackedStringArray("all_drop_coin_parent")]
+script = ExtResource("22_g6t7u")
+all_drop_coin_parent = NodePath("../../../CanvasLayerDropItem/AllDropCoin")
+
+[node name="DIM_GardenPlant" type="Node" parent="Manager/DropItemManager" node_paths=PackedStringArray("all_drop_garden_plant_parent")]
+script = ExtResource("23_41ccn")
+all_drop_garden_plant_parent = NodePath("../../../CanvasLayerDropItem/AllDropGardenPlant")
 
 [node name="CanvasLayerBG" type="CanvasLayer" parent="."]
 layer = -10

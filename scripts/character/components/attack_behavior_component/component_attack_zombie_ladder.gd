@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 					is_can_ladder = false
 					signal_ladder.emit(plant_ladder)
 					return
-			detect_component.enemy_can_be_attacked.be_zombie_eat(curr_attack_value_per_min * delta * 8, owner)
+			detect_component.enemy_can_be_attacked.be_zombie_eat(int(curr_attack_value_per_min * delta * 8), owner)
 
 
 ## 判断是否可以给敌人挂梯子

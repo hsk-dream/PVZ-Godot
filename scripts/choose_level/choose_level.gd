@@ -29,7 +29,7 @@ func _ready() -> void:
 			open_level_num = 3
 	else:
 		open_level_num = -1
-		
+
 	for page_i in all_page.get_child_count():
 		var page = all_page.get_child(page_i)
 		all_pages_array.append(page)

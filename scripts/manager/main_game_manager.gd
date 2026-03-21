@@ -30,10 +30,9 @@ class_name MainGameManager
 @onready var zombie_manager: ZombieManager = %ZombieManager
 @onready var game_item_manager: GameItemManager = %GameItemManager
 @onready var plant_cell_manager: PlantCellManager = %PlantCellManager
-@onready var lawn_mover_manager: LawnMoverManager = %LawnMoverManager
 @onready var background_manager: BackgroundManager = %BackgroundManager
 @onready var day_suns_manager: DaySunsManagner = %DaySunsManager
-@onready var zombie_mode_manager: ZombieModeManager = %ZombieModeManager
+@onready var drop_item_manager: DropItemManager = %DropItemManager
 
 #endregion
 
@@ -136,15 +135,28 @@ var is_save_game_data_on_init:=false
 #endregion
 
 #endregion
-func _ready() -> void:
+## 进入树时更新游戏参数，子管理器赋值对应的游戏参数
+func _enter_tree() -> void:
 	Global.main_game = self
-
 	## 先获取当前关卡参数
 	if Global.game_para != null:
 		game_para = Global.game_para
 	else:
 		is_test = true
+	if game_para == null:
+		push_error(
+			"主游戏缺少关卡数据 ResourceLevelData：请从选关流程进入，或在编辑器中为该主游戏场景根节点指定「本局游戏参数 / game_para」。"
+		)
+		queue_free()
+		return
 	game_para.init_para()
+
+func _exit_tree() -> void:
+	## 避免切场景后主游戏节点已释放，Global 仍持有野指针
+	if Global.main_game == self:
+		Global.main_game = null
+
+func _ready() -> void:
 	## 多轮游戏并且有存档
 	is_save_game_data_on_init = game_para.game_round != 1 and game_para.save_game_data_main_game != null
 
@@ -169,8 +181,6 @@ func _ready() -> void:
 		load_game_main_game()
 		start_next_round_game()
 	else:
-		if game_para.is_zombie_mode:
-			zombie_mode_manager.create_all_brain_on_zombie_mode()
 
 		## 如果有戴夫对话
 		if game_para.crazy_dave_dialog:
@@ -220,19 +230,18 @@ func update_marker_2d_sun_target(new_marker_2d_sun_target:Marker2D):
 #region 游戏关卡初始化
 ## 初始化管理器
 func init_manager():
-	card_manager.init_card_manager(game_para)
-	plant_cell_manager.init_plant_cell_manager(game_para)
-	game_item_manager.init_game_item_manager(game_para)
-	hand_manager.init_hand_manager(game_para)
-	zombie_manager.init_zombie_manager(game_para)
-	lawn_mover_manager.init_lawn_mover_manager(game_para)
-	background_manager.init_background_manager(game_para)
+	card_manager.init_manager()
+	plant_cell_manager.init_manager()
+	game_item_manager.init_manager()
+	hand_manager.init_manager()
+	zombie_manager.init_manager()
+	background_manager.init_manager()
+	drop_item_manager.init_manager()
+	day_suns_manager.init_manager()
 	print("info:管理器初始化完成")
 
-## 子节点之间信号连接
+## 信号连接
 func signal_connect():
-	## 植物格子数据与手持管理器信号连接
-	plant_cell_manager.signal_connect_plant_cell_with_hand_manager(hand_manager)
 	if game_para.is_hammer:
 		for ui_node:Control in node_mouse_appear_have_hammer:
 			ui_node.mouse_entered.connect(mouse_appear_have_hammer)
@@ -241,7 +250,7 @@ func signal_connect():
 ## 初始化游戏bgm
 func _init_game_BGM():
 	#print(game_para.game_BGM)
-	var path_bgm_game = game_para.GameBGMMap[game_para.game_BGM]
+	var path_bgm_game = ConstLevelData.GameBGMMap[game_para.game_BGM]
 	bgm_main_game = load(path_bgm_game) as AudioStream
 
 
@@ -284,7 +293,7 @@ func start_next_round_game():
 	zombie_manager.start_next_game_zombie_mananger_update()
 	## 更新植物格子数据，（创建罐子） 清除植物数据需要等待两帧
 	await plant_cell_manager.start_next_game_plant_cell_manager_update()
-	zombie_mode_manager.start_next_game_zombie_mode_manager_update()
+	game_item_manager.start_next_game_game_item_manager_update()
 
 	## 如果看展示僵尸
 	if game_para.look_show_zombie:
@@ -375,7 +384,7 @@ func change_zombie_position(zombie:Zombie000Base):
 	zombie.get_parent().remove_child(zombie)
 	panel_zombie_go_home.add_child(zombie)
 	zombie.position = marker_2d_zombie_go_home.position
-	if game_para.game_BG == ResourceLevelData.GameBg.Roof:
+	if game_para.game_BG == ConstLevelData.GameBg.Roof:
 		roof_zombie_go_home(zombie)
 
 
@@ -401,8 +410,8 @@ func on_zombie_go_home(zombie:Zombie000Base):
 	TreePauseManager.start_tree_pause(TreePauseManager.E_PauseFactor.GameOver)
 	call_deferred("change_zombie_position", zombie)
 	## 如果有锤子
-	if game_item_manager.all_game_items.has(GameItemManager.E_GameItemType.Hammer):
-		game_item_manager.all_game_items[GameItemManager.E_GameItemType.Hammer].set_is_used(false)
+	if game_para.is_hammer:
+		game_item_manager.gim_other.hammer.set_is_used(false)
 	await get_tree().create_timer(1).timeout
 
 	camera_2d.move_to(Vector2(-200, 0), 2)
@@ -507,7 +516,7 @@ func save_game_main_game():
 	## 植物卡槽数据
 	save_game_data_main_game.card_manager_data = card_manager.get_save_game_data_card_manager()
 	## 小推车数据
-	save_game_data_main_game.lawn_mover_manager_data = lawn_mover_manager.get_save_game_data_lawn_mover_manager()
+	save_game_data_main_game.lawn_mover_manager_data = game_item_manager.gim_lawn_mover.get_save_game_data_lawn_mover_manager()
 
 	var path = game_para.get_save_game_path()
 	var err = ResourceSaver.save(save_game_data_main_game, path)

@@ -20,7 +20,7 @@ class_name MainGameHome
 ]
 
 ## 根据当前背景初始化房门
-func init_home(game_BG:ResourceLevelData.GameBg):
+func init_home(game_BG: ConstLevelData.GameBg):
 	if is_instance_valid(door_downs[game_BG]):
 		## 打开房门
 		door_downs[game_BG].visible = true

@@ -110,8 +110,7 @@ func _on_hammer_zombie_timer_timeout() -> void:
 	## 如果为第10波最后一小组
 	if curr_wave % 10 == 9 and curr_group_min == 9:
 		await get_tree().create_timer(3).timeout
-		@warning_ignore("integer_division")
-		set_progress_bar(curr_wave/10)
+		set_progress_bar(int(curr_wave/10.0))
 		big_wave = true
 	else:
 		set_progress_bar()

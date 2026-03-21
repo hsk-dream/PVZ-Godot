@@ -1,5 +1,7 @@
 extends Node
-class_name LawnMoverManager
+class_name GIM_LawnMover
+
+@onready var game_item_manager: GameItemManager = %GameItemManager
 
 ## 小推车类型
 enum E_LawnMoverType{
@@ -29,29 +31,28 @@ var all_lawn_movers_type:Array = []
 var all_lawn_movers_global_pos:Array[Vector2] = []
 var all_lawn_movers:Array[LawnMover] = []
 
-## 是否有小推车
-var is_lawn_mover := true
 var game_scene:EnumsMainScene.MainScenes
-## 初始化plant_cell_manager和zombie_manager两个管理器ready后在初始化该管理器
-func init_lawn_mover_manager(game_para:ResourceLevelData) -> void:
-	is_lawn_mover = game_para.is_lawn_mover
-	game_scene = game_para.game_sences
+
+func _ready() -> void:
+	game_scene = game_item_manager.game_para.game_sences
 	## 补充小推车
 	EventBus.subscribe("replenish_lawn_mover", replenish_lawn_mover)
-	if not is_lawn_mover:
-		return
-	if game_para.save_game_data_main_game != null :
-		create_all_lawn_movers(game_para.save_game_data_main_game.lawn_mover_manager_data["is_has_all_lawn_mover"])
+
+## 初始化小推车
+func init_lawn_movers() -> void:
+	if game_item_manager.game_para.save_game_data_main_game != null :
+		create_all_lawn_movers(game_item_manager.game_para.save_game_data_main_game.lawn_mover_manager_data["is_has_all_lawn_mover"])
 	else:
 		create_all_lawn_movers()
+
 ## 生成所有的小推车
 func create_all_lawn_movers(is_has_all_lawn_mover:Array=[]):
 	all_lawn_movers_type = AllLawnMoverTypeFromGameScenes[game_scene]
 
 	print("创建小推车, 小推车类型", all_lawn_movers_type)
-	assert(Global.main_game.zombie_manager.all_zombie_rows.size() == all_lawn_movers_type.size(), "小推车数量与僵尸行数量不一致")
+	assert(game_item_manager.main_game.zombie_manager.all_zombie_rows.size() == all_lawn_movers_type.size(), "小推车数量与僵尸行数量不一致")
 	for lane in range(all_lawn_movers_type.size()):
-		var zombie_row:ZombieRow = Global.main_game.zombie_manager.all_zombie_rows[lane]
+		var zombie_row:ZombieRow = game_item_manager.main_game.zombie_manager.all_zombie_rows[lane]
 		var global_pos_lawn_mover:Vector2 = Vector2(GlobalXLawnMover, zombie_row.zombie_create_position.global_position.y)
 		all_lawn_movers_global_pos.append(global_pos_lawn_mover)
 		var new_lawn_mover:LawnMover

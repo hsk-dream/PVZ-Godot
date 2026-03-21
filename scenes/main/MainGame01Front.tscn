@@ -1045,5 +1045,5 @@ script = ExtResource("4_mevug")
 [node name="ZombieCreatePosition" type="Marker2D" parent="ZombiesRoot/Zombies_row5" index="0"]
 position = Vector2(950, 554)
 
-[node name="DetectComponentGlobal" parent="." index="16"]
+[node name="DetectComponentGlobal" parent="." index="17"]
 visible = false

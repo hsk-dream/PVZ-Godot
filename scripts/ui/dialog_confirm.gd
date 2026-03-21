@@ -19,15 +19,15 @@ func show_confirm(message: String) -> void:
 	label.text = message
 	visible = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	await get_tree().process_frame
-	_center_panel()
-
-## 将面板居中到屏幕中央
-func _center_panel() -> void:
-	return
-	var viewport_size = get_viewport_rect().size
-	var panel_size = panel.size
-	panel.position = (viewport_size - panel_size*2) / 2
+	#await get_tree().process_frame
+	#_center_panel()
+#
+### 将面板居中到屏幕中央
+#func _center_panel() -> void:
+	##return
+	#var viewport_size = get_viewport_rect().size
+	#var panel_size = panel.size
+	#panel.position = (viewport_size - panel_size*2) / 2
 
 
 

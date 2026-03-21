@@ -47,5 +47,5 @@ func _on_trophy_button_pressed() -> void:
 
 func _on_trophy_button_mouse_entered() -> void:
 	## 如果有锤子
-	if main_game.game_item_manager.all_game_items.has(GameItemManager.E_GameItemType.Hammer):
+	if main_game.game_para.is_hammer:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

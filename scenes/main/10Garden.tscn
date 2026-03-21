@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://47ixd5hsddft" path="res://assets/image/ui/ui_card/ShovelBank.png" id="1_uu8cm"]
 [ext_resource type="Texture2D" uid="uid://y7ir422gbnxv" path="res://assets/image/garden/WateringCanGold.png" id="2_r7eep"]
 [ext_resource type="AudioStream" uid="uid://ryoiuendasef" path="res://assets/audio/BGM/garden.mp3" id="2_yfmuy"]
-[ext_resource type="Script" uid="uid://vemd6ndasc6s" path="res://scripts/manager/drop_item_manager.gd" id="3_y8v5q"]
+[ext_resource type="Script" uid="uid://dapift6cdp60u" path="res://scripts/manager/drop_item_manager/dim_coin.gd" id="3_y8v5q"]
 [ext_resource type="Texture2D" uid="uid://3vm8i65dei2h" path="res://assets/image/garden/Fertilizer.png" id="4_l0x8f"]
 [ext_resource type="Script" uid="uid://55q5g0e2ktn6" path="res://scripts/garden/ui_item_button.gd" id="5_6rwu8"]
 [ext_resource type="PackedScene" uid="uid://cuken451e2wr7" path="res://scenes/garden/01_wateringcan.tscn" id="5_hjxn1"]
@@ -36,7 +36,7 @@
 script = ExtResource("1_cd35e")
 bgm = ExtResource("2_yfmuy")
 
-[node name="DropItemManager" type="Node" parent="." node_paths=PackedStringArray("all_drop_coin_parent")]
+[node name="DIM_Coin" type="Node" parent="." node_paths=PackedStringArray("all_drop_coin_parent")]
 script = ExtResource("3_y8v5q")
 all_drop_coin_parent = NodePath("../CanvasLayerDrop/AllDropCoin")
 

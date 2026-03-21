@@ -2,6 +2,8 @@ extends Node
 ## 手持管理器，角色（植物僵尸）
 class_name HM_Character
 
+@onready var hand_manager: HandManager = %HandManager
+
 ## 角色临时挂载节点
 @onready var temporary_character: Node2D = %TemporaryCharacter
 
@@ -26,8 +28,8 @@ var characte_static_shadow_colum : Array[Node2D]
 ## 紫卡植物可以的预种植植物,点击卡片时明暗交替
 var curr_all_preplant_purple:Array[Plant000Base]
 
-func init_hm_character(game_para:ResourceLevelData):
-	self.is_mode_column = game_para.is_mode_column
+func init_hm_character():
+	self.is_mode_column = hand_manager.game_para.is_mode_column
 
 func character_process() -> void:
 	## CanvasItem方法获取位置
@@ -115,16 +117,16 @@ func mouse_enter(plant_cell:PlantCell):
 		_mouse_enter_column(plant_cell)
 
 ## 更新植物格子虚影,返回是否能种植
-func _update_cell_shadow(plant_cell:PlantCell, characte_static_shadow:Node2D) -> bool:
+func _update_cell_shadow(plant_cell:PlantCell, curr_characte_static_shadow:Node2D) -> bool:
 	## 植物
 	if curr_card.card_plant_type != 0:
 		## 如果是判定是否可以种植植物
 		if plant_condition.judge_is_can_plant(plant_cell, curr_card.card_plant_type):
-			characte_static_shadow.global_position = plant_cell.get_new_plant_static_shadow_global_position(plant_condition.place_plant_in_cell)
-			characte_static_shadow.modulate.a = 0.5
+			curr_characte_static_shadow.global_position = plant_cell.get_new_plant_static_shadow_global_position(plant_condition.place_plant_in_cell)
+			curr_characte_static_shadow.modulate.a = 0.5
 			return true
 		else:
-			characte_static_shadow.modulate.a = 0
+			curr_characte_static_shadow.modulate.a = 0
 			return false
 
 	## 僵尸
@@ -135,15 +137,15 @@ func _update_cell_shadow(plant_cell:PlantCell, characte_static_shadow:Node2D) ->
 		## 如果不是双地形
 		if zombie_row_type != EnumsCharacter.ZombieRowType.Both:
 			if zombie_row_type == Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type:
-				characte_static_shadow.global_position =  get_zombie_static_shadow_global_position(plant_cell)
-				characte_static_shadow.modulate.a = 0.5
+				curr_characte_static_shadow.global_position =  get_zombie_static_shadow_global_position(plant_cell)
+				curr_characte_static_shadow.modulate.a = 0.5
 				return true
 			else:
-				characte_static_shadow.modulate.a = 0
+				curr_characte_static_shadow.modulate.a = 0
 				return false
 		else:
-			characte_static_shadow.global_position = get_zombie_static_shadow_global_position(plant_cell)
-			characte_static_shadow.modulate.a = 0.5
+			curr_characte_static_shadow.global_position = get_zombie_static_shadow_global_position(plant_cell)
+			curr_characte_static_shadow.modulate.a = 0.5
 			return true
 
 ## 获取种植僵尸的虚影位置

@@ -10,9 +10,6 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhd4o"]
 
 [node name="MainGame" instance=ExtResource("1_ebgo8")]
-test_change_sun_value = null
-test_death_all_zombie = null
-test_time_scale = null
 game_para = ExtResource("2_lh46o")
 
 [node name="Background" parent="CanvasLayerBG" index="0"]

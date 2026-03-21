@@ -67,7 +67,7 @@ func init_new_plant_cell():
 ## 增加新植物
 func _add_new_plant(curr_plant_cell_data:Dictionary={}):
 	## 获取植物种植数据
-	var curr_plant_type:EnumsCharacter.PlantType
+	#var curr_plant_type:EnumsCharacter.PlantType
 	var curr_plant_place:EnumsCharacter.PlacePlantInCell
 	var curr_plant_condition:int
 	## 如果为空,种植发芽植物
@@ -79,8 +79,8 @@ func _add_new_plant(curr_plant_cell_data:Dictionary={}):
 
 	else:
 		curr_plant_type = curr_plant_cell_data["curr_plant_type"]
-		## 植物
-		var curr_plant:Plant000Base = Global.character_registry.get_plant_info(curr_plant_type, EnumsCharacter.PlantInfoAttribute.PlantScenes).instantiate()
+		### 植物
+		#var curr_plant:Plant000Base = Global.character_registry.get_plant_info(curr_plant_type, EnumsCharacter.PlantInfoAttribute.PlantScenes).instantiate()
 		## 植物种植条件
 		var curr_plant_new_plant_condition:ResourcePlantCondition = Global.character_registry.get_plant_info(curr_plant_type, EnumsCharacter.PlantInfoAttribute.PlantConditionResource)
 		curr_plant_place = curr_plant_new_plant_condition.place_plant_in_cell

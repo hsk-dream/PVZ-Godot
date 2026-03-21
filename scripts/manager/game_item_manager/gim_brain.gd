@@ -1,14 +1,18 @@
 extends Node
-class_name ZombieModeManager
-## 我是僵尸模式管理器
+class_name GIM_Brain
 
-const BRAIN_ON_ZOMBIE_MODE = preload("uid://dvkf684uy2mmw")
+
+## 脑子场景
+const BRAIN_ON_ZOMBIE_MODE = preload("res://scenes/item/brain_on_zombie_mode.tscn")
+## 脑子父节点
 @onready var brain_on_zombie_mode: Node2D = %BrainOnZombieMode
-
 ## 脑子生成的全局x位置
 @export var GlobalXBrain:float = 20
+## 当前存在的脑子
 var curr_brain:Array[BrainOnZombieMode] = []
+## 当前脑子数量
 var curr_brain_num:= 0
+
 
 ## 我是僵尸模式创建所有的脑子
 func create_all_brain_on_zombie_mode():
@@ -16,7 +20,6 @@ func create_all_brain_on_zombie_mode():
 	curr_brain_num = 0
 	for i in range(Global.main_game.zombie_manager.all_zombie_rows.size()):
 		_create_one_brain(i)
-
 
 ## 创建一个脑子
 ##[lane:int] 行数
@@ -35,15 +38,9 @@ func _create_one_brain(lane:int):
 	curr_brain.append(brain)
 	curr_brain_num += 1
 
-
 ## 当脑子死亡时
 func _on_brain_death(brain:BrainOnZombieMode):
 	curr_brain.erase(brain)
 	curr_brain_num -= 1
 	if curr_brain_num == 0:
 		EventBus.push_event("create_trophy", brain.global_position)
-
-
-func start_next_game_zombie_mode_manager_update():
-	if Global.main_game.game_para.is_zombie_mode:
-		create_all_brain_on_zombie_mode()

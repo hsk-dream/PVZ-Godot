@@ -1,4 +1,4 @@
-extends Node
+extends MainGameSubManager
 class_name DaySunsManagner
 ## 天降阳光管理器
 
@@ -21,6 +21,8 @@ class_name DaySunsManagner
 func _ready():
 	production_timer.timeout.connect(_on_production_timer_timeout)
 
+func init_manager() -> void:
+	pass
 
 func start_day_sun():
 	# 如果计时器是暂停状态，取消暂停

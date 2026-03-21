@@ -1,7 +1,6 @@
-extends Node
+extends MainGameSubManager
 class_name ZombieManager
 
-@onready var main_game: MainGameManager = $"../.."
 ## 最后一波僵尸每秒检测是否有僵尸离开当前视野
 @onready var check_zombie_end_wave_timer: Timer = $CheckZombieEndWaveTimer
 ## 管理器
@@ -19,11 +18,8 @@ var is_bungi = false
 var zombie_refresh_types = []
 
 ## 出怪模式
-var monster_mode:ResourceLevelData.E_MonsterMode = ResourceLevelData.E_MonsterMode.Norm
-## 是否为僵尸快跑模式
-var is_mini_zombie := false
-## 是否为我是僵尸模式
-var is_zombie_mode:=false
+var monster_mode:ConstLevelData.E_MonsterMode = ConstLevelData.E_MonsterMode.Norm
+
 #endregion
 
 #region 多轮游戏
@@ -86,19 +82,15 @@ func _ready():
 		all_zombies_2d.append(row_zombies)
 
 ## 初始僵尸管理器
-func init_zombie_manager(game_para:ResourceLevelData):
+func init_manager() -> void:
 	## 出怪模式
 	monster_mode = game_para.monster_mode
-	## 是否为僵尸快跑模式
-	is_mini_zombie = game_para.is_mini_zombie
-	## 是否为我是僵尸模式
-	is_zombie_mode = game_para.is_zombie_mode
 	match monster_mode:
 		## 没有僵尸刷新,直接启动最后一波僵尸检查计时器
-		ResourceLevelData.E_MonsterMode.Null:
+		ConstLevelData.E_MonsterMode.Null:
 			check_zombie_end_wave_timer.start()
 
-		ResourceLevelData.E_MonsterMode.Norm:
+		ConstLevelData.E_MonsterMode.Norm:
 			## 如果游戏是多轮游戏
 			if game_para.game_round != 1:
 				update_multi_round_zombie_refresh_types(main_game.curr_game_round, main_game.game_para.game_sences)
@@ -113,7 +105,7 @@ func init_zombie_manager(game_para:ResourceLevelData):
 			## 僵尸数量改变时，剩余僵尸为0触发提前刷新
 			signal_curr_zombie_num_change.connect(zombie_wave_manager.zombie_wave_refresh_manager.judge_total_refresh)
 
-		ResourceLevelData.E_MonsterMode.HammerZombie:
+		ConstLevelData.E_MonsterMode.HammerZombie:
 			hammer_zombie_manager.init_hammer_zombie_manager(game_para)
 			## 波次刷新时判断是否为最后一波，删除多余魅惑僵尸
 			hammer_zombie_manager.signal_wave_refresh.connect(wave_refresh)
@@ -121,15 +113,15 @@ func init_zombie_manager(game_para:ResourceLevelData):
 ## 开始第一波
 func start_game():
 	match monster_mode:
-		ResourceLevelData.E_MonsterMode.Null:
+		ConstLevelData.E_MonsterMode.Null:
 			return
 
-		ResourceLevelData.E_MonsterMode.Norm:
+		ConstLevelData.E_MonsterMode.Norm:
 			## 10秒后开始刷新僵尸
 			await get_tree().create_timer(10).timeout
 			zombie_wave_manager.start_first_wave()
 
-		ResourceLevelData.E_MonsterMode.HammerZombie:
+		ConstLevelData.E_MonsterMode.HammerZombie:
 			await get_tree().create_timer(2).timeout
 			hammer_zombie_manager.start_first_wave()
 
@@ -143,8 +135,8 @@ func create_norm_zombie(
 	init_zombie_special:Callable = Callable()		## 初始化僵尸特殊属性
 ) -> Zombie000Base:
 	var zombie:Zombie000Base = Global.character_registry.get_zombie_info(zombie_type, EnumsCharacter.ZombieInfoAttribute.ZombieScenes).instantiate()
-	zombie_init_para[Zombie000Base.E_ZInitAttr.IsMiniZombie] = is_mini_zombie
-	zombie_init_para[Zombie000Base.E_ZInitAttr.IsZombieMode] = is_zombie_mode
+	zombie_init_para[Zombie000Base.E_ZInitAttr.IsMiniZombie] = game_para.is_mini_zombie
+	zombie_init_para[Zombie000Base.E_ZInitAttr.IsZombieMode] = game_para.is_zombie_mode
 
 	zombie.init_zombie(zombie_init_para)
 	if not init_zombie_special.is_null():
@@ -247,14 +239,14 @@ func _on_trigger_start_next_round_game():
 func start_next_game_zombie_mananger_update():
 	is_end_wave = false
 	match monster_mode:
-		ResourceLevelData.E_MonsterMode.Norm:
+		ConstLevelData.E_MonsterMode.Norm:
 			check_zombie_end_wave_timer.stop()
 			## 更新当前轮次的出怪列表
 			update_multi_round_zombie_refresh_types(main_game.curr_game_round, main_game.game_para.game_sences)
 			zombie_wave_manager.start_next_game_zombie_wave_mananger_update()
 
 	## 我是僵尸模式删除所有的僵尸
-	if is_zombie_mode:
+	if game_para.is_zombie_mode:
 		for i in range(all_zombies_1d.size()-1,-1,-1):
 			var zombie:Zombie000Base = all_zombies_1d[i]
 			zombie.character_death_disappear()

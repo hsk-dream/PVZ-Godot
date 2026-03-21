@@ -1,4 +1,4 @@
-extends Node
+extends MainGameSubManager
 ## 管理手持角色（植物、僵尸）、道具（铲子）
 ## 类似状态机
 class_name HandManager
@@ -45,9 +45,8 @@ func hm_status_change(ori_status:E_HandManagerStatus, _new_status:E_HandManagerS
 		E_HandManagerStatus.Item:
 			hm_item.exit_status()
 
-## 初始化参数
-func init_hand_manager(game_para:ResourceLevelData):
-	hm_character.init_hm_character(game_para)
+func init_manager() -> void:
+	hm_character.init_hm_character()
 
 ## 点击卡片
 func _click_card(card:Card) -> void:

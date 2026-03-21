@@ -23,8 +23,16 @@ var is_pot_zombie:=false
 var is_body_up_from_ground := false
 
 @export_subgroup("僵尸铁器")
+## 铁器种类
+enum IronType{
+	Null,		## 没有铁器
+	IronArmor1,	## 一类铁器防具
+	IronArmor2,	## 二类铁器防具
+	IronItem,	## 铁器道具
+}
+
 ## 僵尸铁器类型
-@export var iron_type:EnumsItem.IronType = EnumsItem.IronType.Null
+@export var iron_type:IronType = IronType.Null
 ## 僵尸铁器节点
 @export var iron_node:IronNode
 @export_subgroup("僵尸初始化状态")
@@ -293,10 +301,10 @@ func ready_norm_signal_connect():
 
 	## 铁器防具
 	match iron_type:
-		EnumsItem.IronType.IronArmor1:
-			hp_component.signal_armor1_death.connect(func():iron_type=EnumsItem.IronType.Null)
-		EnumsItem.IronType.IronArmor2:
-			hp_component.signal_armor2_death.connect(func():iron_type=EnumsItem.IronType.Null)
+		IronType.IronArmor1:
+			hp_component.signal_armor1_death.connect(func():iron_type=IronType.Null)
+		IronType.IronArmor2:
+			hp_component.signal_armor2_death.connect(func():iron_type=IronType.Null)
 
 	## 掉落战利品
 	hp_component.signal_hp_component_death.connect(drop_item_component.drop_coin)
@@ -468,17 +476,17 @@ func be_squash(attack_value:int=1800):
 ## 非一类防具和非二类防具需重写该函数
 func be_magnet_iron():
 	match iron_type:
-		EnumsItem.IronType.IronArmor1:
+		IronType.IronArmor1:
 			hp_component.Hp_loss(hp_component.curr_hp_armor1, EnumsBullet.AttackMode.Norm, false, false)
-		EnumsItem.IronType.IronArmor2:
+		IronType.IronArmor2:
 			hp_component.Hp_loss(hp_component.curr_hp_armor2, EnumsBullet.AttackMode.Norm, false, false)
-		EnumsItem.IronType.IronItem:
+		IronType.IronItem:
 			loss_iron_item()
 
 ## 失去铁器道具的影响,对应子类继承重写
 func loss_iron_item():
 	iron_node.visible = false
-	iron_type = EnumsItem.IronType.Null
+	iron_type = IronType.Null
 
 ## 被吹走,在空中的僵尸被三叶草吹时调用
 func be_blow_away():

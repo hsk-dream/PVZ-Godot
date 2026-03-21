@@ -27,7 +27,7 @@ func create_show_zombie(zombie_type:EnumsCharacter.ZombieType, parent_node:Panel
 	var zombie_init_para:Dictionary = {
 		Zombie000Base.E_ZInitAttr.CharacterInitType:Character000Base.E_CharacterInitType.IsShow,
 		Zombie000Base.E_ZInitAttr.CurrZombieRowType:EnumsCharacter.ZombieRowType.Land,
-		Zombie000Base.E_ZInitAttr.IsMiniZombie: zombie_manager.is_mini_zombie
+		Zombie000Base.E_ZInitAttr.IsMiniZombie: zombie_manager.game_para.is_mini_zombie
 	}
 	zombie.init_zombie(zombie_init_para)
 	parent_node.add_child(zombie)

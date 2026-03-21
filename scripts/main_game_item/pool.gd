@@ -16,11 +16,11 @@ const POOL_NIGHT = preload("res://assets/image/background/pool_night.jpg")
 
 func init_pool(game_para:ResourceLevelData):
 	match game_para.game_BG:
-		ResourceLevelData.GameBg.Pool:
+		ConstLevelData.GameBg.Pool:
 			pool_base.texture = POOL_BASE
 			pool.texture = POOL
 
-		ResourceLevelData.GameBg.Fog:
+		ConstLevelData.GameBg.Fog:
 			pool_base.texture = POOL_BASE_NIGHT
 			pool.texture = POOL_NIGHT
 
@@ -28,9 +28,9 @@ func init_pool(game_para:ResourceLevelData):
 		pool_drop.visible = true
 		var mat := pool_drop.material
 		match game_para.game_BG:
-			ResourceLevelData.GameBg.Pool:
+			ConstLevelData.GameBg.Pool:
 				mat.set("shader_parameter/drop_color", Color(0.0, 0.914, 0.941, 1.0))
-			ResourceLevelData.GameBg.Fog:
+			ConstLevelData.GameBg.Fog:
 				mat.set("shader_parameter/drop_color", Color(0.0, 0.502, 0.773, 1.0))
 	else:
 		pool_drop.visible = false

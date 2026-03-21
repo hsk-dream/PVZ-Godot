@@ -1,24 +1,15 @@
 extends Node
-class_name DropItemManager
-## 掉落道具管理器, 管理掉落金币、花盆
-## 主游戏场景和花园场景使用
+class_name DIM_Coin
+## 掉落管理器的子节点，掉落金币使用
+
 
 ## 要求必须有这个金币显示label
 @onready var coin_bank_label: CoinBankLabel = %CoinBankLabel
 ## 掉落金币的父节点
 @export var all_drop_coin_parent: Node2D
-## 掉落花园植物的父节点
-@export var all_drop_garden_plant_parent: Node2D
 
 func _ready() -> void:
-	EventBus.subscribe("gold_magnet_attract_once", gold_magnet_attract_once)
 	EventBus.subscribe("create_coin", create_coin)
-
-## 吸金磁 吸引金币一次
-func gold_magnet_attract_once(target_pos:Vector2):
-	for c in all_drop_coin_parent.get_children():
-		if c is Coin:
-			c.be_attract_gold_magnet(target_pos)
 
 ## 生产金币,按概率生产，概率和为1,
 ## 概率顺序为 银币金币和钻石
@@ -42,18 +33,3 @@ func create_coin(probability:Array=[0.5, 0.5, 0], global_position_new_coin:Vecto
 	new_coin.global_position = global_position_new_coin
 	## 抛物线发射金币
 	new_coin.launch(target_position)
-#endregion
-
-#region 花园
-## 掉落花园植物
-func create_garden_plant(global_position_new_garden_plant:Vector2):
-	var new_garden_plant:Present = SceneRegistry.PRESENT.instantiate()
-
-	all_drop_garden_plant_parent.add_child(new_garden_plant)
-	new_garden_plant.global_position = global_position_new_garden_plant
-	SoundManager.play_other_SFX("chime")
-
-#endregion
-
-
-

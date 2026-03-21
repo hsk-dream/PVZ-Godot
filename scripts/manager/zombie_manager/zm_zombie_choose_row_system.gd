@@ -92,17 +92,19 @@ func select_spawn_row(zombie_row_type: EnumsCharacter.ZombieRowType, special_bas
 		total_smooth_weight += w
 
 	if total_smooth_weight <= 0:
+		push_warning("整体平滑权重小于等于0")
 		return 5
 
 	var rand_num = randf_range(0.0, total_smooth_weight)
 	var cumulative_weight = 0.0
 
-	for i in range(6):
+	for i in range(smooth_weights.size()):
 		cumulative_weight += smooth_weights[i]
 		if cumulative_weight >= rand_num:
 			on_zombie_spawned(i)
 			return i
 
+	push_warning("权重出错")
 	return 5
 
 ### 获取概率

@@ -198,8 +198,8 @@ func _speech_anim_from_dialog_detail(dialog_detail:CrazyDaveDialogDetailResource
 ## 初始化戴夫相关参数
 ## @param dialog_resource (CrazyDaveDialogResource) - 本次对话的戴夫资源文件。
 
-func init_dave(dialog_resource:CrazyDaveDialogResource, hand_node:Node = null) -> void:
-	self.dialog_resource = dialog_resource
+func init_dave(curr_dialog_resource:CrazyDaveDialogResource, hand_node:Node = null) -> void:
+	dialog_resource = curr_dialog_resource
 	## 如果存在手持物品时
 	if dialog_resource.hand_show_item_path:
 		get_node(dialog_resource.hand_show_item_path).visible = true
@@ -213,7 +213,7 @@ func init_dave(dialog_resource:CrazyDaveDialogResource, hand_node:Node = null) -
 	self.is_grab = dialog_resource.is_grab
 
 
-func reset_dave(dialog_resource:CrazyDaveDialogResource, hand_node:Node = null) -> void:
+func reset_dave(new_dialog_resource:CrazyDaveDialogResource, hand_node:Node = null) -> void:
 	## 重新播放动画
 	animation_tree.set("parameters/playback", null)  # 断开当前播放
 	animation_tree.active = false  # 停止播放
@@ -233,7 +233,7 @@ func reset_dave(dialog_resource:CrazyDaveDialogResource, hand_node:Node = null) 
 	is_crazy = false
 	## 开始长时间存在（戴夫开局讲完开场白之后）
 	start_long_time_dave = false
-	init_dave(dialog_resource, hand_node)
+	init_dave(new_dialog_resource, hand_node)
 
 ## 戴夫离场
 func dave_leave_end():

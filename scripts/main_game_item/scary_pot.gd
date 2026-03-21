@@ -2,6 +2,12 @@ extends MainGameItemBase
 class_name ScaryPot
 
 const SCARY_POT_WATER = preload("uid://bcaaxvox84hq5")
+## 罐子类型
+enum E_PotType{
+	Random,	## 随机罐子
+	Plant,	## 植物罐子
+	Zombie,	## 僵尸罐子
+}
 
 @onready var area_2d_detect: Area2D = $Area2DDetect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -21,7 +27,7 @@ const SCARY_POT_WATER = preload("uid://bcaaxvox84hq5")
 ## 是否已经打开
 var is_open:=false
 ## 罐子类型
-@export var pot_type:EnumsItem.E_PotType = EnumsItem.E_PotType.Random
+@export var pot_type:E_PotType = E_PotType.Random
 ## 是否为结果随机罐子,若结果随机，最后会从白名单中等权重随机
 @export var is_fixed_res:=true
 ## 当前植物类型
@@ -73,7 +79,7 @@ func _ready() -> void:
 
 ## 添加到节点树之前的初始化参数
 func init_pot(pot_init_para:Dictionary):
-	pot_type = pot_init_para.get(E_PotInitParaAttr.PotType, EnumsItem.E_PotType.Random)
+	pot_type = pot_init_para.get(E_PotInitParaAttr.PotType, E_PotType.Random)
 	is_fixed_res = pot_init_para.get(E_PotInitParaAttr.IsFixedRes, false)
 	if is_fixed_res:
 		curr_plant_type = pot_init_para.get(E_PotInitParaAttr.PlantType, EnumsCharacter.PlantType.Null)
@@ -86,7 +92,7 @@ func init_pot(pot_init_para:Dictionary):
 
 
 ## 根据罐子类型更新罐子外表
-func update_pot_appearance(curr_pot_type:EnumsItem.E_PotType):
+func update_pot_appearance(curr_pot_type:E_PotType):
 	scary_pot_back.frame_coords.x = int(curr_pot_type)
 	scary_pot_front.frame_coords.x = int(curr_pot_type)
 	pot_all_vase_chunks.update_pot_vase_chunks_appearance(curr_pot_type)
@@ -155,16 +161,16 @@ func open_pot():
 
 func random_res():
 	match pot_type:
-		EnumsItem.E_PotType.Random:
+		E_PotType.Random:
 			var p_plant_zombie:=randf()
 			if p_plant_zombie <=0.5:
 				curr_plant_type = Global.global_read_data.whitelist_plant_types_with_pot.pick_random()
 			else:
 				var curr_zomebi_row_type:EnumsCharacter.ZombieRowType = Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type
 				curr_zombie_type = Global.global_read_data.whitelist_refresh_zombie_types_with_zombie_row_type[curr_zomebi_row_type].pick_random()
-		EnumsItem.E_PotType.Plant:
+		E_PotType.Plant:
 			curr_plant_type = Global.global_read_data.whitelist_plant_types_with_pot.pick_random()
-		EnumsItem.E_PotType.Zombie:
+		E_PotType.Zombie:
 			var curr_zomebi_row_type:EnumsCharacter.ZombieRowType = Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type
 			curr_zombie_type = Global.global_read_data.whitelist_refresh_zombie_types_with_zombie_row_type[curr_zomebi_row_type].pick_random()
 
@@ -257,12 +263,12 @@ func character_static_init():
 		character_static.position = Vector2(0,0)
 	else:
 		match pot_type:
-			EnumsItem.E_PotType.Random:
+			E_PotType.Random:
 				character_static_init_res_random_plant()
 				character_static_init_res_random_zombie()
-			EnumsItem.E_PotType.Plant:
+			E_PotType.Plant:
 				character_static_init_res_random_plant()
-			EnumsItem.E_PotType.Zombie:
+			E_PotType.Zombie:
 				character_static_init_res_random_zombie()
 		update_res_random_character_static()
 		create_res_random_character_static_update_timer()
@@ -270,7 +276,7 @@ func character_static_init():
 ## 更新随机结果罐子角色虚影
 func update_res_random_character_static():
 	match pot_type:
-		EnumsItem.E_PotType.Random:
+		E_PotType.Random:
 			var p_plant_zombie:=randf()
 			if p_plant_zombie <=0.5:
 				curr_plant_type = all_plant_character_statics.keys().pick_random()
@@ -280,10 +286,10 @@ func update_res_random_character_static():
 				curr_plant_type = EnumsCharacter.PlantType.Null
 				curr_zombie_type = all_zombie_character_statics.keys().pick_random()
 				character_static = all_zombie_character_statics[curr_zombie_type]
-		EnumsItem.E_PotType.Plant:
+		E_PotType.Plant:
 			curr_plant_type = all_plant_character_statics.keys().pick_random()
 			character_static = all_plant_character_statics[curr_plant_type]
-		EnumsItem.E_PotType.Zombie:
+		E_PotType.Zombie:
 			curr_zombie_type = all_zombie_character_statics.keys().pick_random()
 			character_static = all_zombie_character_statics[curr_zombie_type]
 
