@@ -10,14 +10,9 @@ class_name CoinBankLabel
 func _ready() -> void:
 	Global.global_game_state.coin_value_changed.connect(_on_coin_value_changed)
 	update_label()
-	EventBus.subscribe("on_create_coin", _on_create_coin)
-
-func _on_create_coin():
-	update_label()
 
 func _on_coin_value_changed(_new_value: int) -> void:
 	update_label()
-
 
 func update_label() -> void:
 	visible = true
