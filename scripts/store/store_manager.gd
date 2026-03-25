@@ -22,7 +22,7 @@ func _on_store_main_menu_button_pressed() -> void:
 	siganl_exit_store.emit()
 	Global.save_service.save_now()
 	if get_tree().current_scene == self:
-		get_tree().change_scene_to_file(Global.main_scene_registry.MainScenesMap[EnumsMainScene.MainScenes.StartMenu])
+		get_tree().change_scene_to_file(Global.main_scene_registry.MainScenesMap[MainSceneRegistry.MainScenes.StartMenu])
 	else:
 		queue_free()
 

@@ -19,9 +19,9 @@ const LawnMoverSecneMap = {
 
 ## 所有场景中的小推车类型
 const AllLawnMoverTypeFromGameScenes = {
-	EnumsMainScene.MainScenes.MainGameFront:[0,0,0,0,0],
-	EnumsMainScene.MainScenes.MainGameBack:[0,0,1,1,0,0],
-	EnumsMainScene.MainScenes.MainGameRoof:[2,2,2,2,2]
+	MainSceneRegistry.MainScenes.MainGameFront:[0,0,0,0,0],
+	MainSceneRegistry.MainScenes.MainGameBack:[0,0,1,1,0,0],
+	MainSceneRegistry.MainScenes.MainGameRoof:[2,2,2,2,2]
 }
 
 @onready var lawn_movers: Node2D = %LawnMovers
@@ -31,7 +31,7 @@ var all_lawn_movers_type:Array = []
 var all_lawn_movers_global_pos:Array[Vector2] = []
 var all_lawn_movers:Array[LawnMover] = []
 
-var game_scene:EnumsMainScene.MainScenes
+var game_scene:MainSceneRegistry.MainScenes
 
 func _ready() -> void:
 	game_scene = game_item_manager.game_para.game_sences

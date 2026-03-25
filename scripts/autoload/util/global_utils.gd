@@ -61,14 +61,14 @@ func sum_arr(arr: Array[float]) -> float:
 	return total
 
 ## 根据当前植物类型和僵尸类型获取当前是植物还是僵尸
-func get_character_type(plant_type:EnumsCharacter.PlantType, zombie_type:EnumsCharacter.ZombieType) -> EnumsCharacter.CharacterType:
-	if plant_type == EnumsCharacter.PlantType.Null:
-		if zombie_type == EnumsCharacter.ZombieType.Null:
-			return EnumsCharacter.CharacterType.Null
+func get_character_type(plant_type:CharacterRegistry.PlantType, zombie_type:CharacterRegistry.ZombieType) -> CharacterRegistry.CharacterType:
+	if plant_type == CharacterRegistry.PlantType.Null:
+		if zombie_type == CharacterRegistry.ZombieType.Null:
+			return CharacterRegistry.CharacterType.Null
 		else:
-			return EnumsCharacter.CharacterType.Zombie
+			return CharacterRegistry.CharacterType.Zombie
 	else:
-		return EnumsCharacter.CharacterType.Plant
+		return CharacterRegistry.CharacterType.Plant
 
 ## 补全列表
 func pad_array(arr: Array, target_size: int, pad_value = 0) -> Array:
@@ -119,9 +119,9 @@ func get_curr_time(curr_time_type:E_CurrTimeType=E_CurrTimeType.String):
 
 #region 特殊僵尸生成函数
 
-func get_special_zombie_callable(zombie_type:EnumsCharacter.ZombieType, plant_cell:PlantCell) -> Callable:
+func get_special_zombie_callable(zombie_type:CharacterRegistry.ZombieType, plant_cell:PlantCell) -> Callable:
 	match zombie_type:
-		EnumsCharacter.ZombieType.Z021Bungi:
+		CharacterRegistry.ZombieType.Z021Bungi:
 			return create_bungi.bind(plant_cell)
 	return Callable()
 

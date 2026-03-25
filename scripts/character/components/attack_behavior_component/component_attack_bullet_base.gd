@@ -21,7 +21,7 @@ var is_lane:=true
 #@export var attack_value_bullet:int = -1
 @export var attack_cd:float = 1.5
 ## 攻击子弹类型
-@export var attack_bullet_type:EnumsBullet.BulletType = EnumsBullet.BulletType.Bullet001Pea
+@export var attack_bullet_type:BulletRegistry.BulletType = BulletRegistry.BulletType.Bullet001Pea
 ## 子弹生产位置
 @export var markers_2d_bullet: Array[Marker2D]
 @export_group("发射子弹音效")

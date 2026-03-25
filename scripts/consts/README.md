@@ -7,10 +7,7 @@
 | 文件 | `class_name` | 内容概要 |
 |------|----------------|----------|
 | `const_level_data.gd` | `ConstLevelData` | 关卡数据配套：背景 `GameBg`、BGM `GameBGM` 与路径表、出怪/卡槽/罐子模式枚举及纹理、音频等常量映射。被 `ResourceLevelData`（`level_data.gd`）等引用。 |
-| `enums_character.gd` | `EnumsCharacter` | 植物类型、僵尸类型、行类型等与角色相关的枚举。 |
-| `enums_main_scene.gd` | `EnumsMainScene` | 主流程场景标识 `MainScenes`（主游戏、选关、花园等）。 |
-| `enums_bullet.gd` | `EnumsBullet` | 子弹相关枚举。 |
-| `enums_item.gd` | `EnumsItem` | 物品相关枚举，目前没有，后续可能删除。 |
+
 
 ## 使用方式
 

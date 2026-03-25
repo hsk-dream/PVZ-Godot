@@ -16,7 +16,7 @@ func init_almanac_page() -> void:
 ## 植物卡片初始化类型 连接点击信号
 func init_zombie_card():
 	for zombie_type in Global.global_game_state.curr_zombie:
-		var curr_zombie_name = Global.character_registry.get_zombie_info(zombie_type, EnumsCharacter.ZombieInfoAttribute.ZombieName)
+		var curr_zombie_name = Global.character_registry.get_zombie_info(zombie_type, CharacterRegistry.ZombieInfoAttribute.ZombieName)
 		if Global.global_read_data.data_almanac["Zombie"].has(curr_zombie_name):
 			var curr_zombie_card:AlmanacZombieCard = ALMANAC_ZOMBIE_CARD.instantiate()
 			curr_zombie_card.init_almanac_zombie_card(zombie_type)

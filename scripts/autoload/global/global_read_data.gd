@@ -6,38 +6,38 @@ const PATH_DATA_ALMANAC := "res://data/almanac_data.json"
 @onready var character_registry: CharacterRegistry = %CharacterRegistry
 
 ## 僵尸行类型可以自然刷新的僵尸白名单
-var whitelist_refresh_zombie_types_with_zombie_row_type: Dictionary[EnumsCharacter.ZombieRowType, Array] = {}
+var whitelist_refresh_zombie_types_with_zombie_row_type: Dictionary[CharacterRegistry.ZombieRowType, Array] = {}
 
 ## 自然刷怪出现的僵尸黑名单类型
-var blacklist_refresh_zombie_types: Array[EnumsCharacter.ZombieType] = [
-	EnumsCharacter.ZombieType.Null,
-	EnumsCharacter.ZombieType.Z002Flag,
-	EnumsCharacter.ZombieType.Z011Duckytube,
-	EnumsCharacter.ZombieType.Z010Dancer,
-	EnumsCharacter.ZombieType.Z025Imp,
-	EnumsCharacter.ZombieType.Z1001BobsledSingle,
+var blacklist_refresh_zombie_types: Array[CharacterRegistry.ZombieType] = [
+	CharacterRegistry.ZombieType.Null,
+	CharacterRegistry.ZombieType.Z002Flag,
+	CharacterRegistry.ZombieType.Z011Duckytube,
+	CharacterRegistry.ZombieType.Z010Dancer,
+	CharacterRegistry.ZombieType.Z025Imp,
+	CharacterRegistry.ZombieType.Z1001BobsledSingle,
 ]
 
 ## 随机罐子刷新的植物白名单
-var whitelist_plant_types_with_pot: Array[EnumsCharacter.PlantType] = []
+var whitelist_plant_types_with_pot: Array[CharacterRegistry.PlantType] = []
 ## 罐子模式无冷却植物卡牌类型
 var zero_cd_plnat_card_type_on_pot_mode: Array = [
-	EnumsCharacter.PlantType.P017LilyPad,
-	EnumsCharacter.PlantType.P034FlowerPot,
-	EnumsCharacter.PlantType.P036CoffeeBean,
+	CharacterRegistry.PlantType.P017LilyPad,
+	CharacterRegistry.PlantType.P034FlowerPot,
+	CharacterRegistry.PlantType.P036CoffeeBean,
 ]
 
 ## 随机罐子刷新的植物黑名单类型(null等)
-var blacklist_plant_types_with_pot: Array[EnumsCharacter.PlantType] = [
-	EnumsCharacter.PlantType.Null,
-	EnumsCharacter.PlantType.P036CoffeeBean,
-	EnumsCharacter.PlantType.P999Imitater,
-	EnumsCharacter.PlantType.P1000Sprout,
+var blacklist_plant_types_with_pot: Array[CharacterRegistry.PlantType] = [
+	CharacterRegistry.PlantType.Null,
+	CharacterRegistry.PlantType.P036CoffeeBean,
+	CharacterRegistry.PlantType.P999Imitater,
+	CharacterRegistry.PlantType.P1000Sprout,
 ]
 ## 随机罐子刷新的僵尸黑名单,白名单使用自然刷怪白名单
-var blacklist_zombie_types_with_pot: Array[EnumsCharacter.ZombieType] = [
-	EnumsCharacter.ZombieType.Null,
-	EnumsCharacter.ZombieType.Z011Duckytube,
+var blacklist_zombie_types_with_pot: Array[CharacterRegistry.ZombieType] = [
+	CharacterRegistry.ZombieType.Null,
+	CharacterRegistry.ZombieType.Z011Duckytube,
 ]
 
 func _ready() -> void:
@@ -51,20 +51,20 @@ func ensure_almanac_loaded() -> void:
 
 func update_whitelist_refresh_zombie_types_with_zombie_row_type() -> void:
 	whitelist_refresh_zombie_types_with_zombie_row_type.clear()
-	for curr_zombie_row_type in EnumsCharacter.ZombieRowType.values():
+	for curr_zombie_row_type in CharacterRegistry.ZombieRowType.values():
 		whitelist_refresh_zombie_types_with_zombie_row_type[curr_zombie_row_type] = get_whitelist_refresh_zombie_types_on_zombie_row_type(curr_zombie_row_type)
 
-func get_whitelist_refresh_zombie_types_on_zombie_row_type(curr_zombie_row_type: EnumsCharacter.ZombieRowType) -> Array[EnumsCharacter.ZombieType]:
-	var curr_whitelist_refresh_zombie_types: Array[EnumsCharacter.ZombieType] = []
-	for zombie_type in EnumsCharacter.ZombieType.values():
+func get_whitelist_refresh_zombie_types_on_zombie_row_type(curr_zombie_row_type: CharacterRegistry.ZombieRowType) -> Array[CharacterRegistry.ZombieType]:
+	var curr_whitelist_refresh_zombie_types: Array[CharacterRegistry.ZombieType] = []
+	for zombie_type in CharacterRegistry.ZombieType.values():
 		if blacklist_refresh_zombie_types.has(zombie_type):
 			continue
 
-		if curr_zombie_row_type == EnumsCharacter.ZombieRowType.Both:
+		if curr_zombie_row_type == CharacterRegistry.ZombieRowType.Both:
 			curr_whitelist_refresh_zombie_types.append(zombie_type)
 		else:
-			var zombie_row_type: EnumsCharacter.ZombieRowType = character_registry.get_zombie_info(zombie_type, EnumsCharacter.ZombieInfoAttribute.ZombieRowType)
-			if zombie_row_type == EnumsCharacter.ZombieRowType.Both:
+			var zombie_row_type: CharacterRegistry.ZombieRowType = character_registry.get_zombie_info(zombie_type, CharacterRegistry.ZombieInfoAttribute.ZombieRowType)
+			if zombie_row_type == CharacterRegistry.ZombieRowType.Both:
 				curr_whitelist_refresh_zombie_types.append(zombie_type)
 			elif zombie_row_type == curr_zombie_row_type:
 				curr_whitelist_refresh_zombie_types.append(zombie_type)
@@ -73,7 +73,7 @@ func get_whitelist_refresh_zombie_types_on_zombie_row_type(curr_zombie_row_type:
 
 func update_whitelist_plant_types_with_pot() -> void:
 	whitelist_plant_types_with_pot.clear()
-	for plant_type in EnumsCharacter.PlantType.values():
+	for plant_type in CharacterRegistry.PlantType.values():
 		if blacklist_plant_types_with_pot.has(plant_type):
 			continue
 		whitelist_plant_types_with_pot.append(plant_type)

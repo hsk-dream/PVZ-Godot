@@ -87,15 +87,15 @@ func load_global_game_data() -> void:
 	state.curr_all_level_state_data = data.get("curr_all_level_state_data", state.DEFAULT_CURR_ALL_LEVEL_STATE_DATA).duplicate(true)
 	state.selected_cards = data.get("selected_cards", [])
 	var loaded_curr_plant_raw: Array = data.get("curr_plant", state.curr_plant)
-	var loaded_curr_plant: Array[EnumsCharacter.PlantType] = []
+	var loaded_curr_plant: Array[CharacterRegistry.PlantType] = []
 	for plant_type in loaded_curr_plant_raw:
-		loaded_curr_plant.append(int(plant_type) as EnumsCharacter.PlantType)
+		loaded_curr_plant.append(int(plant_type) as CharacterRegistry.PlantType)
 	state.curr_plant = loaded_curr_plant
 
 	var loaded_curr_zombie_raw: Array = data.get("curr_zombie", state.curr_zombie)
-	var loaded_curr_zombie: Array[EnumsCharacter.ZombieType] = []
+	var loaded_curr_zombie: Array[CharacterRegistry.ZombieType] = []
 	for zombie_type in loaded_curr_zombie_raw:
-		loaded_curr_zombie.append(int(zombie_type) as EnumsCharacter.ZombieType)
+		loaded_curr_zombie.append(int(zombie_type) as CharacterRegistry.ZombieType)
 	state.curr_zombie = loaded_curr_zombie
 
 

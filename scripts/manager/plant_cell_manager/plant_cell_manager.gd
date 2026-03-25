@@ -13,7 +13,7 @@ var row_col:Vector2i = Vector2i.ZERO
 ## 生成的墓碑列表(一维)
 var tombstone_list :Array[TombStone] = []
 ## 当前植物种植的信息[植物种类:植物数量]
-var curr_plant_num:Dictionary[EnumsCharacter.PlantType, int]
+var curr_plant_num:Dictionary[CharacterRegistry.PlantType, int]
 ## 当前罐子数量
 var curr_pot_num = 0
 
@@ -22,7 +22,7 @@ var plant_random_pool_on_zombie_mode:RandomPicker
 ## 我是僵尸模式下所有创建植物的植物格子
 var all_plant_cells_create_plant_on_zombie_mode:Array[PlantCell] = []
 ## 我是僵尸模式必须先生成的植物
-var all_must_plants_on_zombie_mode:Dictionary[EnumsCharacter.PlantType, int] = {}
+var all_must_plants_on_zombie_mode:Dictionary[CharacterRegistry.PlantType, int] = {}
 
 
 func _ready() -> void:
@@ -52,12 +52,12 @@ func _ready() -> void:
 
 #region 植物信息
 ## 更新植物信息(创建新植物)
-func update_plant_info_create(_plant_cell:PlantCell, plant_type:EnumsCharacter.PlantType):
+func update_plant_info_create(_plant_cell:PlantCell, plant_type:CharacterRegistry.PlantType):
 	curr_plant_num[plant_type] = curr_plant_num.get(plant_type, 0) + 1
 	EventBus.push_event("update_card_purple_sun_cost")
 
 ## 更新植物信息(植物死亡)
-func update_plant_info_free(_plant_cell:PlantCell, plant_type:EnumsCharacter.PlantType):
+func update_plant_info_free(_plant_cell:PlantCell, plant_type:CharacterRegistry.PlantType):
 	curr_plant_num[plant_type] -= 1
 	EventBus.push_event("update_card_purple_sun_cost")
 	if curr_plant_num[plant_type] < 0:
@@ -152,7 +152,7 @@ func create_plant_on_zombie_mode():
 			var plant_cell:PlantCell = all_plant_cells_create_plant_on_zombie_mode_copy.pop_back()
 			plant_cell_pre_plant(plant_cell, plant_type, false, true)
 	for plant_cell:PlantCell in all_plant_cells_create_plant_on_zombie_mode_copy:
-		var plant_type:EnumsCharacter.PlantType = plant_random_pool_on_zombie_mode.get_random_item()
+		var plant_type:CharacterRegistry.PlantType = plant_random_pool_on_zombie_mode.get_random_item()
 		plant_cell_pre_plant(plant_cell, plant_type, false, true)
 
 
@@ -160,9 +160,9 @@ func create_plant_on_zombie_mode():
 ## 是否为罐子模式
 var is_pot_mode := false
 ## 对罐子需求的植物格子僵尸行类型分成两组，水、路两种类型 根据罐子总数需求列数计算
-var plant_cell_row_on_zombie_row_type:Dictionary[EnumsCharacter.ZombieRowType, Array] = {
-	EnumsCharacter.ZombieRowType.Land:[],
-	EnumsCharacter.ZombieRowType.Pool:[],
+var plant_cell_row_on_zombie_row_type:Dictionary[CharacterRegistry.ZombieRowType, Array] = {
+	CharacterRegistry.ZombieRowType.Land:[],
+	CharacterRegistry.ZombieRowType.Pool:[],
 }
 
 func init_pot():
@@ -208,9 +208,9 @@ func init_plant_cell_row_on_zombie_row_type():
 ## 罐子生成植物随机池
 var pot_plant_random_pool:RandomPicker
 ## 罐子生成陆地僵尸随机池
-var pot_zombie_random_pool:Dictionary[EnumsCharacter.ZombieRowType, RandomPicker] = {
-	EnumsCharacter.ZombieRowType.Land : null,
-	EnumsCharacter.ZombieRowType.Pool : null,
+var pot_zombie_random_pool:Dictionary[CharacterRegistry.ZombieRowType, RandomPicker] = {
+	CharacterRegistry.ZombieRowType.Land : null,
+	CharacterRegistry.ZombieRowType.Pool : null,
 }
 
 ## 初始化罐子随机池
@@ -225,20 +225,20 @@ func init_pot_random_pool():
 
 
 	var pot_zombie_land_random_pool_data = []
-	for zombie_type in game_para.candidate_zombie_pot_with_zombie_row_type[EnumsCharacter.ZombieRowType.Land]:
-		pot_zombie_land_random_pool_data.append([zombie_type, game_para.candidate_zombie_pot_with_zombie_row_type[EnumsCharacter.ZombieRowType.Land][zombie_type]])
-	pot_zombie_random_pool[EnumsCharacter.ZombieRowType.Land] = RandomPicker.new(pot_zombie_land_random_pool_data)
+	for zombie_type in game_para.candidate_zombie_pot_with_zombie_row_type[CharacterRegistry.ZombieRowType.Land]:
+		pot_zombie_land_random_pool_data.append([zombie_type, game_para.candidate_zombie_pot_with_zombie_row_type[CharacterRegistry.ZombieRowType.Land][zombie_type]])
+	pot_zombie_random_pool[CharacterRegistry.ZombieRowType.Land] = RandomPicker.new(pot_zombie_land_random_pool_data)
 
 	var pot_zombie_pool_random_pool_data = []
-	for zombie_type in game_para.candidate_zombie_pot_with_zombie_row_type[EnumsCharacter.ZombieRowType.Pool]:
-		pot_zombie_pool_random_pool_data.append([zombie_type, game_para.candidate_zombie_pot_with_zombie_row_type[EnumsCharacter.ZombieRowType.Pool][zombie_type]])
-	pot_zombie_random_pool[EnumsCharacter.ZombieRowType.Pool] = RandomPicker.new(pot_zombie_pool_random_pool_data)
+	for zombie_type in game_para.candidate_zombie_pot_with_zombie_row_type[CharacterRegistry.ZombieRowType.Pool]:
+		pot_zombie_pool_random_pool_data.append([zombie_type, game_para.candidate_zombie_pot_with_zombie_row_type[CharacterRegistry.ZombieRowType.Pool][zombie_type]])
+	pot_zombie_random_pool[CharacterRegistry.ZombieRowType.Pool] = RandomPicker.new(pot_zombie_pool_random_pool_data)
 
 ## 权重模式 生成所有罐子
 func create_all_pot_on_weigth_mode():
 	var plant_cell_row_on_zombie_row_type_copy = plant_cell_row_on_zombie_row_type.duplicate(true)
 	## 先对僵尸陆地和水路罐子划分
-	for zombie_row_type in [EnumsCharacter.ZombieRowType.Land,EnumsCharacter.ZombieRowType.Pool]:
+	for zombie_row_type in [CharacterRegistry.ZombieRowType.Land,CharacterRegistry.ZombieRowType.Pool]:
 		for plant_cell:PlantCell in plant_cell_row_on_zombie_row_type_copy[zombie_row_type]:
 			plant_cell_create_pot_on_weigth_mode(plant_cell)
 
@@ -264,12 +264,12 @@ func get_pot_para_on_weight_mode(plant_cell:PlantCell) -> Dictionary:
 				if p_is_plant_or_zombie <= 0.5:
 					pot_para[ScaryPot.E_PotInitParaAttr.PlantType] = pot_plant_random_pool.get_random_item()
 				else:
-					var curr_zomebi_row_type:EnumsCharacter.ZombieRowType = Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type
+					var curr_zomebi_row_type:CharacterRegistry.ZombieRowType = Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type
 					pot_para[ScaryPot.E_PotInitParaAttr.ZombieType] = pot_zombie_random_pool[curr_zomebi_row_type].get_random_item()
 			ScaryPot.E_PotType.Plant:
 				pot_para[ScaryPot.E_PotInitParaAttr.PlantType] =pot_plant_random_pool.get_random_item()
 			ScaryPot.E_PotType.Zombie:
-				var curr_zomebi_row_type:EnumsCharacter.ZombieRowType = Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type
+				var curr_zomebi_row_type:CharacterRegistry.ZombieRowType = Global.main_game.zombie_manager.all_zombie_rows[plant_cell.row_col.x].zombie_row_type
 				pot_para[ScaryPot.E_PotInitParaAttr.ZombieType] = pot_zombie_random_pool[curr_zomebi_row_type].get_random_item()
 	else:
 		pot_para[ScaryPot.E_PotInitParaAttr.IsFixedRes] = false
@@ -291,20 +291,20 @@ func get_weighted_result(weight: Vector3i, weight_sum:int) -> int:
 func create_all_pot_on_fixed_mode():
 	var plant_cell_row_on_zombie_row_type_copy = plant_cell_row_on_zombie_row_type.duplicate(true)
 	## 先对僵尸陆地和水路罐子划分创建僵尸罐子，先创建对僵尸行类型有要求的罐子
-	for zombie_row_type in [EnumsCharacter.ZombieRowType.Land,EnumsCharacter.ZombieRowType.Pool]:
+	for zombie_row_type in [CharacterRegistry.ZombieRowType.Land,CharacterRegistry.ZombieRowType.Pool]:
 		## 先打乱植物格子顺序
 		plant_cell_row_on_zombie_row_type_copy[zombie_row_type].shuffle()
 		plant_cell_row_on_zombie_row_type_copy[zombie_row_type] = create_multi_zombie_pot(game_para.random_pot_zombie_with_zombie_row_type[zombie_row_type], plant_cell_row_on_zombie_row_type_copy[zombie_row_type], ScaryPot.E_PotType.Random)
 		plant_cell_row_on_zombie_row_type_copy[zombie_row_type] = create_multi_zombie_pot(game_para.zombie_pot_with_zombie_row_type[zombie_row_type], plant_cell_row_on_zombie_row_type_copy[zombie_row_type], ScaryPot.E_PotType.Zombie)
 	## 将剩余的植物格子放到一起
 	var plant_cell_remaining:Array = []
-	plant_cell_remaining.append_array(plant_cell_row_on_zombie_row_type_copy[EnumsCharacter.ZombieRowType.Land])
-	plant_cell_remaining.append_array(plant_cell_row_on_zombie_row_type_copy[EnumsCharacter.ZombieRowType.Pool])
+	plant_cell_remaining.append_array(plant_cell_row_on_zombie_row_type_copy[CharacterRegistry.ZombieRowType.Land])
+	plant_cell_remaining.append_array(plant_cell_row_on_zombie_row_type_copy[CharacterRegistry.ZombieRowType.Pool])
 	## 打乱植物格子顺序
 	plant_cell_remaining.shuffle()
 	## 创建 both僵尸行类型的僵尸罐子
-	plant_cell_remaining = create_multi_zombie_pot(game_para.random_pot_zombie_with_zombie_row_type[EnumsCharacter.ZombieRowType.Both], plant_cell_remaining, ScaryPot.E_PotType.Random)
-	plant_cell_remaining = create_multi_zombie_pot(game_para.zombie_pot_with_zombie_row_type[EnumsCharacter.ZombieRowType.Both], plant_cell_remaining, ScaryPot.E_PotType.Zombie)
+	plant_cell_remaining = create_multi_zombie_pot(game_para.random_pot_zombie_with_zombie_row_type[CharacterRegistry.ZombieRowType.Both], plant_cell_remaining, ScaryPot.E_PotType.Random)
+	plant_cell_remaining = create_multi_zombie_pot(game_para.zombie_pot_with_zombie_row_type[CharacterRegistry.ZombieRowType.Both], plant_cell_remaining, ScaryPot.E_PotType.Zombie)
 
 	plant_cell_remaining = create_multi_plant_pot(game_para.random_pot_plant, plant_cell_remaining, ScaryPot.E_PotType.Random)
 	plant_cell_remaining = create_multi_plant_pot(game_para.plant_pot, plant_cell_remaining, ScaryPot.E_PotType.Plant)
@@ -378,7 +378,7 @@ func create_multi_zombie_pot(pot_num_zombie_types:Dictionary, plant_cells_candid
 		## 循环数量
 		for i in range(pot_num_zombie_types[zombie_type]):
 			if plant_cells_candidate.is_empty():
-				print("warning: 僵尸类型", Global.character_registry.get_zombie_info(zombie_type, EnumsCharacter.ZombieInfoAttribute.ZombieName), "没有对应的空闲植物格子")
+				print("warning: 僵尸类型", Global.character_registry.get_zombie_info(zombie_type, CharacterRegistry.ZombieInfoAttribute.ZombieName), "没有对应的空闲植物格子")
 				return plant_cells_candidate
 			var plant_cell:PlantCell = plant_cells_candidate.pick_random()
 			var pot_para:Dictionary = {
@@ -431,7 +431,7 @@ func pot_open_update(is_zombie:bool, glo_pos:Vector2):
 
 #endregion
 
-func plant_cell_pre_plant(plant_cell:PlantCell, plant_type:EnumsCharacter.PlantType, is_imitater:bool, is_zombie_mode:=false):
+func plant_cell_pre_plant(plant_cell:PlantCell, plant_type:CharacterRegistry.PlantType, is_imitater:bool, is_zombie_mode:=false):
 	plant_cell.create_plant(plant_type, false, false, is_imitater, is_zombie_mode)
 
 func create_tombstone(new_num:int):
@@ -489,9 +489,9 @@ func start_next_game_plant_cell_manager_update():
 			await get_tree().process_frame
 			await get_tree().process_frame
 			is_clear_plant = true
-		if plant_random_pool_on_zombie_mode.get_item_weight(EnumsCharacter.PlantType.P002SunFlower) > 1:
+		if plant_random_pool_on_zombie_mode.get_item_weight(CharacterRegistry.PlantType.P002SunFlower) > 1:
 			print("我是僵尸多轮游戏模式，更新向日葵随机权重为:", max(9-Global.main_game.curr_game_round, 1))
-			plant_random_pool_on_zombie_mode.update_item_weight(EnumsCharacter.PlantType.P002SunFlower, max(9-Global.main_game.curr_game_round, 1))
+			plant_random_pool_on_zombie_mode.update_item_weight(CharacterRegistry.PlantType.P002SunFlower, max(9-Global.main_game.curr_game_round, 1))
 		print("我是僵尸模式创建植物")
 		## 创建植物
 		create_pre_plant()

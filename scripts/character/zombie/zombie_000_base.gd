@@ -10,7 +10,7 @@ class_name Zombie000Base
 @onready var drop_item_component: DropItemComponent = %DropItemComponent
 
 #region 僵尸类基础属性
-@export var zombie_type:EnumsCharacter.ZombieType
+@export var zombie_type:CharacterRegistry.ZombieType
 ## 僵尸基础属性参数，_ready初始化
 @export_group("僵尸基础属性")
 ## 是否忽略梯子,即可以攻击梯子下的植物
@@ -47,7 +47,7 @@ var curr_be_attack_status:E_BeAttackStatusZombie=E_BeAttackStatusZombie.IsNorm:
 		signal_status_update.emit()
 
 ## 当前僵尸所在行，陆地、水池
-var curr_zombie_row_type:EnumsCharacter.ZombieRowType=EnumsCharacter.ZombieRowType.Land
+var curr_zombie_row_type:CharacterRegistry.ZombieRowType=CharacterRegistry.ZombieRowType.Land
 ## 水路两栖僵尸当前行为水路时body变化
 @export var body_change_on_pool:ResourceBodyChange
 
@@ -198,7 +198,7 @@ func ready_norm():
 	## 攻击的检测组件更新是否可以攻击梯子下的植物，是否忽略梯子
 	attack_component.detect_component.is_attack_ladder_plant = is_ignore_ladder
 	## 两栖类僵尸在水路时变化
-	if Global.character_registry.get_zombie_info(zombie_type, EnumsCharacter.ZombieInfoAttribute.ZombieRowType) == EnumsCharacter.ZombieRowType.Both:
+	if Global.character_registry.get_zombie_info(zombie_type, CharacterRegistry.ZombieInfoAttribute.ZombieRowType) == CharacterRegistry.ZombieRowType.Both:
 		if body_change_on_pool != null:
 			zombie_row_type_both_body_update()
 
@@ -208,7 +208,7 @@ func ready_norm():
 ## 两栖类僵尸body变化
 func zombie_row_type_both_body_update():
 	## 水路时body变化
-	if curr_zombie_row_type == EnumsCharacter.ZombieRowType.Pool:
+	if curr_zombie_row_type == CharacterRegistry.ZombieRowType.Pool:
 		for sprite_path in body_change_on_pool.sprite_appear:
 			var sprite = get_node(sprite_path)
 			sprite.visible = true
@@ -443,7 +443,7 @@ func be_grap_in_pool():
 ## is_cherry_bomb:bool = false ：是否灰烬炸弹(非土豆雷)
 func be_bomb(attack_value:int, is_cherry_bomb:bool = false):
 	is_can_death_language = false
-	hp_component.Hp_loss(attack_value, EnumsBullet.AttackMode.Penetration, false, false)
+	hp_component.Hp_loss(attack_value,BulletRegistry.AttackMode.Penetration, false, false)
 	## 如果角色死亡
 	if is_death:
 		## 在在灰烬动画条件下
@@ -456,7 +456,7 @@ func be_bomb(attack_value:int, is_cherry_bomb:bool = false):
 ## 被大嘴花吃
 func be_chomper_eat(attack_value:int):
 	is_can_death_language = false
-	hp_component.Hp_loss(attack_value, EnumsBullet.AttackMode.Penetration, false, false)
+	hp_component.Hp_loss(attack_value,BulletRegistry.AttackMode.Penetration, false, false)
 	if is_death:
 		queue_free()
 	#await get_tree().process_frame
@@ -465,7 +465,7 @@ func be_chomper_eat(attack_value:int):
 ## 被倭瓜压
 func be_squash(attack_value:int=1800):
 	is_can_death_language = false
-	hp_component.Hp_loss(attack_value, EnumsBullet.AttackMode.Penetration, false, false)
+	hp_component.Hp_loss(attack_value,BulletRegistry.AttackMode.Penetration, false, false)
 	if is_death:
 		queue_free()
 	#await get_tree().process_frame
@@ -477,9 +477,9 @@ func be_squash(attack_value:int=1800):
 func be_magnet_iron():
 	match iron_type:
 		IronType.IronArmor1:
-			hp_component.Hp_loss(hp_component.curr_hp_armor1, EnumsBullet.AttackMode.Norm, false, false)
+			hp_component.Hp_loss(hp_component.curr_hp_armor1,BulletRegistry.AttackMode.Norm, false, false)
 		IronType.IronArmor2:
-			hp_component.Hp_loss(hp_component.curr_hp_armor2, EnumsBullet.AttackMode.Norm, false, false)
+			hp_component.Hp_loss(hp_component.curr_hp_armor2,BulletRegistry.AttackMode.Norm, false, false)
 		IronType.IronItem:
 			loss_iron_item()
 
