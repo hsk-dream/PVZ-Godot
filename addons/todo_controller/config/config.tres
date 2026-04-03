@@ -192,8 +192,6 @@ script_list_meta = {
 "res://scripts/fx/bullet_effect/bullet_effect_000_base.gd": [-1, -1],
 "res://scripts/fx/bullet_effect/bullet_effect_001_norm.gd": [-1, -1],
 "res://scripts/fx/bullet_effect/bullet_effect_006_pea_fire.gd": [-1, -1],
-"res://scripts/fx/bullet_effect/ori/bullet_effect_001_pea.gd": [-1, -1],
-"res://scripts/fx/bullet_effect/ori/bullet_effect_006_pea_fire.gd": [-1, -1],
 "res://scripts/fx/other_effect/canvas_layer_effect.gd": [-1, -1],
 "res://scripts/fx/other_effect/dirt_new_zombie_appear_from_ground.gd": [-1, -1],
 "res://scripts/fx/other_effect/doom_shroom_crater.gd": [-1, -1],

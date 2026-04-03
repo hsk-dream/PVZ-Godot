@@ -7,12 +7,9 @@ class_name Bullet1002BowlingBomb
 ## 旋转速度
 var rotation_speed = 5.0
 
-
-
 func _physics_process(delta: float) -> void:
 	super(delta)
 	body_correct.rotation += rotation_speed * delta
-
 
 ## 攻击一次
 @warning_ignore("unused_parameter")
