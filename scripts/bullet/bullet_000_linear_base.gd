@@ -2,6 +2,9 @@ extends Bullet000Base
 class_name BulletLinear000Base
 ## 直线移动子弹基类
 
+## 线性移动组件
+@onready var movement_component: BulletMovementLinear = $MovementComponent
+
 ## 对僵尸敌人造成伤害,直线类子弹重写
 func _attack_zombie(zombie:Zombie000Base):
 	## 从后面攻击僵尸的子弹，正常伤害类型子弹攻击类型修改为真实
@@ -14,8 +17,8 @@ func _attack_zombie(zombie:Zombie000Base):
 
 
 func _physics_process(delta: float) -> void:
-	## 每帧移动子弹
-	position += direction * speed * delta
+	## 调用移动组件控制移动
+	movement_component.physics_process_bullet_move(delta)
 
 	## 移动超过最大距离后销毁，部分子弹有限制
 	if global_position.distance_to(start_pos) > max_distance:

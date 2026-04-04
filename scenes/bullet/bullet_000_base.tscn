@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlwaiybjqakk1"]
+[gd_scene load_steps=6 format=3 uid="uid://dlwaiybjqakk1"]
 
 [ext_resource type="Script" uid="uid://b3il3lcwtmdd0" path="res://scripts/bullet/bullet_000_base.gd" id="1_stuyg"]
 [ext_resource type="Texture2D" uid="uid://c54er6fxpmcc8" path="res://assets/image/projectile/pea_shadows.png" id="2_ouobi"]
 [ext_resource type="Script" uid="uid://bhu6sjkijn82b" path="res://scripts/fx/bullet_effect/bullet_effect_000_base.gd" id="3_di87y"]
+[ext_resource type="Script" uid="uid://cxhecdgj14tih" path="res://scripts/bullet/component/movement/bullet_movement_base.gd" id="4_hotin"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hl11l"]
 
@@ -31,5 +32,8 @@ collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAttack"]
 shape = SubResource("CircleShape2D_hl11l")
+
+[node name="MovementComponent" type="Node2D" parent="."]
+script = ExtResource("4_hotin")
 
 [connection signal="area_entered" from="Area2DAttack" to="." method="_on_area_2d_attack_area_entered"]

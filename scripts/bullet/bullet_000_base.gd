@@ -52,6 +52,7 @@ var lane :int = -1
 ## 是否可以升级子弹
 @export var is_can_up:=false
 
+
 func _ready() -> void:
 	body.rotation = direction.angle()
 

@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://p2fwghratmjl"]
+[gd_scene load_steps=4 format=3 uid="uid://p2fwghratmjl"]
 
 [ext_resource type="PackedScene" uid="uid://dlwaiybjqakk1" path="res://scenes/bullet/bullet_000_base.tscn" id="1_l41ri"]
 [ext_resource type="Script" uid="uid://1cbn10tiy5qr" path="res://scripts/bullet/bullet_000_parabola_base.gd" id="2_4yv73"]
+[ext_resource type="Script" uid="uid://bh57x8jwd01rt" path="res://scripts/bullet/component/movement/bullet_movement_parabola.gd" id="3_h7enf"]
 
 [node name="Bullet000ParabolaBase" instance=ExtResource("1_l41ri")]
 script = ExtResource("2_4yv73")
-max_diff_x = 200.0
-parabola_height = -300.0
 speed = 600.0
+
+[node name="MovementComponent" parent="." index="4"]
+script = ExtResource("3_h7enf")
+parabola_height = -300.0
+max_diff_x = 200.0
+enemy_pos_corr_value = Vector2(0, -20)
