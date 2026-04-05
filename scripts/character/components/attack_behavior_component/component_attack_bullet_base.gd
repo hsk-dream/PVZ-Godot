@@ -100,14 +100,14 @@ func _shoot_bullet():
 		play_throw_sfx()
 
 
-func get_bullet_paras(marker_2d_bullet_glo_pos:Vector2, ray_direction:Vector2) -> Dictionary[Bullet000Base.E_InitParasAttr,Variant]:
+func get_bullet_paras(marker_2d_bullet_glo_pos:Vector2, ray_direction:Vector2) -> Dictionary[Bullet000NormBase.E_InitParasAttr,Variant]:
 	return {
-		Bullet000Base.E_InitParasAttr.IsActivateLane : is_lane,
-		Bullet000Base.E_InitParasAttr.BulletLane : owner.lane,
-		Bullet000Base.E_InitParasAttr.Position : bullets.to_local(marker_2d_bullet_glo_pos),
-		Bullet000Base.E_InitParasAttr.Direction : ray_direction,
-		Bullet000Base.E_InitParasAttr.CanAttackPlantState : can_attack_plant_status,
-		Bullet000Base.E_InitParasAttr.CanAttackZombieState : can_attack_zombie_status,
+		Bullet000NormBase.E_InitParasAttr.IsActivateLane : is_lane,
+		Bullet000NormBase.E_InitParasAttr.BulletLane : owner.lane,
+		Bullet000NormBase.E_InitParasAttr.Position : bullets.to_local(marker_2d_bullet_glo_pos),
+		Bullet000NormBase.E_InitParasAttr.Direction : ray_direction,
+		Bullet000NormBase.E_InitParasAttr.CanAttackPlantState : can_attack_plant_status,
+		Bullet000NormBase.E_InitParasAttr.CanAttackZombieState : can_attack_zombie_status,
 	}
 
 

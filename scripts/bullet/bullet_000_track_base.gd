@@ -1,4 +1,4 @@
-extends Bullet000Base
+extends Bullet000NormBase
 class_name Bullet000TrackBase
 
 @onready var movement_component: BulletMovementTrack = $MovementComponent

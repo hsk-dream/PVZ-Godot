@@ -24,7 +24,12 @@ enum BulletType{
 	Bullet014CattailBullet,	## 香蒲子弹
 	Bullet015WinterMelon,	## 冰瓜子弹
 
-	Bullet016CobCannon,	## 冰瓜子弹
+	Bullet016CobCannon,		## 玉米加农炮子弹
+
+
+	Bullet1001Bowling,		## 保龄球
+	Bullet1001BowlingBomb,	## 爆炸保龄球
+	Bullet1001BowlingBig,	## 大保龄球
 
 }
 

@@ -1,4 +1,4 @@
-extends Bullet000Base
+extends Bullet000NormBase
 class_name BulletLinear000Base
 ## 直线移动子弹基类
 
@@ -44,7 +44,7 @@ func _on_area_2d_attack_area_entered(area: Area2D) -> void:
 		if direction.dot(slope.normal_vector_slope) < 0:
 			attack_once(null)
 		return
-	if area.owner is Character000Base:
+	elif area.owner is Character000Base:
 		#print("碰撞到角色")
 		super(area)
 

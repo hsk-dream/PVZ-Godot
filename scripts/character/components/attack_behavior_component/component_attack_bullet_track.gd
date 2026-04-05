@@ -25,9 +25,9 @@ func detect_component_init():
 		detect_component_global.enable_component(ComponentNormBase.E_IsEnableFactor.Global)
 
 
-func get_bullet_paras(marker_2d_bullet_glo_pos:Vector2, ray_direction:Vector2) -> Dictionary[Bullet000Base.E_InitParasAttr,Variant]:
+func get_bullet_paras(marker_2d_bullet_glo_pos:Vector2, ray_direction:Vector2) -> Dictionary[Bullet000NormBase.E_InitParasAttr,Variant]:
 	var bullet_paras = super(marker_2d_bullet_glo_pos, ray_direction)
-	bullet_paras[Bullet000Base.E_InitParasAttr.Enemy] = get_enemy()
+	bullet_paras[Bullet000NormBase.E_InitParasAttr.Enemy] = get_enemy()
 	return bullet_paras
 
 ## 生成子弹时获取攻击敌人

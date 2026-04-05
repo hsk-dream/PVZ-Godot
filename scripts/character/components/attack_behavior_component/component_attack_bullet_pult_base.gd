@@ -16,9 +16,9 @@ func _on_bullet_attack_cd_timer_timeout() -> void:
 		animation_tree.set(attack_para, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
-func get_bullet_paras(marker_2d_bullet_glo_pos:Vector2, ray_direction:Vector2) -> Dictionary[Bullet000Base.E_InitParasAttr,Variant]:
+func get_bullet_paras(marker_2d_bullet_glo_pos:Vector2, ray_direction:Vector2) -> Dictionary[Bullet000NormBase.E_InitParasAttr,Variant]:
 	var bullet_paras = super(marker_2d_bullet_glo_pos, ray_direction)
 	if is_instance_valid(last_target_enemy):
-		bullet_paras[Bullet000Base.E_InitParasAttr.Enemy] = last_target_enemy
-	bullet_paras[Bullet000Base.E_InitParasAttr.EnemyGloPos] = last_target_enemy_global_pos
+		bullet_paras[Bullet000NormBase.E_InitParasAttr.Enemy] = last_target_enemy
+	bullet_paras[Bullet000NormBase.E_InitParasAttr.EnemyGloPos] = last_target_enemy_global_pos
 	return bullet_paras

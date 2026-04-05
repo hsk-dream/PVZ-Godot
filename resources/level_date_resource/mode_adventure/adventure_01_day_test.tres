@@ -7,6 +7,7 @@
 script = ExtResource("1_0covv")
 monster_mode = 0
 max_wave = 10
+max_choosed_card_num = 15
 start_sun = 5210
 pre_choosed_card_list_plant = Array[int]([1001, 1002, 1003])
 metadata/_custom_type_script = "uid://bjt3l56exxmdw"

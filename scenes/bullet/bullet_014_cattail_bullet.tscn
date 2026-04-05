@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://spfd63h0e5vv" path="res://assets/image/projectile/ProjectileCactus.png" id="2_hfvkc"]
 
 [node name="Bullet014CattailBullet" instance=ExtResource("1_dbrh7")]
-bullet_type = 14
 bullet_mode = 1
+bullet_type = 14
 
 [node name="BulletBody" parent="Body" index="0"]
 texture = ExtResource("2_hfvkc")

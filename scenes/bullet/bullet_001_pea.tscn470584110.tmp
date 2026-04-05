@@ -29,7 +29,6 @@ scale_curve = SubResource("CurveTexture_hs85o")
 anim_offset_max = 1.0
 
 [node name="Bullet001Pea" instance=ExtResource("1_hs85o")]
-is_can_up = true
 bullet_type = 1
 
 [node name="BulletBody" parent="Body" index="0"]

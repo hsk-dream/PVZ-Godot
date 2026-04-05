@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cit8bsc5op7f0"]
 
-[ext_resource type="PackedScene" uid="uid://dlwaiybjqakk1" path="res://scenes/bullet/bullet_000_base.tscn" id="1_kmknu"]
+[ext_resource type="PackedScene" uid="uid://dlwaiybjqakk1" path="res://scenes/bullet/bullet_000_norm_base.tscn" id="1_amknu"]
 [ext_resource type="Script" uid="uid://cyun8j164vix7" path="res://scripts/bullet/bullet_000_linear_base.gd" id="2_w62tt"]
 [ext_resource type="Script" uid="uid://cvceclk845gf4" path="res://scripts/bullet/component/movement/bullet_movement_linear.gd" id="3_w62tt"]
 
-[node name="BulletLinear000Base" instance=ExtResource("1_kmknu")]
+[node name="BulletLinear000Base" instance=ExtResource("1_amknu")]
 script = ExtResource("2_w62tt")
 
 [node name="Area2DAttack" parent="." index="3"]

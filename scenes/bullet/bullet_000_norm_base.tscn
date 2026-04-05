@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlwaiybjqakk1"]
+
+[ext_resource type="PackedScene" uid="uid://bnfv6m0ut4477" path="res://scenes/bullet/bullet_000_base.tscn" id="1_bmknu"]
+[ext_resource type="Script" uid="uid://b18a8j7q2h0dd" path="res://scripts/bullet/bullet_000_norm_base.gd" id="2_mr8vj"]
+[ext_resource type="Script" uid="uid://bhu6sjkijn82b" path="res://scripts/fx/bullet_effect/bullet_effect_000_base.gd" id="3_6xfpy"]
+[ext_resource type="Script" uid="uid://cxhecdgj14tih" path="res://scripts/bullet/component/movement/bullet_movement_base.gd" id="4_gjl4g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hl11l"]
+
+[node name="Bullet000NormBase" instance=ExtResource("1_bmknu")]
+script = ExtResource("2_mr8vj")
+is_rotate = false
+max_attack_num = 1
+attack_value = 20
+speed = 300.0
+direction = Vector2(1, 0)
+bullet_mode = 0
+max_distance = 2000.0
+default_is_activate_lane = true
+trigger_be_attack_sfx = true
+type_bullet_SFX = 1
+can_attack_plant_status = 1
+can_attack_zombie_status = 1
+is_can_up = false
+
+[node name="BulletEffect" type="Node2D" parent="." index="2"]
+visible = false
+script = ExtResource("3_6xfpy")
+
+[node name="AllParticles2D" type="Node2D" parent="BulletEffect" index="0"]
+
+[node name="Area2DAttack" type="Area2D" parent="." index="3"]
+collision_layer = 8
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAttack" index="0"]
+shape = SubResource("CircleShape2D_hl11l")
+
+[node name="MovementComponent" type="Node2D" parent="." index="4"]
+script = ExtResource("4_gjl4g")
+
+[connection signal="area_entered" from="Area2DAttack" to="." method="_on_area_2d_attack_area_entered"]

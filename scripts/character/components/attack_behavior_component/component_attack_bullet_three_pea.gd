@@ -37,29 +37,31 @@ func _shoot_bullet():
 func _create_bullte(await_time:float, i:int=1, change_y_target:bool=false):
 	if await_time:
 		await get_tree().create_timer(await_time).timeout
-	var bullet:Bullet000Base = Global.bullet_registry.get_bullet_scenes(attack_bullet_type).instantiate()
+	var bullet: Bullet000Base = Global.bullet_registry.get_bullet_scenes(attack_bullet_type).instantiate()
+	var bullet_paras: Dictionary = _build_three_pea_bullet_paras(i, change_y_target)
+	bullet.init_bullet(bullet_paras)
+	bullets.add_child(bullet)
 
-	## 有偏移的为正常发射的子弹
+	## 有偏移的为正常发射的子弹：再 tween 到对应行高
+	if change_y_target and bullet is BulletLinear000Base:
+		(bullet as BulletLinear000Base).change_y(markers_2d_bullet[0].global_position.y + (i - 1) * 100)
+
+
+## 先走父类 get_bullet_paras（方向、可攻击状态、位置等），再按三线规则改 BulletLane
+func _build_three_pea_bullet_paras(i: int, change_y_target: bool) -> Dictionary:
+	var dirs: Array[Vector2] = detect_component.ray_area_direction
+	var ray_idx: int
 	if change_y_target:
-		bullet.global_position = markers_2d_bullet[0].global_position
-		var bullet_paras:Dictionary = {
-			Bullet000Base.E_InitParasAttr.BulletLane : owner.row_col.x + i -1,
-			Bullet000Base.E_InitParasAttr.Position :  bullets.to_local(markers_2d_bullet[0].global_position),
-		}
-		bullet.init_bullet(bullet_paras)
-		bullets.add_child(bullet)
-		bullet.change_y(markers_2d_bullet[0].global_position.y + (i-1) * 100)
-	## 没有偏移的为边路补偿子弹
+		ray_idx = clampi(i, 0, maxi(0, dirs.size() - 1))
 	else:
-		bullet.global_position = markers_2d_bullet[0].global_position
-		var bullet_paras :Dictionary= {
-			Bullet000Base.E_InitParasAttr.BulletLane : owner.row_col.x,
-			Bullet000Base.E_InitParasAttr.Position :  bullets.to_local(markers_2d_bullet[0].global_position),
-		}
-		bullet.init_bullet(bullet_paras)
-		bullets.add_child(bullet)
-
-	bullet.global_position = markers_2d_bullet[0].global_position
+		ray_idx = clampi(1, 0, maxi(0, dirs.size() - 1))
+	var ray_dir: Vector2 = Vector2.RIGHT if dirs.is_empty() else dirs[ray_idx]
+	var bullet_paras: Dictionary = get_bullet_paras(markers_2d_bullet[0].global_position, ray_dir)
+	if change_y_target:
+		bullet_paras[Bullet000NormBase.E_InitParasAttr.BulletLane] = owner.row_col.x + i - 1
+	else:
+		bullet_paras[Bullet000NormBase.E_InitParasAttr.BulletLane] = owner.row_col.x
+	return bullet_paras
 
 
 ## 初始化时根据位置决定子弹偏移：边路补偿

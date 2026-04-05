@@ -1,0 +1,81 @@
+# 子弹场景目录说明
+
+路径：`res://scenes/bullet/`  
+
+本目录存放各类子弹的 **PackedScene**（根节点、美术、碰撞体、`MovementComponent` 等）。**游戏逻辑脚本**在 `res://scripts/bullet/`，与场景一一对应：场景负责节点结构与导出默认值，脚本负责运动、目标与伤害结算。
+
+---
+
+## 1. 脚本继承关系
+
+```
+Node2D
+└── Bullet000Base
+    ├── Bullet000NormBase              ← 大多数「标准子弹」从这里开始
+    │   ├── BulletLinear000Base        直线
+    │   ├── Bullet000ParabolaBase      抛物线（贝塞尔）
+    │   └── Bullet000TrackBase         追踪（含无敌人时跟鼠标等）
+    └── Bullet016CobCannon（示例）     ← 特殊弹：只继承最薄基类
+```
+
+- **`Bullet000Base`**：Body、影子、`bullet_type`、阵营等，体积最小。  
+- **`Bullet000NormBase`**：受击 `Area2D`、击中特效、`speed` / `direction`、`init_bullet`、通用碰撞与 `attack_once`。  
+- **三种运动基类**：在 `_physics_process` 里调用各自 **`$MovementComponent`** 的 `physics_process_bullet_move`。  
+- **特殊类（如玉米炮）**：直接继承 **`Bullet000Base`**，不经过 `NormBase`，通常也没有通用 `MovementComponent`，用独立流程（如 `init_cannon`、Tween、炸弹组件）。
+
+---
+
+## 2. 初始化（`init_bullet`）
+
+标准子弹在发射后应调用 **`Bullet000NormBase.init_bullet(字典)`**。常用键见枚举 **`E_InitParasAttr`**，例如：
+
+| 键 | 含义 |
+|----|------|
+| `Position` / `Direction` | 起始位置与方向 |
+| `BulletLane` / `IsActivateLane` | 行与是否按行过滤命中 |
+| `Enemy` | 抛物线 / 追踪可选目标 |
+| `EnemyGloPos` | 抛物线：敌人已消失时仍用于落点的位置 |
+
+追踪弹会在 `init_bullet` 里设置 **`detect_component_global`**；发射流程须保证先 `init_bullet` 再依赖 `_ready` 里的全局检测，避免空引用。
+
+---
+
+## 3. 移动组件（脚本路径：`scripts/bullet/component/movement/`）
+
+| 脚本 | 作用 |
+|------|------|
+| `BulletMovementBase` | `_ready` 时把 `owner` 当作子弹根节点（`Bullet000Base`）。 |
+| `BulletMovementLinear` | 按 `direction * speed` 推进（根节点本地 `position`）。 |
+| `BulletMovementParabola` | 贝塞尔落点；根节点 `_ready` 时调 `parabola_movement_ready`；可保护伞弹开重置。 |
+| `BulletMovementTrack` | `reset_track_movement` 切换追敌 / 鼠标 / 无目标减速；每帧由根节点调用 `physics_process_bullet_move`。 |
+
+约定：**根节点**统一在 `_physics_process` 里调用移动组件，移动组件**不**单独启用全局 `_physics_process` 抢顺序，便于先移动再判距离销毁等。
+
+---
+
+## 4. 特殊子弹示例：玉米炮
+
+| 项目 | 内容 |
+|------|------|
+| 场景 | `bullet_016_cob_cannon.tscn` |
+| 脚本 | `scripts/bullet/bullet_016_cob_cannon.gd` → `extends Bullet000Base` |
+| 特点 | 使用 **`init_cannon(世界坐标)`**；动画与落地逻辑写在脚本内；爆炸由 **`BombComponent`** 等子节点处理，不走通用 `init_bullet` + `MovementComponent` 管线。 |
+
+新增类似「演出型 / 炮击型」子弹时，若与标准碰撞、移动差异大，可沿用：**只继承 `Bullet000Base`**，场景中补齐脚本里 `@onready` / `%` 引用的节点。
+
+---
+
+## 5. 新增一种标准子弹的推荐步骤
+
+1. 在本目录复制 **`bullet_000_linear_base`** / **`bullet_000_parabola_base`** / **`bullet_000_track_base`** 之一作为新场景父模板，保持 **`MovementComponent` 子节点脚本类型**与运动方式一致。  
+2. 在 `scripts/bullet/` 新建脚本 **`extends`** 对应运动基类，只覆写伤害、碰撞或表现差异。  
+3. 若在 `BulletRegistry` 等注册，同步 **`BulletType`** 与资源引用。
+
+---
+
+## 6. 相关路径
+
+| 路径 | 说明 |
+|------|------|
+| `res://scripts/bullet/` | 子弹脚本与 `component/movement/` |
+| `res://scripts/fx/bullet_effect/` | 击中特效（`BulletEffect000Base` 等） |

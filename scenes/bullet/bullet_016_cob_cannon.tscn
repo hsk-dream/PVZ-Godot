@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2u7ov8ewqpoa"]
+[gd_scene load_steps=13 format=3 uid="uid://dxpnjvl2djgi4"]
 
-[ext_resource type="Script" uid="uid://dr6f202ig0ixe" path="res://scripts/bullet/bullet_016_cob_cannon.gd" id="1_ymsek"]
-[ext_resource type="Texture2D" uid="uid://c0b2nxclwkjxn" path="res://assets/reanim/CobCannon_cob.png" id="2_caf80"]
-[ext_resource type="Texture2D" uid="uid://c54er6fxpmcc8" path="res://assets/image/projectile/pea_shadows.png" id="2_w6ttn"]
+[ext_resource type="PackedScene" uid="uid://bnfv6m0ut4477" path="res://scenes/bullet/bullet_000_base.tscn" id="1_sm07q"]
+[ext_resource type="Script" uid="uid://db8qe0oie413h" path="res://scripts/bullet/bullet_016_cob_cannon.gd" id="1_ymsek"]
+[ext_resource type="Texture2D" uid="uid://c0b2nxclwkjxn" path="res://assets/reanim/CobCannon_cob.png" id="3_nsvt0"]
 [ext_resource type="Script" uid="uid://l0umdgng0y2m" path="res://scripts/character/components/bomb_component/component_bomb_norm.gd" id="4_e6ktu"]
 [ext_resource type="Script" uid="uid://ofqutiv0x4ke" path="res://scripts/fx/plant_effect/plant_effect_006_bomb_con_cannon.gd" id="5_nsvt0"]
 [ext_resource type="Texture2D" uid="uid://dvjyos6h31dsr" path="res://assets/image/particles/bullet/BlastMark.png" id="6_l1osl"]
 [ext_resource type="Texture2D" uid="uid://c2bnelgwkkidj" path="res://assets/image/main_game_item/CobCannon_popcorn.png" id="7_ymsek"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5gh3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pesq"]
 size = Vector2(250, 200)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0mq3m"]
@@ -17,14 +17,14 @@ particles_anim_h_frames = 5
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Curve" id="Curve_w6ttn"]
+[sub_resource type="Curve" id="Curve_nsvt0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.748837, 0.764045), -1.29414, -1.29414, 0, 0, Vector2(1, 0), -2.16144, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_e6ktu"]
-curve = SubResource("Curve_w6ttn")
+[sub_resource type="CurveTexture" id="CurveTexture_5mt2c"]
+curve = SubResource("Curve_nsvt0")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nsvt0"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l1osl"]
 emission_shape_offset = Vector3(0, -10, 0)
 emission_shape = 1
 emission_sphere_radius = 10.0
@@ -35,51 +35,44 @@ initial_velocity_max = 130.0
 gravity = Vector3(0, 30, 0)
 scale_min = 0.5
 scale_max = 1.5
-alpha_curve = SubResource("CurveTexture_e6ktu")
+alpha_curve = SubResource("CurveTexture_5mt2c")
 anim_offset_max = 1.0
 
-[node name="Bullet016CobCannon" type="Node2D"]
+[node name="Bullet016CobCannon" instance=ExtResource("1_sm07q")]
 script = ExtResource("1_ymsek")
+bullet_type = 16
 
-[node name="BulletShadow" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(0, 9)
-scale = Vector2(2, 2)
-texture = ExtResource("2_w6ttn")
-hframes = 2
+[node name="Body" parent="." index="1"]
+rotation = -1.5707964
 
-[node name="Body" type="Node2D" parent="."]
-rotation = -1.5708
+[node name="BulletBody" parent="Body" index="0"]
+texture = ExtResource("3_nsvt0")
 
-[node name="BulletBody" type="Sprite2D" parent="Body"]
-texture = ExtResource("2_caf80")
-
-[node name="BombComponent" type="Node2D" parent="."]
+[node name="BombComponent" type="Node2D" parent="." index="2"]
 unique_name_in_owner = true
 script = ExtResource("4_e6ktu")
-can_attack_plant_status = 7
-can_attack_zombie_status = 31
+can_attack_zombie_status = 63
 
-[node name="Area2DBomb" type="Area2D" parent="BombComponent"]
+[node name="Area2DBomb" type="Area2D" parent="BombComponent" index="0"]
 collision_layer = 0
-collision_mask = 20
+collision_mask = 2068
 input_pickable = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BombComponent/Area2DBomb"]
-shape = SubResource("RectangleShape2D_f5gh3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombComponent/Area2DBomb" index="0"]
+shape = SubResource("RectangleShape2D_7pesq")
 
-[node name="BombEffect" type="Node2D" parent="BombComponent"]
+[node name="BombEffect" type="Node2D" parent="BombComponent" index="1"]
 visible = false
 position = Vector2(0, -28)
 script = ExtResource("5_nsvt0")
 
-[node name="BlastMark" type="Sprite2D" parent="BombComponent/BombEffect"]
+[node name="BlastMark" type="Sprite2D" parent="BombComponent/BombEffect" index="0"]
 z_index = -1
 position = Vector2(4, 37)
 texture = ExtResource("6_l1osl")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="BombComponent/BombEffect"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BombComponent/BombEffect" index="1"]
 material = SubResource("CanvasItemMaterial_0mq3m")
 position = Vector2(0, 28)
 emitting = false
@@ -88,4 +81,4 @@ texture = ExtResource("7_ymsek")
 one_shot = true
 explosiveness = 1.0
 draw_order = 0
-process_material = SubResource("ParticleProcessMaterial_nsvt0")
+process_material = SubResource("ParticleProcessMaterial_l1osl")

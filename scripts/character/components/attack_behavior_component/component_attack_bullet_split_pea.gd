@@ -21,9 +21,9 @@ func _shoot_bullet():
 	## 子弹初始位置
 	var bullet_pos_ori = markers_2d_bullet[0].global_position
 	var bullet_paras = {
-		Bullet000Base.E_InitParasAttr.BulletLane : owner.lane,
-		Bullet000Base.E_InitParasAttr.Position :  bullets.to_local(bullet_pos_ori),
-		Bullet000Base.E_InitParasAttr.Direction : ray_direction
+		Bullet000NormBase.E_InitParasAttr.BulletLane : owner.lane,
+		Bullet000NormBase.E_InitParasAttr.Position :  bullets.to_local(bullet_pos_ori),
+		Bullet000NormBase.E_InitParasAttr.Direction : ray_direction
 	}
 	bullet.init_bullet(bullet_paras)
 	bullets.add_child(bullet)
@@ -36,9 +36,9 @@ func _shoot_bullet_2():
 	## 子弹初始位置
 	var bullet_pos_ori = markers_2d_bullet[1].global_position
 	var bullet_paras = {
-		Bullet000Base.E_InitParasAttr.BulletLane : owner.lane,
-		Bullet000Base.E_InitParasAttr.Position :  bullets.to_local(bullet_pos_ori),
-		Bullet000Base.E_InitParasAttr.Direction : ray_direction
+		Bullet000NormBase.E_InitParasAttr.BulletLane : owner.lane,
+		Bullet000NormBase.E_InitParasAttr.Position :  bullets.to_local(bullet_pos_ori),
+		Bullet000NormBase.E_InitParasAttr.Direction : ray_direction
 	}
 	bullet.init_bullet(bullet_paras)
 	bullets.add_child(bullet)

@@ -30,6 +30,7 @@ script_list_meta = {
 "res://scripts/autoload/util/random_picker.gd": [-1, -1],
 "res://scripts/bullet/bullet_000_base.gd": [-1, -1],
 "res://scripts/bullet/bullet_000_linear_base.gd": [-1, -1],
+"res://scripts/bullet/bullet_000_norm_base.gd": [-1, -1],
 "res://scripts/bullet/bullet_000_parabola_base.gd": [-1, -1],
 "res://scripts/bullet/bullet_000_track_base.gd": [-1, -1],
 "res://scripts/bullet/bullet_002_pea_snow.gd": [-1, -1],
