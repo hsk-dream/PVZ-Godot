@@ -16,6 +16,7 @@ max_attack_num = -1
 speed = 188.0
 type_bullet_SFX = 1001
 can_attack_zombie_status = 3
+bullet_type = 1003
 
 [node name="BulletShadow" parent="." index="0"]
 position = Vector2(0, 0)

@@ -27,9 +27,9 @@ enum BulletType{
 	Bullet016CobCannon,		## 玉米加农炮子弹
 
 
-	Bullet1001Bowling,		## 保龄球
-	Bullet1001BowlingBomb,	## 爆炸保龄球
-	Bullet1001BowlingBig,	## 大保龄球
+	Bullet1001Bowling = 1001,		## 保龄球
+	Bullet1002BowlingBomb,	## 爆炸保龄球
+	Bullet1003BowlingBig,	## 大保龄球
 
 }
 

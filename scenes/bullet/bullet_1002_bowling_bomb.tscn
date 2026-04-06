@@ -197,6 +197,7 @@ shader_parameter/random_direction_from_spread = Vector3(0, 0, 0)
 script = ExtResource("2_3pp2i")
 speed = 188.0
 type_bullet_SFX = 1001
+bullet_type = 1002
 
 [node name="BulletShadow" parent="." index="0"]
 position = Vector2(0, 0)
