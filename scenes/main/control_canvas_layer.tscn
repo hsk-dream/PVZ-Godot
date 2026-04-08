@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5v0fdtao52jl"]
+[gd_scene format=3 uid="uid://5v0fdtao52jl"]
 
 [ext_resource type="Script" uid="uid://b3aqc01slj7m" path="res://scripts/ui/ui_main_game_menu/canvas_layer_control.gd" id="1_urijc"]
 [ext_resource type="Theme" uid="uid://em12la0rqibq" path="res://data/PVZ_theme.tres" id="2_b2pgd"]
@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c82uuprowr5d" path="res://assets/image/ui/ui_level/Almanac_CloseButtonHighlight.png" id="5_4s1si"]
 [ext_resource type="BitMap" uid="uid://bc7yq02xscrlr" path="res://assets/image/ui/ui_level/Almanac_CloseButton_Mask.png" id="6_g2rg4"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1554379172]
 layer = 128
 script = ExtResource("1_urijc")
 
-[node name="OptionBG" type="TextureRect" parent="."]
+[node name="OptionBG" type="TextureRect" parent="." unique_id=2132321433]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,7 +20,7 @@ grow_vertical = 2
 theme = ExtResource("2_b2pgd")
 texture = ExtResource("3_mxft5")
 
-[node name="Label" type="Label" parent="OptionBG"]
+[node name="Label" type="Label" parent="OptionBG" unique_id=746000431]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -35,7 +35,7 @@ text = "控制台"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OptionBG"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionBG" unique_id=9838612]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 130.0
@@ -43,11 +43,11 @@ offset_right = 637.0
 offset_bottom = 281.0
 theme_override_constants/separation = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionBG/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionBG/HBoxContainer" unique_id=22746121]
 layout_mode = 2
 theme_override_constants/separation = 11
 
-[node name="CheckBox" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=1221795734]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "自动收集阳光"
@@ -55,7 +55,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "自动收集阳光"
 
-[node name="CheckBox2" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox2" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=1105232444]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "自动收集金币（没做）"
@@ -63,7 +63,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "自动收集金币"
 
-[node name="CheckBox3" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox3" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=1410090743]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "游戏开始后，若选择植物卡片未满，将多余游戏卡槽隐藏"
@@ -71,7 +71,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "隐藏未选择植物卡槽"
 
-[node name="CheckBox4" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox4" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=85569616]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "游戏全屏"
@@ -79,7 +79,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "游戏全屏"
 
-[node name="CheckBox5" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox5" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=123025446]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "显示植物血量"
@@ -87,7 +87,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "显示植物血量"
 
-[node name="CheckBox6" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox6" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=1269188364]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "显示僵尸血量"
@@ -95,7 +95,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "显示僵尸血量"
 
-[node name="CheckBox7" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox7" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=1655727760]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "鼠标移动到卡槽时，将卡槽置顶，避免选卡时卡槽被遮挡"
@@ -103,7 +103,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "焦点卡槽自动置顶"
 
-[node name="CheckBox8" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer"]
+[node name="CheckBox8" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer" unique_id=1103806107]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "游戏有浓雾时，选择静态或动态浓雾"
@@ -111,11 +111,11 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "静态浓雾"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="OptionBG/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionBG/HBoxContainer" unique_id=2009943434]
 layout_mode = 2
 theme_override_constants/separation = 11
 
-[node name="CheckBox9" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer2"]
+[node name="CheckBox9" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer2" unique_id=865581138]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "铲子预铲除植物时，将该植物高亮同时在本格置顶，方便观察被铲除的植物"
@@ -123,7 +123,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "预铲除植物置顶"
 
-[node name="CheckBox10" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer2"]
+[node name="CheckBox10" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer2" unique_id=1347351891]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "铲子预铲除植物时，将该植物高亮同时在本格置顶，方便观察被铲除的植物"
@@ -131,7 +131,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "开放所有关卡"
 
-[node name="CheckBox11" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer2"]
+[node name="CheckBox11" type="CheckBox" parent="OptionBG/HBoxContainer/VBoxContainer2" unique_id=1247747719]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "追踪子弹无目标时，追踪鼠标"
@@ -139,7 +139,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 text = "追踪子弹跟随鼠标"
 
-[node name="TextureButton" type="TextureButton" parent="OptionBG"]
+[node name="TextureButton" type="TextureButton" parent="OptionBG" unique_id=830961050]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -160,7 +160,7 @@ texture_hover = ExtResource("5_4s1si")
 texture_focused = ExtResource("5_4s1si")
 texture_click_mask = ExtResource("6_g2rg4")
 
-[node name="Label" type="Label" parent="OptionBG/TextureButton"]
+[node name="Label" type="Label" parent="OptionBG/TextureButton" unique_id=686878322]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 2.0

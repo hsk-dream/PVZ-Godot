@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://em12la0rqibq"]
+[gd_resource type="Theme" format=3 uid="uid://em12la0rqibq"]
 
 [ext_resource type="Texture2D" uid="uid://cw8k7bqxg6s10" path="res://assets/image/ui/ui_main_game_menu/options_checkbox1.png" id="1_5qcbn"]
 [ext_resource type="FontFile" uid="uid://bjnvl0v2ws21u" path="res://assets/fonts/SIMSUN.TTC" id="1_d76qg"]

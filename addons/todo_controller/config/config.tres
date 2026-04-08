@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Config" load_steps=2 format=3 uid="uid://4ydxirg2pyp8"]
+[gd_resource type="Resource" script_class="Config" format=3 uid="uid://4ydxirg2pyp8"]
 
 [ext_resource type="Script" uid="uid://vlknpwmjg77n" path="res://addons/todo_controller/config.gd" id="1_f6quq"]
 

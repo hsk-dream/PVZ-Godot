@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://dc1xvxus2co66"]
+[gd_scene format=3 uid="uid://dc1xvxus2co66"]
 
 [ext_resource type="Script" uid="uid://dkbq8o27gtu37" path="res://scripts/ui/start_menu/start_menu_root.gd" id="1_2isde"]
 [ext_resource type="Texture2D" uid="uid://cd1em7514pqef" path="res://assets/image/ui/ui_start_menu/SelectorScreen_BG.jpg" id="1_s2p02"]
@@ -1455,7 +1455,7 @@ expand_margin_top = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
-[node name="StartMenu" type="Control"]
+[node name="StartMenu" type="Control" unique_id=1859818695]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -1467,7 +1467,7 @@ theme = ExtResource("59_e0j7q")
 script = ExtResource("1_2isde")
 bgm = ExtResource("2_yl4bl")
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." unique_id=1195158219]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1477,7 +1477,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_s2p02")
 
-[node name="Cloud" type="Control" parent="."]
+[node name="Cloud" type="Control" parent="." unique_id=108357916]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1488,7 +1488,7 @@ offset_bottom = 362.0
 grow_horizontal = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Cloud"]
+[node name="TextureRect" type="TextureRect" parent="Cloud" unique_id=1345632596]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1504,7 +1504,7 @@ grow_vertical = 2
 rotation = 0.515888
 texture = ExtResource("2_xll4c")
 
-[node name="TextureRect2" type="TextureRect" parent="Cloud"]
+[node name="TextureRect2" type="TextureRect" parent="Cloud" unique_id=1517727834]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1520,7 +1520,7 @@ grow_vertical = 2
 rotation = 0.574227
 texture = ExtResource("3_2isde")
 
-[node name="TextureRect4" type="TextureRect" parent="Cloud"]
+[node name="TextureRect4" type="TextureRect" parent="Cloud" unique_id=1248550115]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1536,7 +1536,7 @@ grow_vertical = 2
 rotation = 0.131762
 texture = ExtResource("4_at8of")
 
-[node name="TextureRect5" type="TextureRect" parent="Cloud"]
+[node name="TextureRect5" type="TextureRect" parent="Cloud" unique_id=1047659905]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1552,7 +1552,7 @@ grow_vertical = 2
 rotation = 2.64718
 texture = ExtResource("5_fbvip")
 
-[node name="TextureRect6" type="TextureRect" parent="Cloud"]
+[node name="TextureRect6" type="TextureRect" parent="Cloud" unique_id=1219968261]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1568,7 +1568,7 @@ grow_vertical = 2
 rotation = -2.43669
 texture = ExtResource("6_qphvj")
 
-[node name="TextureRect7" type="TextureRect" parent="Cloud"]
+[node name="TextureRect7" type="TextureRect" parent="Cloud" unique_id=779410464]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1584,13 +1584,11 @@ grow_vertical = 2
 rotation = -1.91408
 texture = ExtResource("7_6enlx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Cloud"]
-libraries = {
-&"": SubResource("AnimationLibrary_2k56d")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cloud" unique_id=1557290486]
+libraries/ = SubResource("AnimationLibrary_2k56d")
 speed_scale = 0.2
 
-[node name="BG_Center" type="TextureRect" parent="."]
+[node name="BG_Center" type="TextureRect" parent="." unique_id=1428561620]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1606,7 +1604,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("2_jjhxv")
 
-[node name="BG_Left" type="TextureRect" parent="."]
+[node name="BG_Left" type="TextureRect" parent="." unique_id=1417766778]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1618,7 +1616,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("37_at8of")
 
-[node name="BG_Right" type="TextureRect" parent="."]
+[node name="BG_Right" type="TextureRect" parent="." unique_id=1991353442]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1634,7 +1632,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("2_j2mjb")
 
-[node name="Menu" type="Control" parent="BG_Right"]
+[node name="Menu" type="Control" parent="BG_Right" unique_id=1353079128]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1643,7 +1641,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Button1" type="TextureButton" parent="BG_Right/Menu"]
+[node name="Button1" type="TextureButton" parent="BG_Right/Menu" unique_id=769641551]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1660,7 +1658,7 @@ texture_hover = ExtResource("4_qq5l0")
 texture_click_mask = ExtResource("5_jrmm2")
 script = ExtResource("5_j2mjb")
 
-[node name="Button2" type="TextureButton" parent="BG_Right/Menu"]
+[node name="Button2" type="TextureButton" parent="BG_Right/Menu" unique_id=328292847]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1677,7 +1675,7 @@ texture_hover = ExtResource("8_kfgfy")
 texture_click_mask = ExtResource("9_cppkq")
 script = ExtResource("5_j2mjb")
 
-[node name="Button3" type="TextureButton" parent="BG_Right/Menu"]
+[node name="Button3" type="TextureButton" parent="BG_Right/Menu" unique_id=557463343]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1694,7 +1692,7 @@ texture_hover = ExtResource("11_kjwot")
 texture_click_mask = ExtResource("12_sb5fe")
 script = ExtResource("5_j2mjb")
 
-[node name="Button4" type="TextureButton" parent="BG_Right/Menu"]
+[node name="Button4" type="TextureButton" parent="BG_Right/Menu" unique_id=1000885998]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1711,7 +1709,7 @@ texture_hover = ExtResource("14_614ej")
 texture_click_mask = ExtResource("15_k7y68")
 script = ExtResource("5_j2mjb")
 
-[node name="Flower" type="Control" parent="BG_Right"]
+[node name="Flower" type="Control" parent="BG_Right" unique_id=321955551]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1726,7 +1724,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Button1" type="TextureButton" parent="BG_Right/Flower"]
+[node name="Button1" type="TextureButton" parent="BG_Right/Flower" unique_id=1570673420]
 layout_mode = 0
 offset_left = 133.0
 offset_top = 2.0
@@ -1740,7 +1738,7 @@ texture_hover = ExtResource("16_oe188")
 texture_click_mask = ExtResource("17_bkc8k")
 script = ExtResource("28_lvy6c")
 
-[node name="Button2" type="TextureButton" parent="BG_Right/Flower"]
+[node name="Button2" type="TextureButton" parent="BG_Right/Flower" unique_id=132857899]
 layout_mode = 0
 offset_left = 92.0
 offset_top = 14.0
@@ -1755,7 +1753,7 @@ texture_hover = ExtResource("18_p37de")
 texture_click_mask = ExtResource("19_0gy64")
 script = ExtResource("28_lvy6c")
 
-[node name="Button3" type="TextureButton" parent="BG_Right/Flower"]
+[node name="Button3" type="TextureButton" parent="BG_Right/Flower" unique_id=1743611085]
 layout_mode = 1
 offset_left = 184.0
 offset_top = 23.0
@@ -1768,7 +1766,7 @@ texture_hover = ExtResource("20_rdc4m")
 texture_click_mask = ExtResource("21_we678")
 script = ExtResource("28_lvy6c")
 
-[node name="Option" type="Control" parent="BG_Right"]
+[node name="Option" type="Control" parent="BG_Right" unique_id=1553159727]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1783,7 +1781,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="TextureButton" type="TextureButton" parent="BG_Right/Option"]
+[node name="TextureButton" type="TextureButton" parent="BG_Right/Option" unique_id=541841903]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 64.99963
@@ -1795,7 +1793,7 @@ texture_pressed = ExtResource("23_c836s")
 texture_hover = ExtResource("23_c836s")
 script = ExtResource("5_j2mjb")
 
-[node name="TextureButton2" type="TextureButton" parent="BG_Right/Option"]
+[node name="TextureButton2" type="TextureButton" parent="BG_Right/Option" unique_id=1448240739]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 98.0
@@ -1807,7 +1805,7 @@ texture_pressed = ExtResource("25_0it6s")
 texture_hover = ExtResource("25_0it6s")
 script = ExtResource("5_j2mjb")
 
-[node name="TextureButton3" type="TextureButton" parent="BG_Right/Option"]
+[node name="TextureButton3" type="TextureButton" parent="BG_Right/Option" unique_id=601669848]
 layout_mode = 0
 offset_left = 168.0
 offset_top = 85.0
@@ -1819,7 +1817,7 @@ texture_pressed = ExtResource("27_jjhxv")
 texture_hover = ExtResource("27_jjhxv")
 script = ExtResource("5_j2mjb")
 
-[node name="Item" type="Control" parent="BG_Right"]
+[node name="Item" type="Control" parent="BG_Right" unique_id=1708783652]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1834,7 +1832,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="TextureButton" type="TextureButton" parent="BG_Right/Item"]
+[node name="TextureButton" type="TextureButton" parent="BG_Right/Item" unique_id=1183991008]
 layout_mode = 0
 offset_left = 25.0
 offset_top = -11.000366
@@ -1847,7 +1845,7 @@ texture_hover = ExtResource("29_jjhxv")
 texture_click_mask = ExtResource("30_3w04d")
 script = ExtResource("5_j2mjb")
 
-[node name="GardenConditionFlag" type="TextureRect" parent="BG_Right/Item/TextureButton"]
+[node name="GardenConditionFlag" type="TextureRect" parent="BG_Right/Item/TextureButton" unique_id=750186919]
 layout_mode = 0
 offset_left = 102.371
 offset_top = 32.2858
@@ -1856,7 +1854,7 @@ offset_bottom = 82.2858
 texture = ExtResource("41_l67l0")
 script = ExtResource("42_lvy6c")
 
-[node name="Water" type="TextureRect" parent="BG_Right/Item/TextureButton/GardenConditionFlag"]
+[node name="Water" type="TextureRect" parent="BG_Right/Item/TextureButton/GardenConditionFlag" unique_id=1760896186]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1872,7 +1870,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("43_sa52e")
 
-[node name="Sprout" type="TextureRect" parent="BG_Right/Item/TextureButton/GardenConditionFlag"]
+[node name="Sprout" type="TextureRect" parent="BG_Right/Item/TextureButton/GardenConditionFlag" unique_id=778033544]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1886,21 +1884,21 @@ offset_bottom = 7.8349
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Rock" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Rock" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=1966922460]
 position = Vector2(6.52679, 18.9344)
 rotation = 0.261799
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("44_wymjr")
 centered = false
 
-[node name="Sprout" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Sprout" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=248303709]
 visible = false
 position = Vector2(33.2, 46.6)
 scale = Vector2(0.8, 0.753)
 texture = ExtResource("45_ojqr6")
 centered = false
 
-[node name="Layer 26" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Layer 26" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=1683382093]
 position = Vector2(1.7254, 2.78324)
 rotation = 0.0200588
 scale = Vector2(0.798502, 0.688042)
@@ -1908,7 +1906,7 @@ skew = 0.0636601
 texture = ExtResource("46_ito2j")
 centered = false
 
-[node name="Layer 27" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Layer 27" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=1171676489]
 position = Vector2(6.47423, 2.98323)
 rotation = 0.0575554
 scale = Vector2(0.804995, 0.789507)
@@ -1916,41 +1914,41 @@ skew = 0.171805
 texture = ExtResource("47_nu6d8")
 centered = false
 
-[node name="Rock1" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Rock1" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=690485425]
 position = Vector2(0.326798, 25.9344)
 rotation = -2.09265
 scale = Vector2(0.424, 0.424)
 texture = ExtResource("44_wymjr")
 centered = false
 
-[node name="Rock2" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Rock2" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=1134313001]
 position = Vector2(7.4268, 18.8344)
 scale = Vector2(0.382, 0.359)
 texture = ExtResource("44_wymjr")
 centered = false
 
-[node name="Rock3" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Rock3" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=200923083]
 position = Vector2(2.52679, 20.4344)
 rotation = 0.261799
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("44_wymjr")
 centered = false
 
-[node name="Rock4" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Rock4" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=1941224384]
 position = Vector2(7.82679, 21.2344)
 rotation = 0.261799
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("44_wymjr")
 centered = false
 
-[node name="Rock5" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout"]
+[node name="Rock5" type="Sprite2D" parent="BG_Right/Item/TextureButton/GardenConditionFlag/Sprout" unique_id=1049254596]
 position = Vector2(3.5268, 25.2344)
 rotation = -1.83085
 scale = Vector2(0.555, 0.555)
 texture = ExtResource("48_altii")
 centered = false
 
-[node name="TextureButton2" type="TextureButton" parent="BG_Right/Item"]
+[node name="TextureButton2" type="TextureButton" parent="BG_Right/Item" unique_id=783228993]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 14.999634
@@ -1963,7 +1961,7 @@ texture_hover = ExtResource("32_ortyp")
 texture_click_mask = ExtResource("33_qniwh")
 script = ExtResource("5_j2mjb")
 
-[node name="TextureButton3" type="TextureButton" parent="BG_Right/Item"]
+[node name="TextureButton3" type="TextureButton" parent="BG_Right/Item" unique_id=1430078172]
 layout_mode = 0
 offset_left = 287.0
 offset_top = 56.999626
@@ -1977,7 +1975,7 @@ texture_click_mask = ExtResource("55_ito2j")
 ignore_texture_size = true
 script = ExtResource("5_j2mjb")
 
-[node name="Leaf" type="Control" parent="BG_Right"]
+[node name="Leaf" type="Control" parent="BG_Right" unique_id=480220387]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1989,7 +1987,7 @@ offset_bottom = -1.0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="TextureRect6" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect6" type="TextureRect" parent="BG_Right/Leaf" unique_id=801506946]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 9.0
@@ -1998,7 +1996,7 @@ offset_bottom = 71.0
 mouse_filter = 2
 texture = ExtResource("46_i4128")
 
-[node name="TextureRect" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect" type="TextureRect" parent="BG_Right/Leaf" unique_id=1651814890]
 layout_mode = 0
 offset_left = 231.0
 offset_top = 33.0
@@ -2008,7 +2006,7 @@ pivot_offset = Vector2(21, 36)
 mouse_filter = 2
 texture = ExtResource("47_2k56d")
 
-[node name="TextureRect2" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect2" type="TextureRect" parent="BG_Right/Leaf" unique_id=1704774087]
 layout_mode = 0
 offset_left = 211.0
 offset_top = 15.0
@@ -2018,7 +2016,7 @@ pivot_offset = Vector2(24, 37)
 mouse_filter = 2
 texture = ExtResource("48_10pji")
 
-[node name="TextureRect3" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect3" type="TextureRect" parent="BG_Right/Leaf" unique_id=74562378]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 11.0
@@ -2028,7 +2026,7 @@ pivot_offset = Vector2(31, 58)
 mouse_filter = 2
 texture = ExtResource("49_8optn")
 
-[node name="TextureRect4" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect4" type="TextureRect" parent="BG_Right/Leaf" unique_id=601619798]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 24.0
@@ -2038,7 +2036,7 @@ pivot_offset = Vector2(28, 41)
 mouse_filter = 2
 texture = ExtResource("50_sch2t")
 
-[node name="TextureRect5" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect5" type="TextureRect" parent="BG_Right/Leaf" unique_id=321032719]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
@@ -2048,7 +2046,7 @@ pivot_offset = Vector2(8, 36)
 mouse_filter = 2
 texture = ExtResource("51_63h8x")
 
-[node name="TextureRect7" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect7" type="TextureRect" parent="BG_Right/Leaf" unique_id=289554352]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 31.0
@@ -2058,7 +2056,7 @@ pivot_offset = Vector2(20, 40)
 mouse_filter = 2
 texture = ExtResource("47_2k56d")
 
-[node name="TextureRect8" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect8" type="TextureRect" parent="BG_Right/Leaf" unique_id=2141752435]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 31.0
@@ -2068,7 +2066,7 @@ pivot_offset = Vector2(23, 37)
 mouse_filter = 2
 texture = ExtResource("48_10pji")
 
-[node name="TextureRect9" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect9" type="TextureRect" parent="BG_Right/Leaf" unique_id=1147807541]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 8.0
@@ -2078,7 +2076,7 @@ pivot_offset = Vector2(28, 63)
 mouse_filter = 2
 texture = ExtResource("49_8optn")
 
-[node name="TextureRect10" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect10" type="TextureRect" parent="BG_Right/Leaf" unique_id=1422292632]
 layout_mode = 0
 offset_left = 195.0
 offset_top = 28.0
@@ -2088,7 +2086,7 @@ pivot_offset = Vector2(33, 44)
 mouse_filter = 2
 texture = ExtResource("50_sch2t")
 
-[node name="TextureRect11" type="TextureRect" parent="BG_Right/Leaf"]
+[node name="TextureRect11" type="TextureRect" parent="BG_Right/Leaf" unique_id=1905469988]
 layout_mode = 0
 offset_left = 188.0
 offset_top = 37.0
@@ -2098,13 +2096,11 @@ pivot_offset = Vector2(12, 39)
 mouse_filter = 2
 texture = ExtResource("51_63h8x")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BG_Right/Leaf"]
-libraries = {
-&"": SubResource("AnimationLibrary_31n4o")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG_Right/Leaf" unique_id=1995342491]
+libraries/ = SubResource("AnimationLibrary_31n4o")
 speed_scale = 0.1
 
-[node name="CustomButton" type="TextureButton" parent="BG_Right"]
+[node name="CustomButton" type="TextureButton" parent="BG_Right" unique_id=1936599218]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -2120,14 +2116,14 @@ texture_click_mask = ExtResource("84_mpctx")
 stretch_mode = 5
 script = SubResource("GDScript_mpctx")
 
-[node name="default" type="TextureRect" parent="BG_Right/CustomButton"]
+[node name="default" type="TextureRect" parent="BG_Right/CustomButton" unique_id=1479650694]
 layout_mode = 1
 offset_right = 80.0
 offset_bottom = 80.0
 texture = ExtResource("83_tf8pn")
 stretch_mode = 2
 
-[node name="mouse" type="TextureRect" parent="BG_Right/CustomButton"]
+[node name="mouse" type="TextureRect" parent="BG_Right/CustomButton" unique_id=829620639]
 visible = false
 layout_mode = 1
 offset_left = -14.0
@@ -2137,30 +2133,30 @@ offset_bottom = 96.0
 texture = ExtResource("84_x7dp7")
 stretch_mode = 2
 
-[node name="Version" type="Label" parent="BG_Right"]
+[node name="Version" type="Label" parent="BG_Right" unique_id=862557868]
 layout_mode = 0
 offset_left = 425.0
 offset_top = 389.0
 offset_right = 488.06622
 offset_bottom = 414.48242
 rotation = 0.30697444
-text = "v 1.1.1"
+text = "v 1.2.0"
 label_settings = SubResource("LabelSettings_x7dp7")
 
-[node name="WoodSign" type="Control" parent="."]
+[node name="WoodSign" type="Control" parent="." unique_id=1519060501]
 anchors_preset = 0
 offset_left = 47.0
 offset_right = 351.0
 offset_bottom = 249.0
 script = ExtResource("63_gis02")
 
-[node name="TextureRect" type="TextureRect" parent="WoodSign"]
+[node name="TextureRect" type="TextureRect" parent="WoodSign" unique_id=266057545]
 layout_mode = 0
 offset_right = 293.0
 offset_bottom = 150.0
 texture = ExtResource("52_63h8x")
 
-[node name="Panel" type="Panel" parent="WoodSign/TextureRect"]
+[node name="Panel" type="Panel" parent="WoodSign/TextureRect" unique_id=2062662280]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -2172,7 +2168,7 @@ offset_bottom = 126.12
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_343qg")
 
-[node name="Label" type="Label" parent="WoodSign/TextureRect/Panel"]
+[node name="Label" type="Label" parent="WoodSign/TextureRect/Panel" unique_id=393259829]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -2189,7 +2185,7 @@ label_settings = SubResource("LabelSettings_xqlaa")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonUserUpdate" type="TextureButton" parent="WoodSign"]
+[node name="ButtonUserUpdate" type="TextureButton" parent="WoodSign" unique_id=1904250988]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 140.0
@@ -2202,7 +2198,7 @@ texture_hover = ExtResource("54_yl4bl")
 texture_click_mask = ExtResource("55_31n4o")
 script = ExtResource("5_j2mjb")
 
-[node name="TextureRect3" type="TextureRect" parent="WoodSign"]
+[node name="TextureRect3" type="TextureRect" parent="WoodSign" unique_id=1690003935]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 200.0
@@ -2210,12 +2206,10 @@ offset_right = 98.0
 offset_bottom = 240.0
 texture = ExtResource("56_b7wor")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_b7wor")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1486086871]
+libraries/ = SubResource("AnimationLibrary_b7wor")
 
-[node name="StartMenuOptionDialog" type="TextureRect" parent="."]
+[node name="StartMenuOptionDialog" type="TextureRect" parent="." unique_id=328698783]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -2233,14 +2227,14 @@ theme = ExtResource("59_e0j7q")
 texture = ExtResource("60_343qg")
 script = ExtResource("61_pnpk5")
 
-[node name="Option" type="Control" parent="StartMenuOptionDialog"]
+[node name="Option" type="Control" parent="StartMenuOptionDialog" unique_id=1844448996]
 anchors_preset = 0
 offset_left = 102.0
 offset_top = 115.0
 offset_right = 320.0
 offset_bottom = 373.0
 
-[node name="Music" type="Control" parent="StartMenuOptionDialog/Option"]
+[node name="Music" type="Control" parent="StartMenuOptionDialog/Option" unique_id=628270071]
 custom_minimum_size = Vector2(0, 30)
 anchors_preset = 0
 offset_left = 4.0
@@ -2248,14 +2242,14 @@ offset_top = -0.5
 offset_right = 216.0
 offset_bottom = 29.5
 
-[node name="Label" type="Label" parent="StartMenuOptionDialog/Option/Music"]
+[node name="Label" type="Label" parent="StartMenuOptionDialog/Option/Music" unique_id=1637885737]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_type_variation = &"Label2"
 text = "音乐"
 
-[node name="HSlider" type="HSlider" parent="StartMenuOptionDialog/Option/Music"]
+[node name="HSlider" type="HSlider" parent="StartMenuOptionDialog/Option/Music" unique_id=1790522698]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 1.0
@@ -2265,7 +2259,7 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="SoundEffect" type="Control" parent="StartMenuOptionDialog/Option"]
+[node name="SoundEffect" type="Control" parent="StartMenuOptionDialog/Option" unique_id=1493096671]
 custom_minimum_size = Vector2(0, 30)
 anchors_preset = 0
 offset_left = 4.0
@@ -2273,14 +2267,14 @@ offset_top = 33.5
 offset_right = 216.0
 offset_bottom = 63.5
 
-[node name="Label" type="Label" parent="StartMenuOptionDialog/Option/SoundEffect"]
+[node name="Label" type="Label" parent="StartMenuOptionDialog/Option/SoundEffect" unique_id=391795133]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_type_variation = &"Label2"
 text = "音效"
 
-[node name="HSlider" type="HSlider" parent="StartMenuOptionDialog/Option/SoundEffect"]
+[node name="HSlider" type="HSlider" parent="StartMenuOptionDialog/Option/SoundEffect" unique_id=1677560523]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 1.0
@@ -2290,7 +2284,7 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="FullScreen" type="Control" parent="StartMenuOptionDialog/Option"]
+[node name="FullScreen" type="Control" parent="StartMenuOptionDialog/Option" unique_id=473210163]
 custom_minimum_size = Vector2(0, 50)
 anchors_preset = 0
 offset_left = 4.0
@@ -2298,7 +2292,7 @@ offset_top = 67.5
 offset_right = 216.0
 offset_bottom = 117.5
 
-[node name="Label" type="Label" parent="StartMenuOptionDialog/Option/FullScreen"]
+[node name="Label" type="Label" parent="StartMenuOptionDialog/Option/FullScreen" unique_id=2079464383]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -2311,7 +2305,7 @@ grow_vertical = 2
 theme_type_variation = &"Label2"
 text = "全屏"
 
-[node name="CheckButton" type="CheckButton" parent="StartMenuOptionDialog/Option/FullScreen"]
+[node name="CheckButton" type="CheckButton" parent="StartMenuOptionDialog/Option/FullScreen" unique_id=1263495437]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -2325,7 +2319,7 @@ offset_bottom = 27.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Return" type="TextureButton" parent="StartMenuOptionDialog"]
+[node name="Return" type="TextureButton" parent="StartMenuOptionDialog" unique_id=358547802]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2344,7 +2338,7 @@ texture_pressed = ExtResource("62_5qe3w")
 texture_click_mask = ExtResource("63_xxpiq")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="StartMenuOptionDialog/Return"]
+[node name="Label" type="Label" parent="StartMenuOptionDialog/Return" unique_id=878105660]
 layout_mode = 0
 offset_left = 79.0
 offset_top = 13.0
@@ -2354,8 +2348,7 @@ theme_override_font_sizes/font_size = 50
 text = "返回游戏"
 vertical_alignment = 1
 
-[node name="Button4" type="BaseButton" parent="StartMenuOptionDialog"]
-_import_path = NodePath("")
+[node name="Button4" type="BaseButton" parent="StartMenuOptionDialog" unique_id=665184579]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -2397,6 +2390,7 @@ grow_vertical = 1
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -2437,7 +2431,7 @@ shortcut_in_tooltip = true
 script = ExtResource("5_j2mjb")
 metadata/_custom_type_script = "uid://parybxg7tb1k"
 
-[node name="Panel" type="Panel" parent="StartMenuOptionDialog/Button4"]
+[node name="Panel" type="Panel" parent="StartMenuOptionDialog/Button4" unique_id=1539253275]
 modulate = Color(0.93845, 0.93845, 0.93845, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -2448,7 +2442,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PanelButtonBG"
 
-[node name="Label" type="Label" parent="StartMenuOptionDialog/Button4"]
+[node name="Label" type="Label" parent="StartMenuOptionDialog/Button4" unique_id=1235486181]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2459,10 +2453,10 @@ text = "选项设置"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayer" parent="StartMenuOptionDialog/Button4" instance=ExtResource("62_e0j7q")]
+[node name="CanvasLayer" parent="StartMenuOptionDialog/Button4" unique_id=693228414 instance=ExtResource("62_e0j7q")]
 visible = false
 
-[node name="Dialog_Help" parent="." instance=ExtResource("57_ry5e1")]
+[node name="Dialog_Help" parent="." unique_id=1135247515 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = 225.0
@@ -2470,7 +2464,7 @@ offset_top = 124.0
 offset_right = 225.0
 offset_bottom = 124.0
 
-[node name="Label" type="Label" parent="Dialog_Help"]
+[node name="Label" type="Label" parent="Dialog_Help" unique_id=90303607]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 123.0
@@ -2479,7 +2473,7 @@ offset_bottom = 172.0
 text = "僵尸打开了你的天灵盖
 摇了摇头就走了"
 
-[node name="Dialog" parent="." instance=ExtResource("57_ry5e1")]
+[node name="Dialog" parent="." unique_id=537695847 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = 337.0
@@ -2487,7 +2481,7 @@ offset_top = 136.0
 offset_right = 337.0
 offset_bottom = 136.0
 
-[node name="Label" type="Label" parent="Dialog"]
+[node name="Label" type="Label" parent="Dialog" unique_id=1490832528]
 layout_mode = 1
 offset_left = 134.0
 offset_top = 128.0
@@ -2495,7 +2489,7 @@ offset_right = 174.0
 offset_bottom = 151.0
 text = "没做"
 
-[node name="User" type="Control" parent="."]
+[node name="User" type="Control" parent="." unique_id=2121767396]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -2507,7 +2501,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("75_altii")
 
-[node name="Panel" type="Panel" parent="User"]
+[node name="Panel" type="Panel" parent="User" unique_id=1871533740]
 custom_minimum_size = Vector2(617, 492)
 layout_mode = 1
 anchors_preset = 8
@@ -2523,7 +2517,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_altii")
 
-[node name="TextureRect" type="TextureRect" parent="User/Panel"]
+[node name="TextureRect" type="TextureRect" parent="User/Panel" unique_id=864959868]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -2535,7 +2529,7 @@ offset_bottom = 27.0
 grow_horizontal = 2
 texture = ExtResource("76_nu6d8")
 
-[node name="Label" type="Label" parent="User/Panel"]
+[node name="Label" type="Label" parent="User/Panel" unique_id=293228927]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -2546,7 +2540,7 @@ text = "你叫啥？"
 label_settings = SubResource("LabelSettings_ito2j")
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="User/Panel"]
+[node name="PanelContainer" type="PanelContainer" parent="User/Panel" unique_id=1066714024]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2561,20 +2555,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_altii")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="User/Panel/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="User/Panel/PanelContainer" unique_id=1195160765]
 custom_minimum_size = Vector2(350, 260)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="User/Panel/PanelContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="User/Panel/PanelContainer/ScrollContainer" unique_id=1851056741]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="ButtonCreate" type="Button" parent="User/Panel/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="ButtonCreate" type="Button" parent="User/Panel/PanelContainer/ScrollContainer/VBoxContainer" unique_id=1899630750]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="User/Panel/PanelContainer/ScrollContainer/VBoxContainer/ButtonCreate"]
+[node name="Label" type="Label" parent="User/Panel/PanelContainer/ScrollContainer/VBoxContainer/ButtonCreate" unique_id=31457117]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2586,7 +2580,7 @@ label_settings = SubResource("LabelSettings_gis02")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="User/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="User/Panel" unique_id=1099630912]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2600,12 +2594,12 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureButtonRename" type="TextureButton" parent="User/Panel/HBoxContainer"]
+[node name="TextureButtonRename" type="TextureButton" parent="User/Panel/HBoxContainer" unique_id=1692958317]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonRename"]
+[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonRename" unique_id=465898074]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2617,12 +2611,12 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButtonOk" type="TextureButton" parent="User/Panel/HBoxContainer"]
+[node name="TextureButtonOk" type="TextureButton" parent="User/Panel/HBoxContainer" unique_id=2142719227]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonOk"]
+[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonOk" unique_id=1011742938]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2634,12 +2628,12 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButtonDel" type="TextureButton" parent="User/Panel/HBoxContainer"]
+[node name="TextureButtonDel" type="TextureButton" parent="User/Panel/HBoxContainer" unique_id=1225145302]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonDel"]
+[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonDel" unique_id=1282864098]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2651,12 +2645,12 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButtonCancel" type="TextureButton" parent="User/Panel/HBoxContainer"]
+[node name="TextureButtonCancel" type="TextureButton" parent="User/Panel/HBoxContainer" unique_id=4519486]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonCancel"]
+[node name="Label" type="Label" parent="User/Panel/HBoxContainer/TextureButtonCancel" unique_id=1970012816]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2668,7 +2662,7 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogCreateUser" parent="User/Panel" instance=ExtResource("57_ry5e1")]
+[node name="DialogCreateUser" parent="User/Panel" unique_id=789252051 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = 164.0
@@ -2676,7 +2670,7 @@ offset_top = 65.0
 offset_right = 164.0
 offset_bottom = 65.0
 
-[node name="Label" type="Label" parent="User/Panel/DialogCreateUser"]
+[node name="Label" type="Label" parent="User/Panel/DialogCreateUser" unique_id=969183321]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -2692,7 +2686,7 @@ text = "请选择一个用户，
 并点击“好”"
 horizontal_alignment = 1
 
-[node name="DialogChooseNull" parent="User/Panel" instance=ExtResource("57_ry5e1")]
+[node name="DialogChooseNull" parent="User/Panel" unique_id=1872292194 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = 164.0
@@ -2700,7 +2694,7 @@ offset_top = 65.0
 offset_right = 164.0
 offset_bottom = 65.0
 
-[node name="Label" type="Label" parent="User/Panel/DialogChooseNull"]
+[node name="Label" type="Label" parent="User/Panel/DialogChooseNull" unique_id=1023560869]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -2715,7 +2709,7 @@ grow_vertical = 2
 text = "请选择一个用户"
 horizontal_alignment = 1
 
-[node name="PanelCreateNewUser" type="Panel" parent="User"]
+[node name="PanelCreateNewUser" type="Panel" parent="User" unique_id=2081992980]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -2732,7 +2726,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_altii")
 script = ExtResource("79_xqlaa")
 
-[node name="TextureRect" type="TextureRect" parent="User/PanelCreateNewUser"]
+[node name="TextureRect" type="TextureRect" parent="User/PanelCreateNewUser" unique_id=625541449]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -2744,7 +2738,7 @@ offset_bottom = 27.0
 grow_horizontal = 2
 texture = ExtResource("76_nu6d8")
 
-[node name="Label" type="Label" parent="User/PanelCreateNewUser"]
+[node name="Label" type="Label" parent="User/PanelCreateNewUser" unique_id=1033461859]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -2757,7 +2751,7 @@ text = "新用户"
 label_settings = SubResource("LabelSettings_ito2j")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="User/PanelCreateNewUser"]
+[node name="Label2" type="Label" parent="User/PanelCreateNewUser" unique_id=1151457453]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -2770,7 +2764,7 @@ text = "请输入你的名字："
 label_settings = SubResource("LabelSettings_dj5t5")
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="User/PanelCreateNewUser"]
+[node name="Panel" type="Panel" parent="User/PanelCreateNewUser" unique_id=1181719296]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 149.0
@@ -2778,7 +2772,7 @@ offset_right = 401.0
 offset_bottom = 191.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xqlaa")
 
-[node name="LineEdit" type="LineEdit" parent="User/PanelCreateNewUser/Panel"]
+[node name="LineEdit" type="LineEdit" parent="User/PanelCreateNewUser/Panel" unique_id=1316484412]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2788,7 +2782,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 1, 0.1882353, 1)
 theme_override_fonts/font = ExtResource("54_343qg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="User/PanelCreateNewUser"]
+[node name="HBoxContainer" type="HBoxContainer" parent="User/PanelCreateNewUser" unique_id=1640849571]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2803,12 +2797,12 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="ButtonOK" type="TextureButton" parent="User/PanelCreateNewUser/HBoxContainer"]
+[node name="ButtonOK" type="TextureButton" parent="User/PanelCreateNewUser/HBoxContainer" unique_id=1448411939]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/PanelCreateNewUser/HBoxContainer/ButtonOK"]
+[node name="Label" type="Label" parent="User/PanelCreateNewUser/HBoxContainer/ButtonOK" unique_id=493310163]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2820,12 +2814,12 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonCancel" type="TextureButton" parent="User/PanelCreateNewUser/HBoxContainer"]
+[node name="ButtonCancel" type="TextureButton" parent="User/PanelCreateNewUser/HBoxContainer" unique_id=1987892322]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/PanelCreateNewUser/HBoxContainer/ButtonCancel"]
+[node name="Label" type="Label" parent="User/PanelCreateNewUser/HBoxContainer/ButtonCancel" unique_id=331541836]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2837,7 +2831,7 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogError" parent="User/PanelCreateNewUser" instance=ExtResource("57_ry5e1")]
+[node name="DialogError" parent="User/PanelCreateNewUser" unique_id=646420338 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = 76.0
@@ -2846,7 +2840,7 @@ offset_right = 76.0
 offset_bottom = -25.0
 script = ExtResource("82_krdmy")
 
-[node name="Label" type="Label" parent="User/PanelCreateNewUser/DialogError"]
+[node name="Label" type="Label" parent="User/PanelCreateNewUser/DialogError" unique_id=444968387]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -2860,7 +2854,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "用户名不能为空"
 
-[node name="PanelRenameUser" type="Panel" parent="User"]
+[node name="PanelRenameUser" type="Panel" parent="User" unique_id=87163964]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -2877,7 +2871,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_altii")
 script = ExtResource("81_dj5t5")
 
-[node name="TextureRect" type="TextureRect" parent="User/PanelRenameUser"]
+[node name="TextureRect" type="TextureRect" parent="User/PanelRenameUser" unique_id=787805671]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -2889,7 +2883,7 @@ offset_bottom = 27.0
 grow_horizontal = 2
 texture = ExtResource("76_nu6d8")
 
-[node name="Label" type="Label" parent="User/PanelRenameUser"]
+[node name="Label" type="Label" parent="User/PanelRenameUser" unique_id=457591794]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -2902,7 +2896,7 @@ text = "新用户"
 label_settings = SubResource("LabelSettings_ito2j")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="User/PanelRenameUser"]
+[node name="Label2" type="Label" parent="User/PanelRenameUser" unique_id=387172797]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -2915,7 +2909,7 @@ text = "请输入你的名字："
 label_settings = SubResource("LabelSettings_dj5t5")
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="User/PanelRenameUser"]
+[node name="Panel" type="Panel" parent="User/PanelRenameUser" unique_id=1944936250]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 149.0
@@ -2923,7 +2917,7 @@ offset_right = 401.0
 offset_bottom = 191.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xqlaa")
 
-[node name="LineEdit" type="LineEdit" parent="User/PanelRenameUser/Panel"]
+[node name="LineEdit" type="LineEdit" parent="User/PanelRenameUser/Panel" unique_id=816381418]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2933,7 +2927,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 1, 0.1882353, 1)
 theme_override_fonts/font = ExtResource("54_343qg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="User/PanelRenameUser"]
+[node name="HBoxContainer" type="HBoxContainer" parent="User/PanelRenameUser" unique_id=132121645]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2948,12 +2942,12 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="ButtonOK" type="TextureButton" parent="User/PanelRenameUser/HBoxContainer"]
+[node name="ButtonOK" type="TextureButton" parent="User/PanelRenameUser/HBoxContainer" unique_id=370260510]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/PanelRenameUser/HBoxContainer/ButtonOK"]
+[node name="Label" type="Label" parent="User/PanelRenameUser/HBoxContainer/ButtonOK" unique_id=1125473963]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2965,12 +2959,12 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonCancel" type="TextureButton" parent="User/PanelRenameUser/HBoxContainer"]
+[node name="ButtonCancel" type="TextureButton" parent="User/PanelRenameUser/HBoxContainer" unique_id=262208944]
 layout_mode = 2
 texture_normal = ExtResource("77_nu6d8")
 script = ExtResource("5_j2mjb")
 
-[node name="Label" type="Label" parent="User/PanelRenameUser/HBoxContainer/ButtonCancel"]
+[node name="Label" type="Label" parent="User/PanelRenameUser/HBoxContainer/ButtonCancel" unique_id=736352496]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2982,7 +2976,7 @@ label_settings = SubResource("LabelSettings_altii")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogError" parent="User/PanelRenameUser" instance=ExtResource("57_ry5e1")]
+[node name="DialogError" parent="User/PanelRenameUser" unique_id=721629254 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = 76.0
@@ -2991,7 +2985,7 @@ offset_right = 76.0
 offset_bottom = -25.0
 script = ExtResource("82_krdmy")
 
-[node name="Label" type="Label" parent="User/PanelRenameUser/DialogError"]
+[node name="Label" type="Label" parent="User/PanelRenameUser/DialogError" unique_id=1535916634]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -3005,7 +2999,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "用户名不能为空"
 
-[node name="DialogError" parent="User" instance=ExtResource("57_ry5e1")]
+[node name="DialogError" parent="User" unique_id=215320428 instance=ExtResource("57_ry5e1")]
 visible = false
 layout_mode = 0
 offset_left = -156.0
@@ -3014,7 +3008,7 @@ offset_right = -156.0
 offset_bottom = -179.0
 script = ExtResource("82_krdmy")
 
-[node name="Label" type="Label" parent="User/DialogError"]
+[node name="Label" type="Label" parent="User/DialogError" unique_id=658615694]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -3028,7 +3022,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "用户名不能为空"
 
-[node name="DialogConfirmDel" parent="User" instance=ExtResource("58_confirm")]
+[node name="DialogConfirmDel" parent="User" unique_id=402269584 instance=ExtResource("58_confirm")]
 visible = false
 layout_mode = 0
 offset_left = -191.0

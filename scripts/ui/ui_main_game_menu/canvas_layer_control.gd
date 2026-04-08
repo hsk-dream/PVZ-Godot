@@ -38,7 +38,7 @@ func _update_console_panel():
 	check_box_8.button_pressed = Global.config_service.fog_is_static
 	check_box_9.button_pressed = Global.config_service.plant_be_shovel_front
 	check_box_10.button_pressed = Global.config_service.open_all_level
-	check_box_10.button_pressed = Global.config_service.open_all_level
+	check_box_11.button_pressed = Global.config_service.track_bullet_mouse
 
 
 ## 关闭控制台

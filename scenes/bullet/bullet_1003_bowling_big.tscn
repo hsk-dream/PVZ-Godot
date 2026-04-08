@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbgh3cu4qdrb5"]
+[gd_scene format=3 uid="uid://bbgh3cu4qdrb5"]
 
 [ext_resource type="PackedScene" uid="uid://cit8bsc5op7f0" path="res://scenes/bullet/bullet_000_linear_base.tscn" id="1_2cls2"]
 [ext_resource type="Script" uid="uid://n5a7w8mfwqj8" path="res://scripts/bullet/bullet_1003_bowling_big.gd" id="2_8mtcf"]
@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fm8h6"]
 radius = 30.0
 
-[node name="Bullet1003BowlingBig" instance=ExtResource("1_2cls2")]
+[node name="Bullet1003BowlingBig" unique_id=779879486 instance=ExtResource("1_2cls2")]
 script = ExtResource("2_8mtcf")
 max_attack_num = -1
 speed = 188.0
@@ -27,32 +27,32 @@ hframes = 1
 [node name="Body" parent="." index="1"]
 scale = Vector2(2, 2)
 
-[node name="BodyCorrect" type="Node2D" parent="Body" index="1"]
+[node name="BodyCorrect" type="Node2D" parent="Body" index="1" unique_id=802247730]
 position = Vector2(0, -29)
 
-[node name="_ground" type="Sprite2D" parent="Body/BodyCorrect" index="0"]
+[node name="_ground" type="Sprite2D" parent="Body/BodyCorrect" index="0" unique_id=1340770580]
 position = Vector2(-41.5, -41)
 centered = false
 
-[node name="Anim_idle" type="Sprite2D" parent="Body/BodyCorrect" index="1"]
+[node name="Anim_idle" type="Sprite2D" parent="Body/BodyCorrect" index="1" unique_id=1398791570]
 position = Vector2(-41.5, -41)
 centered = false
 
-[node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="2"]
+[node name="Anim_face" type="Sprite2D" parent="Body/BodyCorrect" index="2" unique_id=540274085]
 position = Vector2(-37.663, -32.7476)
 rotation = -0.0454682
 scale = Vector2(0.7, 0.68937)
 texture = ExtResource("2_sdnns")
 centered = false
 
-[node name="Anim_blink_twitch" type="Sprite2D" parent="Body/BodyCorrect" index="3"]
+[node name="Anim_blink_twitch" type="Sprite2D" parent="Body/BodyCorrect" index="3" unique_id=942763982]
 visible = false
 position = Vector2(-14.5894, -8.3159)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_fm8h6")
 centered = false
 
-[node name="Anim_blink_twice" type="Sprite2D" parent="Body/BodyCorrect" index="4"]
+[node name="Anim_blink_twice" type="Sprite2D" parent="Body/BodyCorrect" index="4" unique_id=341661836]
 visible = false
 position = Vector2(-15.7894, -22.3159)
 scale = Vector2(0.7, 0.7)
