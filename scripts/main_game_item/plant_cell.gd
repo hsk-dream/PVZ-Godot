@@ -161,6 +161,20 @@ func create_plant(plant_type:CharacterRegistry.PlantType, is_imitater:=false, is
 	var plant_condition:ResourcePlantCondition
 	var plant :Plant000Base
 	plant_condition = Global.character_registry.get_plant_info(plant_type, CharacterRegistry.PlantInfoAttribute.PlantConditionResource)
+
+	## 如果该植物为紫卡
+	if plant_condition.is_purple_card:
+		## 删除紫卡前置植物,创建新植物
+		var condition_pre_plant :ResourcePlantCondition = Global.character_registry.get_plant_info(Global.character_registry.AllPrePlantPurple[plant_type], CharacterRegistry.PlantInfoAttribute.PlantConditionResource)
+		if is_instance_valid(plant_in_cell[condition_pre_plant.place_plant_in_cell]):
+			plant_in_cell[condition_pre_plant.place_plant_in_cell].character_death_disappear()
+			#await get_tree().process_frame
+	else:
+		## 非紫卡 如果该位置已经存在植物,返回
+		if is_instance_valid(plant_in_cell[plant_condition.place_plant_in_cell]):
+			print("当前位置", row_col, "已经有植物：", plant_in_cell[plant_condition.place_plant_in_cell].name)
+			return
+
 	## 创建植物
 	if is_imitater:
 		## 创建植物
@@ -169,19 +183,6 @@ func create_plant(plant_type:CharacterRegistry.PlantType, is_imitater:=false, is
 		plant = plant as Plant999Imitater
 		plant.imitater_plant_type = plant_type
 	else:
-		## 如果该植物为紫卡
-		if plant_condition.is_purple_card:
-			## 删除紫卡前置植物,创建新植物
-			var condition_pre_plant :ResourcePlantCondition = Global.character_registry.get_plant_info(Global.character_registry.AllPrePlantPurple[plant_type], CharacterRegistry.PlantInfoAttribute.PlantConditionResource)
-			if is_instance_valid(plant_in_cell[condition_pre_plant.place_plant_in_cell]):
-				plant_in_cell[condition_pre_plant.place_plant_in_cell].character_death_disappear()
-				#await get_tree().process_frame
-		else:
-			## 非紫卡 如果该位置已经存在植物,返回
-			if is_instance_valid(plant_in_cell[plant_condition.place_plant_in_cell]):
-				print("当前位置", row_col, "已经有植物：", plant_in_cell[plant_condition.place_plant_in_cell].name)
-				return
-
 		plant = Global.character_registry.get_plant_info(plant_type, CharacterRegistry.PlantInfoAttribute.PlantScenes).instantiate()
 
 	var plant_init_para = {

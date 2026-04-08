@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b2soejmoqi7wd"]
+[gd_scene format=3 uid="uid://b2soejmoqi7wd"]
 
 [ext_resource type="Script" uid="uid://c7dr2016dfdoo" path="res://scripts/manager/main_game_manager.gd" id="1_7dde3"]
 [ext_resource type="Script" uid="uid://b2rst408m72au" path="res://scripts/manager/hand_manager/hand_manager.gd" id="3_acpf0"]
@@ -89,157 +89,157 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6ai2"]
 size = Vector2(1111, 600)
 
-[node name="MainGame" type="Node2D"]
+[node name="MainGame" type="Node2D" unique_id=344231246]
 script = ExtResource("1_7dde3")
 
-[node name="Manager" type="Node" parent="."]
+[node name="Manager" type="Node" parent="." unique_id=1308442977]
 unique_name_in_owner = true
 
-[node name="HandManager" type="Node" parent="Manager"]
+[node name="HandManager" type="Node" parent="Manager" unique_id=280064941]
 unique_name_in_owner = true
 script = ExtResource("3_acpf0")
 
-[node name="HM_Character" type="Node" parent="Manager/HandManager"]
+[node name="HM_Character" type="Node" parent="Manager/HandManager" unique_id=1968794152]
 script = ExtResource("4_ee3wa")
 
-[node name="HM_Item" type="Node" parent="Manager/HandManager"]
+[node name="HM_Item" type="Node" parent="Manager/HandManager" unique_id=845383608]
 script = ExtResource("5_3d12c")
 
-[node name="HM_Null" type="Node" parent="Manager/HandManager"]
+[node name="HM_Null" type="Node" parent="Manager/HandManager" unique_id=1810194782]
 script = ExtResource("6_du5qn")
 
-[node name="ZombieManager" type="Node" parent="Manager"]
+[node name="ZombieManager" type="Node" parent="Manager" unique_id=1727066989]
 unique_name_in_owner = true
 script = ExtResource("5_j3aa3")
 
-[node name="ZombieWaveManager" type="Node" parent="Manager/ZombieManager"]
+[node name="ZombieWaveManager" type="Node" parent="Manager/ZombieManager" unique_id=584839612]
 script = ExtResource("5_qfhda")
 
-[node name="ZombieWaveRefreshManager" type="Node" parent="Manager/ZombieManager/ZombieWaveManager"]
+[node name="ZombieWaveRefreshManager" type="Node" parent="Manager/ZombieManager/ZombieWaveManager" unique_id=220305425]
 script = ExtResource("6_ee3wa")
 
-[node name="WaveNormRefreshTimer" type="Timer" parent="Manager/ZombieManager/ZombieWaveManager/ZombieWaveRefreshManager"]
+[node name="WaveNormRefreshTimer" type="Timer" parent="Manager/ZombieManager/ZombieWaveManager/ZombieWaveRefreshManager" unique_id=957945057]
 one_shot = true
 
-[node name="WaveMinTimeTimer" type="Timer" parent="Manager/ZombieManager/ZombieWaveManager/ZombieWaveRefreshManager"]
+[node name="WaveMinTimeTimer" type="Timer" parent="Manager/ZombieManager/ZombieWaveManager/ZombieWaveRefreshManager" unique_id=31777337]
 one_shot = true
 
-[node name="ZombieWaveCreateManager" type="Node" parent="Manager/ZombieManager/ZombieWaveManager"]
+[node name="ZombieWaveCreateManager" type="Node" parent="Manager/ZombieManager/ZombieWaveManager" unique_id=472989605]
 script = ExtResource("7_3d12c")
 
-[node name="ZombieChooseRowSystem" type="Node" parent="Manager/ZombieManager/ZombieWaveManager/ZombieWaveCreateManager"]
+[node name="ZombieChooseRowSystem" type="Node" parent="Manager/ZombieManager/ZombieWaveManager/ZombieWaveCreateManager" unique_id=72299673]
 unique_name_in_owner = true
 script = ExtResource("25_iuyhw")
 
-[node name="EveryWaveProgressTimer" type="Timer" parent="Manager/ZombieManager/ZombieWaveManager"]
+[node name="EveryWaveProgressTimer" type="Timer" parent="Manager/ZombieManager/ZombieWaveManager" unique_id=52382939]
 
-[node name="ZombieShowInStart" type="Node" parent="Manager/ZombieManager"]
+[node name="ZombieShowInStart" type="Node" parent="Manager/ZombieManager" unique_id=1291840824]
 script = ExtResource("8_ha6fd")
 
-[node name="HammerZombieManager" type="Node" parent="Manager/ZombieManager"]
+[node name="HammerZombieManager" type="Node" parent="Manager/ZombieManager" unique_id=2038951418]
 script = ExtResource("24_iuyhw")
 
-[node name="HammerZombieTimer" type="Timer" parent="Manager/ZombieManager/HammerZombieManager"]
+[node name="HammerZombieTimer" type="Timer" parent="Manager/ZombieManager/HammerZombieManager" unique_id=941590579]
 
-[node name="CheckZombieEndWaveTimer" type="Timer" parent="Manager/ZombieManager"]
+[node name="CheckZombieEndWaveTimer" type="Timer" parent="Manager/ZombieManager" unique_id=631362554]
 
-[node name="GameItemManager" type="Node" parent="Manager"]
+[node name="GameItemManager" type="Node" parent="Manager" unique_id=695429337]
 unique_name_in_owner = true
 script = ExtResource("11_f06xn")
 
-[node name="GIM_Brain" type="Node" parent="Manager/GameItemManager"]
+[node name="GIM_Brain" type="Node" parent="Manager/GameItemManager" unique_id=986110833]
 script = ExtResource("14_b05fi")
 
-[node name="GIM_LawnMover" type="Node" parent="Manager/GameItemManager"]
+[node name="GIM_LawnMover" type="Node" parent="Manager/GameItemManager" unique_id=1530621750]
 script = ExtResource("15_qfhda")
 
-[node name="GIM_Other" type="Node" parent="Manager/GameItemManager"]
+[node name="GIM_Other" type="Node" parent="Manager/GameItemManager" unique_id=139128081]
 script = ExtResource("16_ee3wa")
 
-[node name="PlantCellManager" type="Node" parent="Manager"]
+[node name="PlantCellManager" type="Node" parent="Manager" unique_id=900352807]
 unique_name_in_owner = true
 script = ExtResource("12_hgtxc")
 
-[node name="TombStoneManager" type="Node" parent="Manager/PlantCellManager"]
+[node name="TombStoneManager" type="Node" parent="Manager/PlantCellManager" unique_id=1918975796]
 script = ExtResource("13_3d12c")
 
-[node name="CardManager" type="Node" parent="Manager"]
+[node name="CardManager" type="Node" parent="Manager" unique_id=606360124]
 unique_name_in_owner = true
 script = ExtResource("34_5pjpf")
 
-[node name="BackgroundManager" type="Node" parent="Manager"]
+[node name="BackgroundManager" type="Node" parent="Manager" unique_id=575994626]
 unique_name_in_owner = true
 script = ExtResource("18_du5qn")
 
-[node name="DaySunsManager" type="Node" parent="Manager"]
+[node name="DaySunsManager" type="Node" parent="Manager" unique_id=822785259]
 unique_name_in_owner = true
 script = ExtResource("19_a514a")
 
-[node name="ProductionTimer" type="Timer" parent="Manager/DaySunsManager"]
+[node name="ProductionTimer" type="Timer" parent="Manager/DaySunsManager" unique_id=917446985]
 
-[node name="DropItemManager" type="Node" parent="Manager"]
+[node name="DropItemManager" type="Node" parent="Manager" unique_id=391932896]
 unique_name_in_owner = true
 script = ExtResource("21_xftc3")
 
-[node name="DIM_Coin" type="Node" parent="Manager/DropItemManager" node_paths=PackedStringArray("all_drop_coin_parent")]
+[node name="DIM_Coin" type="Node" parent="Manager/DropItemManager" unique_id=36915664 node_paths=PackedStringArray("all_drop_coin_parent")]
 script = ExtResource("22_g6t7u")
 all_drop_coin_parent = NodePath("../../../CanvasLayerDropItem/AllDropCoin")
 
-[node name="DIM_GardenPlant" type="Node" parent="Manager/DropItemManager" node_paths=PackedStringArray("all_drop_garden_plant_parent")]
+[node name="DIM_GardenPlant" type="Node" parent="Manager/DropItemManager" unique_id=1886854044 node_paths=PackedStringArray("all_drop_garden_plant_parent")]
 script = ExtResource("23_41ccn")
 all_drop_garden_plant_parent = NodePath("../../../CanvasLayerDropItem/AllDropGardenPlant")
 
-[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+[node name="CanvasLayerBG" type="CanvasLayer" parent="." unique_id=710587300]
 layer = -10
 follow_viewport_enabled = true
 
-[node name="Background" type="Sprite2D" parent="CanvasLayerBG"]
+[node name="Background" type="Sprite2D" parent="CanvasLayerBG" unique_id=518558670]
 unique_name_in_owner = true
 process_mode = 3
 position = Vector2(-210, 0)
 texture = ExtResource("20_ifnc6")
 centered = false
 
-[node name="Home" type="Node2D" parent="CanvasLayerBG/Background"]
+[node name="Home" type="Node2D" parent="CanvasLayerBG/Background" unique_id=561882687]
 unique_name_in_owner = true
 script = ExtResource("15_tsrbg")
 
-[node name="Area2DHome" type="Area2D" parent="CanvasLayerBG/Background/Home"]
+[node name="Area2DHome" type="Area2D" parent="CanvasLayerBG/Background/Home" unique_id=118183924]
 process_mode = 3
 position = Vector2(132.306, 8)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayerBG/Background/Home/Area2DHome"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayerBG/Background/Home/Area2DHome" unique_id=2000876210]
 position = Vector2(-28.93, 290.79)
 shape = SubResource("RectangleShape2D_yy6tc")
 
-[node name="Door" type="Node2D" parent="CanvasLayerBG/Background/Home"]
+[node name="Door" type="Node2D" parent="CanvasLayerBG/Background/Home" unique_id=506963706]
 
-[node name="DoorDown" type="Node2D" parent="CanvasLayerBG/Background/Home/Door"]
+[node name="DoorDown" type="Node2D" parent="CanvasLayerBG/Background/Home/Door" unique_id=1988059200]
 
-[node name="Background1GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown"]
+[node name="Background1GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown" unique_id=775061402]
 visible = false
 position = Vector2(130.311, 321)
 texture = ExtResource("15_uinqq")
 
-[node name="Background2GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown"]
+[node name="Background2GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown" unique_id=1711175562]
 visible = false
 position = Vector2(150.311, 335)
 texture = ExtResource("16_7eijg")
 
-[node name="Background3GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown"]
+[node name="Background3GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown" unique_id=1010231578]
 visible = false
 position = Vector2(107, 327)
 texture = ExtResource("18_g0ofp")
 
-[node name="Background4GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown"]
+[node name="Background4GameoverInteriorOverlay" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown" unique_id=1435825785]
 visible = false
 position = Vector2(101, 327)
 texture = ExtResource("19_470oe")
 
-[node name="PanelZombieGoHome" type="Panel" parent="CanvasLayerBG/Background/Home/Door/DoorDown"]
+[node name="PanelZombieGoHome" type="Panel" parent="CanvasLayerBG/Background/Home/Door/DoorDown" unique_id=51098949]
 unique_name_in_owner = true
 clip_children = 1
 offset_left = 84.3106
@@ -248,38 +248,38 @@ offset_bottom = 600.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iqw4g")
 
-[node name="Marker2DZombieGoHome" type="Marker2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown/PanelZombieGoHome"]
+[node name="Marker2DZombieGoHome" type="Marker2D" parent="CanvasLayerBG/Background/Home/Door/DoorDown/PanelZombieGoHome" unique_id=497105737]
 unique_name_in_owner = true
 position = Vector2(72, 424)
 
-[node name="DoorMask" type="Node2D" parent="CanvasLayerBG/Background/Home/Door"]
+[node name="DoorMask" type="Node2D" parent="CanvasLayerBG/Background/Home/Door" unique_id=657693098]
 
-[node name="Background1GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask"]
+[node name="Background1GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask" unique_id=984210359]
 visible = false
 position = Vector2(113.59, 326)
 texture = ExtResource("17_0mfp0")
 
-[node name="Background2GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask"]
+[node name="Background2GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask" unique_id=2134049400]
 visible = false
 position = Vector2(114.59, 328)
 texture = ExtResource("18_tsrbg")
 
-[node name="Background3GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask"]
+[node name="Background3GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask" unique_id=2001865177]
 visible = false
 position = Vector2(113, 343.5)
 texture = ExtResource("22_xh73d")
 
-[node name="Background4GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask"]
+[node name="Background4GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask" unique_id=512631087]
 visible = false
 position = Vector2(179, 304.5)
 texture = ExtResource("23_401pl")
 
-[node name="Background5GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask"]
+[node name="Background5GameoverMask" type="Sprite2D" parent="CanvasLayerBG/Background/Home/Door/DoorMask" unique_id=1506117097]
 visible = false
 position = Vector2(50, 196)
 texture = ExtResource("28_71hfq")
 
-[node name="ShowZombiePanel" type="Panel" parent="CanvasLayerBG/Background"]
+[node name="ShowZombiePanel" type="Panel" parent="CanvasLayerBG/Background" unique_id=1803483627]
 unique_name_in_owner = true
 z_index = 700
 y_sort_enabled = true
@@ -294,7 +294,7 @@ grow_horizontal = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ha6fd")
 
-[node name="ShowZombiePanel2" type="Panel" parent="CanvasLayerBG/Background"]
+[node name="ShowZombiePanel2" type="Panel" parent="CanvasLayerBG/Background" unique_id=1939552798]
 unique_name_in_owner = true
 z_index = 710
 anchors_preset = 1
@@ -308,14 +308,14 @@ grow_horizontal = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ha6fd")
 
-[node name="GameItemsInBg" type="Node2D" parent="CanvasLayerBG/Background"]
+[node name="GameItemsInBg" type="Node2D" parent="CanvasLayerBG/Background" unique_id=380180192]
 unique_name_in_owner = true
 
-[node name="CanvasLayerCardSlot" type="CanvasLayer" parent="."]
+[node name="CanvasLayerCardSlot" type="CanvasLayer" parent="." unique_id=1183860696]
 layer = 10
 script = ExtResource("30_b6ai2")
 
-[node name="CardSlotRoot" type="Control" parent="CanvasLayerCardSlot"]
+[node name="CardSlotRoot" type="Control" parent="CanvasLayerCardSlot" unique_id=1085882036]
 unique_name_in_owner = true
 process_mode = 1
 layout_mode = 3
@@ -324,21 +324,21 @@ offset_left = 150.0
 offset_right = 150.0
 script = ExtResource("35_ee3wa")
 
-[node name="Marker2DSunTargetDefault" type="Marker2D" parent="CanvasLayerCardSlot/CardSlotRoot"]
+[node name="Marker2DSunTargetDefault" type="Marker2D" parent="CanvasLayerCardSlot/CardSlotRoot" unique_id=378169115]
 unique_name_in_owner = true
 position = Vector2(42, 39)
 
-[node name="CardSlotContainer" type="PanelContainer" parent="CanvasLayerCardSlot/CardSlotRoot"]
+[node name="CardSlotContainer" type="PanelContainer" parent="CanvasLayerCardSlot/CardSlotRoot" unique_id=593752537]
 unique_name_in_owner = true
 layout_mode = 0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_41ccn")
 
-[node name="ShovelContainer" type="Control" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer"]
+[node name="ShovelContainer" type="Control" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer" unique_id=725859213]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="UIShovel" type="TextureRect" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer"]
+[node name="UIShovel" type="TextureRect" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer" unique_id=719393000]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -351,7 +351,7 @@ grow_horizontal = 0
 texture = ExtResource("42_pmw6j")
 script = ExtResource("43_erab5")
 
-[node name="Shovel" type="TextureRect" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer/UIShovel"]
+[node name="Shovel" type="TextureRect" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer/UIShovel" unique_id=481486094]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -364,7 +364,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_w5iw5")
 
-[node name="Button" type="Button" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer/UIShovel"]
+[node name="Button" type="Button" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer/UIShovel" unique_id=1370536051]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -380,7 +380,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jbbka")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_jbbka")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jbbka")
 
-[node name="Label" type="Label" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer/UIShovel"]
+[node name="Label" type="Label" parent="CanvasLayerCardSlot/CardSlotRoot/CardSlotContainer/ShovelContainer/UIShovel" unique_id=1021801188]
 layout_mode = 0
 offset_left = 54.0
 offset_top = 50.0
@@ -392,19 +392,19 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayerFG" type="CanvasLayer" parent="."]
+[node name="CanvasLayerFG" type="CanvasLayer" parent="." unique_id=1245328214]
 layer = 5
 follow_viewport_enabled = true
 
-[node name="Frontground" type="Node2D" parent="CanvasLayerFG"]
+[node name="Frontground" type="Node2D" parent="CanvasLayerFG" unique_id=702816102]
 unique_name_in_owner = true
 
-[node name="CanvasLayerDropItem" type="CanvasLayer" parent="."]
+[node name="CanvasLayerDropItem" type="CanvasLayer" parent="." unique_id=93170125]
 unique_name_in_owner = true
 layer = 6
 follow_viewport_enabled = true
 
-[node name="CoinBankLabel" parent="CanvasLayerDropItem" instance=ExtResource("30_xh73d")]
+[node name="CoinBankLabel" parent="CanvasLayerDropItem" unique_id=1533946444 instance=ExtResource("30_xh73d")]
 unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
@@ -415,24 +415,24 @@ offset_right = 245.0
 offset_bottom = -41.0
 grow_vertical = 0
 
-[node name="AllDropCoin" type="Node2D" parent="CanvasLayerDropItem"]
+[node name="AllDropCoin" type="Node2D" parent="CanvasLayerDropItem" unique_id=774699514]
 
-[node name="AllDropGardenPlant" type="Node2D" parent="CanvasLayerDropItem"]
+[node name="AllDropGardenPlant" type="Node2D" parent="CanvasLayerDropItem" unique_id=2097915783]
 
-[node name="CanvasLayerCardSlotFront" type="CanvasLayer" parent="."]
+[node name="CanvasLayerCardSlotFront" type="CanvasLayer" parent="." unique_id=211489366]
 unique_name_in_owner = true
 layer = 10
 follow_viewport_enabled = true
 
-[node name="CanvasLayerTemp" type="CanvasLayer" parent="."]
+[node name="CanvasLayerTemp" type="CanvasLayer" parent="." unique_id=1465306493]
 unique_name_in_owner = true
 layer = 20
 follow_viewport_enabled = true
 
-[node name="TemporaryCharacter" type="Node2D" parent="CanvasLayerTemp"]
+[node name="TemporaryCharacter" type="Node2D" parent="CanvasLayerTemp" unique_id=1973235261]
 unique_name_in_owner = true
 
-[node name="RealShovel" type="Sprite2D" parent="CanvasLayerTemp"]
+[node name="RealShovel" type="Sprite2D" parent="CanvasLayerTemp" unique_id=1997809883]
 unique_name_in_owner = true
 visible = false
 position = Vector2(687, 67)
@@ -441,11 +441,11 @@ centered = false
 offset = Vector2(-14, -70)
 script = ExtResource("35_mjx71")
 
-[node name="CanvasLayerEffect" type="CanvasLayer" parent="."]
+[node name="CanvasLayerEffect" type="CanvasLayer" parent="." unique_id=877702786]
 layer = 30
 script = ExtResource("51_qfhda")
 
-[node name="Panel_Ice" type="Panel" parent="CanvasLayerEffect"]
+[node name="Panel_Ice" type="Panel" parent="CanvasLayerEffect" unique_id=1571090703]
 modulate = Color(0, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -455,7 +455,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ybhi1")
 
-[node name="Panel_Doom" type="Panel" parent="CanvasLayerEffect"]
+[node name="Panel_Doom" type="Panel" parent="CanvasLayerEffect" unique_id=1010372536]
 modulate = Color(0.619608, 0, 0.623529, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -465,11 +465,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ybhi1")
 
-[node name="CanvasLayerUI" type="CanvasLayer" parent="."]
+[node name="CanvasLayerUI" type="CanvasLayer" parent="." unique_id=469240842]
 unique_name_in_owner = true
 layer = 50
 
-[node name="UIRemindWord" type="Control" parent="CanvasLayerUI"]
+[node name="UIRemindWord" type="Control" parent="CanvasLayerUI" unique_id=1779350334]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -482,7 +482,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("17_ybhi1")
 
-[node name="Ready" type="TextureRect" parent="CanvasLayerUI/UIRemindWord"]
+[node name="Ready" type="TextureRect" parent="CanvasLayerUI/UIRemindWord" unique_id=1173997767]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -499,7 +499,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("18_gyila")
 
-[node name="Set" type="TextureRect" parent="CanvasLayerUI/UIRemindWord"]
+[node name="Set" type="TextureRect" parent="CanvasLayerUI/UIRemindWord" unique_id=1522399739]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -516,7 +516,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("19_3tcal")
 
-[node name="Plant" type="TextureRect" parent="CanvasLayerUI/UIRemindWord"]
+[node name="Plant" type="TextureRect" parent="CanvasLayerUI/UIRemindWord" unique_id=902241634]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -533,7 +533,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("20_2b7lk")
 
-[node name="Approaching" type="TextureRect" parent="CanvasLayerUI/UIRemindWord"]
+[node name="Approaching" type="TextureRect" parent="CanvasLayerUI/UIRemindWord" unique_id=636342368]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -550,7 +550,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("21_48j6u")
 
-[node name="FinalWave" type="TextureRect" parent="CanvasLayerUI/UIRemindWord"]
+[node name="FinalWave" type="TextureRect" parent="CanvasLayerUI/UIRemindWord" unique_id=196573047]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -567,7 +567,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("22_httmh")
 
-[node name="ZombiesWon" type="TextureRect" parent="CanvasLayerUI/UIRemindWord"]
+[node name="ZombiesWon" type="TextureRect" parent="CanvasLayerUI/UIRemindWord" unique_id=1947921641]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -584,7 +584,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("23_vyo3a")
 
-[node name="LevelInfo" type="Control" parent="CanvasLayerUI"]
+[node name="LevelInfo" type="Control" parent="CanvasLayerUI" unique_id=1845922859]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -600,12 +600,12 @@ grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("46_y1sge")
 
-[node name="FlagProgressBar" parent="CanvasLayerUI/LevelInfo" instance=ExtResource("16_dc1ex")]
+[node name="FlagProgressBar" parent="CanvasLayerUI/LevelInfo" unique_id=417677167 instance=ExtResource("16_dc1ex")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="RoundLabel" type="Label" parent="CanvasLayerUI/LevelInfo"]
+[node name="RoundLabel" type="Label" parent="CanvasLayerUI/LevelInfo" unique_id=1795988872]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -619,7 +619,7 @@ text = "当前为10轮"
 label_settings = SubResource("LabelSettings_b2sx0")
 horizontal_alignment = 2
 
-[node name="All_UI" type="Control" parent="CanvasLayerUI"]
+[node name="All_UI" type="Control" parent="CanvasLayerUI" unique_id=36035342]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -630,8 +630,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("25_aop5g")
 
-[node name="MainGameMenuButton" type="BaseButton" parent="CanvasLayerUI/All_UI"]
-_import_path = NodePath("")
+[node name="MainGameMenuButton" type="BaseButton" parent="CanvasLayerUI/All_UI" unique_id=1486352150]
 unique_name_in_owner = true
 process_mode = 0
 process_priority = 0
@@ -673,6 +672,7 @@ grow_vertical = 1
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -713,7 +713,7 @@ shortcut_in_tooltip = true
 script = ExtResource("26_84h1o")
 metadata/_custom_type_script = "uid://parybxg7tb1k"
 
-[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuButton"]
+[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuButton" unique_id=1529127145]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -723,7 +723,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PanelButtonBG"
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuButton"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuButton" unique_id=864255203]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -734,7 +734,7 @@ text = "菜单"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainGameMenuOptionDialog" type="TextureRect" parent="CanvasLayerUI/All_UI"]
+[node name="MainGameMenuOptionDialog" type="TextureRect" parent="CanvasLayerUI/All_UI" unique_id=575921648]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(412, 483)
@@ -755,7 +755,7 @@ expand_mode = 1
 stretch_mode = 3
 script = ExtResource("28_mddbc")
 
-[node name="Option" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog"]
+[node name="Option" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog" unique_id=527623709]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -770,18 +770,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option" unique_id=2140354086]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 10
 
-[node name="Music" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer"]
+[node name="Music" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer" unique_id=1178401887]
 custom_minimum_size = Vector2(220, 30)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/Music"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/Music" unique_id=552360551]
 layout_mode = 0
 offset_left = 7.71088
 offset_top = 4.20592
@@ -790,7 +790,7 @@ offset_bottom = 27.2059
 theme_type_variation = &"Label2"
 text = "音乐"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/Music"]
+[node name="HSlider" type="HSlider" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/Music" unique_id=316759424]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 1.0
@@ -801,12 +801,12 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="SoundEffect" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer"]
+[node name="SoundEffect" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer" unique_id=1308272446]
 custom_minimum_size = Vector2(220, 30)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/SoundEffect"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/SoundEffect" unique_id=1927189430]
 layout_mode = 0
 offset_left = 7.71088
 offset_top = 4.20592
@@ -815,7 +815,7 @@ offset_bottom = 27.2059
 theme_type_variation = &"Label2"
 text = "音效"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/SoundEffect"]
+[node name="HSlider" type="HSlider" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/SoundEffect" unique_id=1837129687]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 1.0
@@ -826,12 +826,12 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="TimeScale" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer"]
+[node name="TimeScale" type="Control" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer" unique_id=1870653596]
 custom_minimum_size = Vector2(220, 30)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/TimeScale"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/TimeScale" unique_id=1176064521]
 layout_mode = 0
 offset_left = 7.71088
 offset_top = 4.20592
@@ -840,7 +840,7 @@ offset_bottom = 27.2059
 theme_type_variation = &"Label2"
 text = "倍速 1.0 倍"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/TimeScale"]
+[node name="HSlider" type="HSlider" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/VBoxContainer/TimeScale" unique_id=2133815127]
 layout_mode = 0
 offset_left = 115.0
 offset_top = 1.0
@@ -852,8 +852,7 @@ max_value = 3.0
 step = 0.5
 value = 1.0
 
-[node name="Button1" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option"]
-_import_path = NodePath("")
+[node name="Button1" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option" unique_id=1310873908]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -895,6 +894,7 @@ grow_vertical = 1
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -935,7 +935,7 @@ shortcut_in_tooltip = true
 script = ExtResource("29_8fvtd")
 metadata/_custom_type_script = "uid://parybxg7tb1k"
 
-[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button1"]
+[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button1" unique_id=1084059827]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -945,7 +945,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PanelButtonBG"
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button1"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button1" unique_id=1842834649]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -956,12 +956,11 @@ text = "查看图鉴"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayerAlmanac" type="CanvasLayer" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button1"]
+[node name="CanvasLayerAlmanac" type="CanvasLayer" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button1" unique_id=1108166322]
 unique_name_in_owner = true
 layer = 60
 
-[node name="Button4" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option"]
-_import_path = NodePath("")
+[node name="Button4" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option" unique_id=757392984]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -1003,6 +1002,7 @@ grow_vertical = 1
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -1043,7 +1043,7 @@ shortcut_in_tooltip = true
 script = ExtResource("29_8fvtd")
 metadata/_custom_type_script = "uid://parybxg7tb1k"
 
-[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button4"]
+[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button4" unique_id=834266373]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1053,7 +1053,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PanelButtonBG"
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button4"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button4" unique_id=1525558884]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1064,13 +1064,12 @@ text = "选项设置"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CanvasLayerConsole" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button4" instance=ExtResource("34_ifnc6")]
+[node name="CanvasLayerConsole" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button4" unique_id=1652481692 instance=ExtResource("34_ifnc6")]
 unique_name_in_owner = true
 layer = 60
 visible = false
 
-[node name="Button2" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option"]
-_import_path = NodePath("")
+[node name="Button2" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option" unique_id=736466409]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -1112,6 +1111,7 @@ grow_vertical = 1
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -1152,7 +1152,7 @@ shortcut_in_tooltip = true
 script = ExtResource("29_8fvtd")
 metadata/_custom_type_script = "uid://parybxg7tb1k"
 
-[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button2"]
+[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button2" unique_id=1765823235]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1162,7 +1162,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PanelButtonBG"
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button2"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button2" unique_id=497133026]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1173,8 +1173,7 @@ text = "重新开始"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button3" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option"]
-_import_path = NodePath("")
+[node name="Button3" type="BaseButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option" unique_id=90427717]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -1216,6 +1215,7 @@ grow_vertical = 1
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -1256,7 +1256,7 @@ shortcut_in_tooltip = true
 script = ExtResource("29_8fvtd")
 metadata/_custom_type_script = "uid://parybxg7tb1k"
 
-[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button3"]
+[node name="Panel" type="Panel" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button3" unique_id=517870225]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1266,7 +1266,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_type_variation = &"PanelButtonBG"
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button3"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Option/Button3" unique_id=132854706]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1277,7 +1277,7 @@ text = "主菜单"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Return" type="TextureButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog"]
+[node name="Return" type="TextureButton" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog" unique_id=1827321088]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1295,7 +1295,7 @@ texture_pressed = ExtResource("33_w0404")
 texture_click_mask = ExtResource("30_xvvqk")
 script = ExtResource("29_8fvtd")
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Return"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/MainGameMenuOptionDialog/Return" unique_id=64473678]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1311,7 +1311,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "返回游戏"
 
-[node name="Dialog" parent="CanvasLayerUI/All_UI" instance=ExtResource("34_8fvtd")]
+[node name="Dialog" parent="CanvasLayerUI/All_UI" unique_id=683649622 instance=ExtResource("34_8fvtd")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -1327,7 +1327,7 @@ offset_bottom = -158.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/Dialog"]
+[node name="Label" type="Label" parent="CanvasLayerUI/All_UI/Dialog" unique_id=2007026392]
 layout_mode = 0
 offset_left = 129.0
 offset_top = 132.0
@@ -1335,7 +1335,7 @@ offset_right = 169.0
 offset_bottom = 155.0
 text = "没做"
 
-[node name="LabelZombieSum" type="Label" parent="CanvasLayerUI"]
+[node name="LabelZombieSum" type="Label" parent="CanvasLayerUI" unique_id=1797598203]
 unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
@@ -1349,46 +1349,46 @@ theme_type_variation = &"Label3"
 text = "当前僵尸数量：0"
 script = ExtResource("59_b2sx0")
 
-[node name="LawnMovers" type="Node2D" parent="."]
+[node name="LawnMovers" type="Node2D" parent="." unique_id=1179004034]
 unique_name_in_owner = true
 
-[node name="BrainOnZombieMode" type="Node2D" parent="."]
+[node name="BrainOnZombieMode" type="Node2D" parent="." unique_id=43909757]
 unique_name_in_owner = true
 
-[node name="PlantCellsRoot" type="Node2D" parent="."]
+[node name="PlantCellsRoot" type="Node2D" parent="." unique_id=1977903182]
 unique_name_in_owner = true
 
-[node name="ZombiesRoot" type="Node2D" parent="."]
+[node name="ZombiesRoot" type="Node2D" parent="." unique_id=1014060591]
 unique_name_in_owner = true
 
-[node name="Bullets" type="Node2D" parent="."]
+[node name="Bullets" type="Node2D" parent="." unique_id=1334985395]
 unique_name_in_owner = true
 
-[node name="Bombs" type="Node2D" parent="."]
+[node name="Bombs" type="Node2D" parent="." unique_id=943057082]
 unique_name_in_owner = true
 z_index = 4001
 
-[node name="Suns" type="Node2D" parent="."]
+[node name="Suns" type="Node2D" parent="." unique_id=363687813]
 unique_name_in_owner = true
 z_index = 4002
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=630787185]
 unique_name_in_owner = true
 position = Vector2(-150, 0)
 anchor_mode = 0
 script = ExtResource("24_b4qea")
 
-[node name="DetectComponentGlobal" type="Node2D" parent="."]
+[node name="DetectComponentGlobal" type="Node2D" parent="." unique_id=617278287]
 unique_name_in_owner = true
 script = ExtResource("61_b2sx0")
 is_lane = false
 can_attack_zombie_status = 9
 
-[node name="Area2D" type="Area2D" parent="DetectComponentGlobal"]
+[node name="Area2D" type="Area2D" parent="DetectComponentGlobal" unique_id=597321978]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponentGlobal/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectComponentGlobal/Area2D" unique_id=419757523]
 position = Vector2(525.5, 300)
 shape = SubResource("RectangleShape2D_b6ai2")
 debug_color = Color(0, 0.6, 0.69803923, 0.20392157)
